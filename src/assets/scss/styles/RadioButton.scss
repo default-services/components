@@ -1,0 +1,46 @@
+.radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: var(--border-radius-round);
+  width: var(--input-size);
+  height: var(--input-size);
+  border: solid var(--border-size) var(--grey-color-light);
+  transition: var(--transition-speed) background-color var(--transition-animation-type);
+  cursor: pointer;
+  margin: .01rem;
+
+  &:hover, &:focus {
+    outline: none;
+    &:not(:checked) {
+      border: solid var(--border-size) var(--grey-color-dark);
+    }
+  }
+
+  &:checked {
+    cursor: default;
+
+    + span {
+      pointer-events: none;
+      border-radius: var(--border-radius-round);
+      position: absolute;
+      background-color: var(--primary-color);
+      width: calc(var(--input-size) - calc(var(--border-size) * 4));
+      height: calc(var(--input-size) - calc(var(--border-size) * 4));
+    }
+  }
+}
+
+.radio-button-label {
+  transition: var(--transition-speed) border-color var(--transition-animation-type);
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px;
+  border-radius: var(--border-radius);
+  border-color: rgba(0, 0, 0, 0);
+
+
+  @include accessible-border-behavior(null, null, focus-within);
+}

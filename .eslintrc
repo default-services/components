@@ -1,0 +1,45 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "env": {
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "legacyDecorators": true,
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "16"
+    }
+  },
+  "rules": {
+    "curly": [2, "multi", "consistent"],
+    "eol-last": ["error", "never"],
+    "import/export": 0,
+    "keyword-spacing": [2, {"overrides": {
+      "if": {"after": false},
+      "for": {"after": false},
+      "while": {"after": false},
+      "switch": {"after": false}
+    }}],
+    "array-bracket-spacing": ["error", "always"],
+    "no-multiple-empty-lines": ["error", { "max": 2 }],
+    "no-return-assign": 0,
+    "no-trailing-spaces": "error",
+    "no-useless-computed-key": 0,
+    "react/jsx-curly-spacing": [2, { "when": "always" }],
+    "react/jsx-fragments": 0,
+    "react/jsx-handler-names": 0,
+    "react/no-unused-prop-types": 0,
+    "react/prop-types": 0,
+    "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "space-before-function-paren": 0
+  }
+}
