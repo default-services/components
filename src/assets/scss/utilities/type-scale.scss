@@ -1,0 +1,93 @@
+:root {
+  --base-size: 1rem;
+  --type-scale: 1.125;
+  --header-font-family: #{$primary-font};
+  --paragraph-primary-font-family: #{$primary-font};
+  --paragraph-secondary-font-family: #{$secondary-font};
+  --header-font-color: #{$secondary-color};
+
+  @for $i from 1 through 5 {
+    @if $i == 1 {
+      --h5: calc(var(--base-size) * var(--type-scale));
+    }
+
+    @else {
+      --h#{6 - $i}: calc(var(--h#{7 - $i}) * var(--type-scale));
+    }
+
+    h#{$i} {
+      font-size: var(--h#{$i});
+    }
+  }
+
+  @media (min-width: $small-phone) {
+    --type-scale: 1.1;
+  }
+
+  @media (min-width: $phone) {
+    --type-scale: 1.125;
+  }
+
+  @media (min-width: $tablet) {
+    --type-scale: 1.15;
+  }
+
+  @media (min-width: $desktop) {
+    --type-scale: 1.175;
+  }
+
+  @media (min-width: $large-desktop) {
+    --type-scale: 1.2;
+  }
+}
+
+body {
+  font-family: $primary-font;
+
+  // Left out of type scale loop to prevent
+  // repeating declarations of all properties
+  // for each header
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight);
+    font-family: var(--header-font-family);
+    color: var(--header-font-color);
+    margin-top: 1rem;
+
+    @media print {
+      font-size: 1rem;
+      --header-font-family: Arial, Helvetica, Serif;
+      --paragraph-primary-font-family: Arial, Helvetica, Serif;
+      --paragraph-secondary-font-family: Arial, Helvetica, Serif;
+      --header-font-color: black;
+    }
+  }
+
+  p {
+    font-family: var(--paragraph-secondary-font-family);
+    font-size: calc(var(--base-size) * var(--type-scale));
+    margin-bottom: 1.25rem;
+  }
+
+
+  footer {
+    p {
+      font-family: var(--paragraph-primary-font-family);
+    }
+  }
+
+  a {
+    color: $primary-color;
+
+    &:hover {
+      color: $secondary-color;
+    }
+
+    &:active, &:focus {
+      color: $secondary-color-dark;
+    }
+  }
+
+  small {
+    font-size: calc(var(--base-size) / var(--type-scale));
+  }
+}

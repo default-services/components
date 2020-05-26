@@ -1,0 +1,45 @@
+// Sass variables as default, using Sass & custom properties to allow
+// Sass built-in functions, as they cannot accept custom properties as arguments
+
+:root {
+
+  // Colors
+  --primary-base-color: #{$primary-base-color};
+  --secondary-base-color: #{$secondary-base-color};
+  --primary-color: #{$primary-color};
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color-light: #{$primary-color-light};
+  --secondary-color: #{$secondary-color};
+  --secondary-color-dark: #{$secondary-color-dark};
+  --secondary-color-light: #{$secondary-color-light};
+  --white-color: #{$white-color};
+  --black-color: #{$black-color};
+  --grey-color-light: #{$grey-color-light};
+  --grey-color-dark: #{$grey-color-dark};
+  --box-shadow: #{$box-shadow};
+  --contrast-color: #{$contrast-color};
+
+  // Borders
+  --border-radius: #{$border-radius};
+  --border-radius-round: #{$border-radius-round};
+  --border-radius-round-button: #{$border-radius-round-button};
+  --border-size: #{$border-size};
+
+  // Fonts
+  --primary-font: #{$primary-font};
+  --secondary-font: #{$secondary-font};
+
+  // Breakpoints
+  --small-phone: #{$small-phone};
+  --phone: #{$phone};
+  --tablet: #{$tablet};
+  --desktop: #{$desktop};
+  --large-desktop: #{$large-desktop};
+
+  // Input (radio/checkbox) size scale
+  --input-size: #{$input-size};
+
+  // Transitions
+  --transition-speed: #{$transition-speed};
+  --transition-animation-type: #{$transition-animation-type};
+}

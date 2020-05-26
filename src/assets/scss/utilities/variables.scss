@@ -1,0 +1,39 @@
+// Colors
+$primary-base-color: hsl(180, 50%, 50%);
+$secondary-base-color: complement($primary-base-color);
+$primary-color: color(primary);
+$primary-color-light: color(primary-light);
+$primary-color-dark: color(primary-dark);
+$secondary-color: color(secondary);
+$secondary-color-light: color(secondary-light);
+$secondary-color-dark: color(secondary-dark);
+$white-color: #f5f5f5;
+$black-color: #050505;
+$grey-color-light: #a5a5a5;
+$grey-color-dark: #484848;
+$box-shadow: 1px 1px 6px 0px rgba(0,0,0,.25);
+$contrast-color: choose-contrast-color($primary-color);
+
+// Borders
+$border-radius: 4px;
+$border-radius-round: 50%;
+$border-radius-round-button: 25px;
+$border-size: 2px;
+
+// Fonts
+$primary-font: 'Nova Flat', monospace;
+$secondary-font: "Roboto", monospace;
+
+// Breakpoints
+$small-phone: 380px;
+$phone: 480px;
+$tablet: 768px;
+$desktop: 960px;
+$large-desktop: 1200px;
+
+// Input (radio/checkbox) size scale
+$input-size: 1.15rem;
+
+// Transitions
+$transition-speed: 0.1s;
+$transition-animation-type: ease-in-out;

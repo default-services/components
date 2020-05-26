@@ -1,0 +1,32 @@
+.button {
+  padding: .5rem 1.2rem .5rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  height: .5rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus {
+    color: var(--white-color);
+  }
+
+  &:active, &:focus {
+    background-color: var(--primary-color-dark);
+  }
+
+  @media(max-width: var(--phone)) {
+    font-size: 1rem;
+    padding: .5rem 1.25rem 1.25rem;
+    margin: 0 .5rem;
+  }
+}
+
+// Variants
+.button-round {
+  @extend .button;
+  border-radius: var(--border-radius-round-button);
+}

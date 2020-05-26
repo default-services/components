@@ -1,0 +1,38 @@
+.checkbox {
+  border-radius: var(--border-radius);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  width: var(--input-size);
+  height: var(--input-size);
+  border: var(--border-size) solid var(--grey-color-light);
+  transition: var(--transition-speed);
+  cursor: pointer;
+
+  @include accessible-border-behavior(hover, focus, null);
+
+  + svg {
+    transition: var(--transition-speed);
+    pointer-events: none;
+    width: .65rem;
+    margin-left: -1.1rem;
+    margin-top: .45rem;
+    position: absolute;
+    border-radius: calc(var(--border-radius)  - 2px);
+    fill: var(--white-color);
+    position: absolute;
+    visibility: hidden;
+  }
+
+  &:checked {
+    background-color: var(--primary-color);
+    + svg {
+      visibility: visible;
+    }
+  }
+
+  &:after {
+    border: solid var(--white-color);
+  }
+}

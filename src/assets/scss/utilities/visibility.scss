@@ -1,0 +1,29 @@
+@media (max-width: $large-desktop) {
+  .default-hide-on-large-desktop {
+    display: none; 
+  }
+}
+
+@media (max-width: $desktop) {
+  .default-hide-on-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: $tablet) {
+  .default-hide-on-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: $phone) {
+  .default-hide-on-phone {
+    display: none;
+  }
+}
+
+@media (max-width: $small-phone) {
+  .default-hide-on-small-phone {
+    display: none;
+  }
+}

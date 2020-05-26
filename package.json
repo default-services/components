@@ -1,0 +1,86 @@
+{
+  "name": "default-component-library",
+  "version": "1.0.0",
+  "description": "Default component library",
+  "author": "Daniel Wade",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Default-Component-Library/default-component-library.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "script-comments": {
+    "build:all": "builds project and Storybook",
+    "build:project": "builds project only (not Storybook)",
+    "build:storybook": "builds Storybook",
+    "clean:all": "cleans project and Storybook",
+    "clean:project": "cleans project",
+    "clean:storybook": "cleans Storybook",
+    "start:project": "starts project",
+    "start:storybook": "starts Storybook",
+    "test:all": "runs all tests",
+    "test:build": "runs build tests",
+    "test:lint": "runs eslint tests",
+    "test:unit": "runs unit tests",
+    "test:watch": "runs watch mode"
+  },
+  "scripts": {
+    "build:all": "microbundle-crl --no-compress --format modern,cjs && build-storybook",
+    "build:project": "microbundle-crl --no-compress --format modern,cjs",
+    "build:storybook": "build-storybook",
+    "clean:all": "cd scripts && node clean project storybook",
+    "clean:project": "cd scripts && node clean project",
+    "clean:storybook": "cd scripts && node clean storybook",
+    "start:project": "microbundle-crl watch --no-compress --format modern,cjs",
+    "start:storybook": "start-storybook -p 9009",
+    "test:all": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build:project",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/preset-create-react-app": "^2.1.2",
+    "@storybook/react": "^5.3.18",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "fiber": "^1.0.4",
+    "node-sass": "^4.14.1",
+    "prop-types": "^15.7.2",
+    "react-scripts": "^3.4.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.5"
+  }
+}
