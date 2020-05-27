@@ -1,10 +1,10 @@
 # Default Component Library
 
-> Default component library for React
-
 [![NPM](https://img.shields.io/npm/v/default-component-library?color=%2357a9a9&style=for-the-badge)](https://www.npmjs.com/package/default-component-library)
 [![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library)
 [![License](https://img.shields.io/github/license/Default-Component-Library/default-component-library?color=%2357a9a9&style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library/blob/master/LICENSE)
+
+> Default component library for React
 
 ## Demo
 See our Storybook demo, hosted right here on GitHub pages.<br>
