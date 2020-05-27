@@ -9,8 +9,6 @@ import DefaultNavbar from './components/Navbar';
 import DefaultRadioButton from './components/RadioButton';
 
 
-// METHODS
-
 // Allow for variants, and additional user-specified classes
 const setClassName = (props, name) => {
   const { className, variant } = props;
