@@ -13,7 +13,7 @@ See our Storybook demo, hosted right here on GitHub pages.<br>
 npm i default-component-library
 ```
 
-or..
+**or..**
 
 ```bash
 yarn add default-component-library
@@ -24,6 +24,7 @@ yarn add default-component-library
 ```jsx
 import React, { Component } from 'react';
 import Button from 'default-component-library';
+import 'default-component-library/dist/index.css';
 
 const MyComponent = props => {
   return (
