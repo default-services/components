@@ -35,7 +35,7 @@ addons.setConfig({
     inputBorderRadius: 'pink',
 
     brandTitle: 'Default Component Library',
-    brandUrl: 'https://github.com/iPzard/default-component-library',
-    brandImage: null // string of URL goes here
+    brandUrl: 'https://github.com/Default-Component-Library/default-component-library',
+    brandImage: null
   })
 });

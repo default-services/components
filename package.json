@@ -30,13 +30,13 @@
     "test:watch": "runs watch mode"
   },
   "scripts": {
-    "build:all": "microbundle-crl --no-compress --format modern,cjs && build-storybook",
-    "build:project": "microbundle-crl --no-compress --format modern,cjs",
+    "build:all": "microbundle-crl --css-modules false --no-compress --format modern,cjs && build-storybook",
+    "build:project": "microbundle-crl --css-modules false --no-compress --format modern,cjs",
     "build:storybook": "build-storybook",
     "clean:all": "cd scripts && node clean project storybook",
     "clean:project": "cd scripts && node clean project",
     "clean:storybook": "cd scripts && node clean storybook",
-    "start:project": "microbundle-crl watch --no-compress --format modern,cjs",
+    "start:project": "microbundle-crl watch --css-modules false --no-compress --format modern,cjs",
     "start:storybook": "start-storybook -p 9009",
     "test:all": "run-s test:unit test:lint test:build",
     "test:build": "run-s build:project",
@@ -80,6 +80,7 @@
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react-scripts": "^3.4.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.5"
   }
 }
