@@ -36,15 +36,12 @@ const MyComponent = props => {
 };
 ```
 
-## Docs
+## Documentation
 Coming soon..
 
-# For Developers
+## Developers
 Like writing clean, responsive, semantic, and accessible code? Enjoy keeping up with, and following, best practices? Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br><br>
 [![Tech](https://user-images.githubusercontent.com/8584126/83081137-d0cc1280-a034-11ea-9879-68d5364df7a7.png)](https://user-images.githubusercontent.com/8584126/83081137-d0cc1280-a034-11ea-9879-68d5364df7a7.png)
-
-## Scripts
-See `script-comments` in `package.json` for scripts and usage details.
 
 ## License
 
