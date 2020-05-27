@@ -2,11 +2,21 @@
 
 > Default component library for React
 
-[![NPM](https://img.shields.io/npm/v/default.svg)](https://www.npmjs.com/package/default) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/default.svg)](https://www.npmjs.com/package/default-component-library) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+## Demo
+See our Storybook demo, hosted right here on GitHub pages.<br>
+[Default Component Library](https://default-component-library.github.io/default-component-library)
 
 ## Install
 ```bash
-npm i default-component-library --save
+npm i default-component-library
+```
+
+or..
+
+```bash
+yarn add default-component-library
 ```
 
 ## Usage
