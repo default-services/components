@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/default-component-library?color=%2357a9a9&style=for-the-badge)](https://www.npmjs.com/package/default-component-library)
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-%2357a9a9?style=for-the-badge)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-%2357a9a9?style=for-the-badge)](https://standardjs.com)]
 [Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)[License](https://img.shields.io/github/license/Default-Component-Library/default-component-library?color=%2357a9a9&style=for-the-badge)
 
 ## Demo
