@@ -1,8 +1,7 @@
 // Sass built-in functions cannot accept custom properties as arguments.
 // However, custom properties are more override friendly for developers.
 // This file sets custom properties from the variables in `variables.scss`.
-// These custom properties are what's used in the component .scss files.
-// More notes are available in `variables.scss`.
+// These custom properties are what's used in the component `*.scss` files.
 
 :root {
 
