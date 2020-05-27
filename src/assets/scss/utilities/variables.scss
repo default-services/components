@@ -1,3 +1,7 @@
+// This file is closely related to `overrides.scss` as these variables
+// are remapped to custom properties, for user override benefits, which
+// are used in the component .scss files.
+
 // Colors
 $primary-base-color: hsl(180, 50%, 50%);
 $secondary-base-color: complement($primary-base-color);
