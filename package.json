@@ -1,63 +1,33 @@
 {
-  "name": "default-component-library",
-  "version": "1.0.4",
-  "description": "Default component library",
   "author": "Daniel Wade",
+  "contributors": [
+    "Daniel Wade <wade.daniel.w@gmail.com> (https://github.com/iPzard)"
+  ],
+  "description": "Default component library",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Default-Component-Library/default-component-library.git"
-  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
+  "name": "default-component-library",
   "source": "src/index.js",
-  "engines": {
-    "node": ">= 10.16.0"
-  },
-  "script-comments": {
-    "build:all": "builds project and Storybook",
-    "build:project": "builds project only (not Storybook)",
-    "build:project:dev": "builds project only (not Storybook), viewable with local dist",
-    "build:storybook": "builds Storybook",
-    "clean:all": "cleans project and Storybook",
-    "clean:project": "cleans project",
-    "clean:storybook": "cleans Storybook",
-    "start:project": "starts project",
-    "start:project:dev": "starts project with local dist settings",
-    "start:storybook": "starts Storybook",
-    "test:all": "runs all tests",
-    "test:build": "runs build tests",
-    "test:lint": "runs eslint tests",
-    "test:unit": "runs unit tests",
-    "test:watch": "runs watch mode"
-  },
-  "scripts": {
-    "build:all": "microbundle-crl --css-modules false --no-compress --format modern,cjs && build-storybook",
-    "build:project": "microbundle-crl --no-compress --format modern,cjs",
-    "build:project:dev": "microbundle-crl --css-modules false --no-compress --format modern,cjs",
-    "build:storybook": "build-storybook",
-    "clean:all": "cd scripts && node clean project storybook",
-    "clean:project": "cd scripts && node clean project",
-    "clean:storybook": "cd scripts && node clean storybook",
-    "start:project": "microbundle-crl watch --no-compress --format modern,cjs",
-    "start:project:dev": "microbundle-crl watch --css-modules false --no-compress --format modern,cjs",
-    "start:storybook": "start-storybook -p 9009",
-    "test:all": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build:project",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom"
-  },
-  "peerDependencies": {
-    "react": "^16.0.0"
+  "version": "1.0.5",
+  "dependencies": {
+    "fiber": "^1.0.4",
+    "prop-types": "^15.7.2",
+    "react-scripts": "^3.4.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.10.0",
+    "@rollup/plugin-babel": "^5.0.2",
+    "@rollup/plugin-commonjs": "^12.0.0",
+    "@rollup/plugin-node-resolve": "^8.0.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.2",
     "@storybook/react": "^5.3.18",
     "babel-eslint": "^10.0.3",
+    "babel-preset-es2015-rollup": "^3.0.0",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -70,21 +40,55 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
-    "microbundle-crl": "^0.13.10",
+    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "rollup-plugin-postcss": "^3.1.1",
+    "sass": "^1.26.5"
+  },
+  "engines": {
+    "node": ">= 10.16.0"
   },
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "fiber": "^1.0.4",
-    "node-sass": "^4.14.1",
-    "prop-types": "^15.7.2",
-    "react-scripts": "^3.4.1",
-    "rimraf": "^3.0.2",
-    "sass": "^1.26.5"
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Default-Component-Library/default-component-library.git"
+  },
+  "scripts": {
+    "build:all": "rollup -c && build-storybook",
+    "build:project": "rollup -c",
+    "build:storybook": "build-storybook",
+    "clean:all": "cd scripts && node clean project storybook",
+    "clean:project": "cd scripts && node clean project",
+    "clean:storybook": "cd scripts && node clean storybook",
+    "start:project": "rollup -c -w",
+    "start:storybook": "start-storybook -p 9009",
+    "test:all": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build:project",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom"
+  },
+  "script-comments": {
+    "build:all": "builds project and Storybook",
+    "build:project": "builds project only (not Storybook)",
+    "build:storybook": "builds Storybook",
+    "clean:all": "cleans project and Storybook",
+    "clean:project": "cleans project",
+    "clean:storybook": "cleans Storybook",
+    "start:project": "builds project and watches for changes",
+    "start:storybook": "starts Storybook",
+    "test:all": "runs all tests",
+    "test:build": "runs build tests",
+    "test:lint": "runs eslint tests",
+    "test:unit": "runs unit tests",
+    "test:watch": "runs watch mode"
   }
 }

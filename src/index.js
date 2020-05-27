@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './styles.module.scss';
 
 import DefaultButton from './components/Button';
 import DefaultCheckbox from './components/Checkbox';
@@ -7,6 +6,8 @@ import DefaultContainer from './components/Container';
 import DefaultInput from './components/Input';
 import DefaultNavbar from './components/Navbar';
 import DefaultRadioButton from './components/RadioButton';
+
+import styles from './styles.module.scss';
 
 
 // Allow for variants, and additional user-specified classes

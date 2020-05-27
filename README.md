@@ -4,15 +4,15 @@
 [![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library)
 [![License](https://img.shields.io/github/license/Default-Component-Library/default-component-library?color=%2357a9a9&style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library/blob/master/LICENSE)
 
-> Default component library for React
+> Default component library for React.
 
 ## Demo
-See our Storybook demo, hosted right here on GitHub pages.<br>
-[Default Component Library](https://default-component-library.github.io/default-component-library)
+See our components in action in the Default Storybook, hosted on GitHub pages:<br>
+[Default Storybook](https://default-component-library.github.io/default-component-library)
 
 ## Install
 ```bash
-npm i default-component-library
+npm install default-component-library
 ```
 
 **or..**
@@ -25,22 +25,20 @@ yarn add default-component-library
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'default-component-library';
-import 'default-component-library/dist/index.css';
+import { Button } from 'default-component-library';
 
 const MyComponent = props => {
   return (
     <div>
-      <Button />
+      <Button>Hello Default!</Button>
     </div>
   );
 };
 ```
 
 # For Developers
-
-## Storybook
-Default component library is equipped with [Storybook](https://storybook.js.org/) to assist with developing and viewing components. Starting storybook will allow you to view your current work on `localhost`.
+Like writing clean, responsive, semantic, and accessible code? Enjoy keeping up with, and following, best practices? Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br>
+[![Tech](https://user-images.githubusercontent.com/8584126/83069386-a66f5a80-a01e-11ea-9ffe-2bbc88077ad9.png)](https://user-images.githubusercontent.com/8584126/83069386-a66f5a80-a01e-11ea-9ffe-2bbc88077ad9.png)
 
 ## Scripts
 See `script-comments` in `package.json` for scripts and usage details.
