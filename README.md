@@ -36,7 +36,7 @@ const MyComponent = props => {
 };
 ```
 
-## Documentation
+## Docs
 Coming soon..
 
 # For Developers
