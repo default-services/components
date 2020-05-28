@@ -1,28 +1,28 @@
-@media (max-width: $large-desktop) {
+@media (max-width: var(--large-desktop)) {
   .default-hide-on-large-desktop {
-    display: none; 
+    display: none;
   }
 }
 
-@media (max-width: $desktop) {
+@media (max-width: var(--desktop)) {
   .default-hide-on-desktop {
     display: none;
   }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: var(--tablet)) {
   .default-hide-on-mobile {
     display: none;
   }
 }
 
-@media (max-width: $phone) {
+@media (max-width: var(--phone)) {
   .default-hide-on-phone {
     display: none;
   }
 }
 
-@media (max-width: $small-phone) {
+@media (max-width: var(--small-phone)) {
   .default-hide-on-small-phone {
     display: none;
   }

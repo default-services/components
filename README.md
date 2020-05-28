@@ -22,7 +22,6 @@ yarn add default-component-library
 ```
 
 ## Usage
-
 ```jsx
 import React, { Component } from 'react';
 import { Button } from 'default-component-library';

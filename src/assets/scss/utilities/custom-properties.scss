@@ -3,6 +3,9 @@
 // This file sets custom properties from the variables in `variables.scss`.
 // These custom properties are what's used in the component `*.scss` files.
 
+// TODO: Some of these exported properties (e.g., --primary-base-color) are never
+// used and can be removed from this file. Cross reference each w/component scss
+// to find and remove unnecessary declarations.
 :root {
 
   // Colors

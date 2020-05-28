@@ -1,10 +1,10 @@
 :root {
   --base-size: 1rem;
   --type-scale: 1.125;
-  --header-font-family: #{$primary-font};
-  --paragraph-primary-font-family: #{$primary-font};
-  --paragraph-secondary-font-family: #{$secondary-font};
-  --header-font-color: #{$secondary-color};
+  --header-font-family: var(--primary-font);
+  --paragraph-primary-font-family: var(--primary-font);
+  --paragraph-secondary-font-family: var(--secondary-font);
+  --header-font-color: var(--primary-color);
 
   @for $i from 1 through 5 {
     @if $i == 1 {
@@ -20,29 +20,29 @@
     }
   }
 
-  @media (min-width: $small-phone) {
+  @media (min-width: var(--small-phone)) {
     --type-scale: 1.1;
   }
 
-  @media (min-width: $phone) {
+  @media (min-width: var(--phone)) {
     --type-scale: 1.125;
   }
 
-  @media (min-width: $tablet) {
+  @media (min-width: var(--tablet)) {
     --type-scale: 1.15;
   }
 
-  @media (min-width: $desktop) {
+  @media (min-width: var(--desktop)) {
     --type-scale: 1.175;
   }
 
-  @media (min-width: $large-desktop) {
+  @media (min-width: var(--large-desktop)) {
     --type-scale: 1.2;
   }
 }
 
 body {
-  font-family: $primary-font;
+  font-family: var(--primary-font);
 
   // Left out of type scale loop to prevent
   // repeating declarations of all properties
@@ -76,14 +76,14 @@ body {
   }
 
   a {
-    color: $primary-color;
+    color: var(--primary-color);
 
     &:hover {
-      color: $secondary-color;
+      color: var(--secondary-color);
     }
 
     &:active, &:focus {
-      color: $secondary-color-dark;
+      color: var(--secondary-color-dark);
     }
   }
 
