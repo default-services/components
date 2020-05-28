@@ -10,14 +10,18 @@ const CheckIcon = () => {
 };
 
 const Checkbox = props => {
-  if(props.type && props.type !== 'checkbox')
+  const { className, ['label-text']: labelText, type } = props;
+  const inputProps = { ...props, className: undefined };
+
+  if(type && type !== 'checkbox')
     return console.warn(
       `\`Checkbox\` can only accept a \`type\` prop of "checkbox". Received "${props.type}", which was discarded and replaced by "checkbox".`
     );
 
   return (
-    <label>
-      <input { ...props } type='checkbox' />
+    <label className={ className }>
+      <span>{ labelText || '' }</span>
+      <input { ...inputProps } type='checkbox' />
       <CheckIcon />
     </label>
   );

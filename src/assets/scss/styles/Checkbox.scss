@@ -1,38 +1,44 @@
 .checkbox {
-  border-radius: var(--border-radius);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  width: var(--input-size);
-  height: var(--input-size);
-  border: var(--border-size) solid var(--grey-color-light);
-  transition: var(--transition-speed);
-  cursor: pointer;
+  @extend %input-label;
 
-  @include accessible-border-behavior(hover, focus, null);
-
-  + svg {
+  input {
+    border-radius: var(--border-radius);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: var(--input-size);
+    height: var(--input-size);
+    border: var(--border-size) solid var(--grey-color-light);
     transition: var(--transition-speed);
-    pointer-events: none;
-    width: .65rem;
-    margin-left: -1.1rem;
-    margin-top: .45rem;
-    position: absolute;
-    border-radius: calc(var(--border-radius)  - 2px);
-    fill: var(--white-color);
-    position: absolute;
-    visibility: hidden;
-  }
+    cursor: pointer;
+    margin-right: .5rem;
 
-  &:checked {
-    background-color: var(--primary-color);
+    @extend %accessible-border-behavior;
+
     + svg {
-      visibility: visible;
+      transition: var(--transition-speed);
+      pointer-events: none;
+      width: .65rem;
+      margin-left: .48rem;
+      margin-top: .45rem;
+      position: absolute;
+      border-radius: calc(var(--border-radius)  - 2px);
+      fill: var(--white-color);
+      position: absolute;
+      visibility: hidden;
     }
-  }
 
-  &:after {
-    border: solid var(--white-color);
+    &:checked {
+      background-color: var(--primary-color);
+      + svg {
+        visibility: visible;
+      }
+    }
+
+    &:after {
+      border: solid var(--white-color);
+    }
+
   }
 }

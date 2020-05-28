@@ -50,9 +50,5 @@ export const Navbar = props => (
 
 // Radio button
 export const RadioButton = props => (
-  <DefaultRadioButton
-    { ...props }
-    className={ setClassName(props, 'radio') }
-    data-radio-label-class={ styles['radio-button-label'] }
-  />
+  <DefaultRadioButton { ...props } className={ setClassName(props, 'radio') } />
 );

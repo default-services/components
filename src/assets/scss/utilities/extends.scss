@@ -1,0 +1,35 @@
+%accessible-border-behavior {
+  outline: none;
+
+  &:hover, &:focus {
+    border: $border-size solid $grey-color-dark;
+  }
+}
+
+%input-label {
+  display: grid;
+  width: fit-content;
+  grid-template-rows: 100%;
+  grid-template-columns: 1fr 9fr;
+  align-items: center;
+  cursor: pointer;
+
+  span:first-child {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  input {
+    grid-column: 1;
+    grid-row: 1;
+
+    + span, + svg {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}

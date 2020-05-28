@@ -8,5 +8,5 @@ export default {
 };
 
 export const Radio = () => (
-  <DefaultRadioButton onClick={ action('clicked') } />
+  <DefaultRadioButton onClick={ action('clicked') } label-text="Radio button" />
 );

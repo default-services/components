@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 
 const RadioButton = props => {
-  const { ['data-radio-label-class']: labelClassName, type } = props;
+  const { ['label-text']: labelText, className, type } = props;
+  const inputProps = { ...props, className: undefined };
 
   if(type && type !== 'radio')
     return console.warn(
@@ -11,8 +12,9 @@ const RadioButton = props => {
     );
 
   return (
-    <label className={ labelClassName }>
-      <input { ...props } type='radio' />
+    <label className={ className }>
+      <span>{ labelText || '' }</span>
+      <input { ...inputProps } type='radio' id='test' />
       <span />
     </label>
   );

@@ -4,5 +4,5 @@
   border-radius: var(--border-radius);
   font-family: var(--secondary-font);
 
-  @include accessible-border-behavior(hover, focus, null);
+  @extend %accessible-border-behavior;
 }
