@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 
 const RadioButton = props => {
+  /* eslint-disable no-useless-computed-key */
   const { ['label-text']: labelText, className, type } = props;
   const inputProps = { ...props, className: undefined };
 
@@ -21,7 +22,9 @@ const RadioButton = props => {
 };
 
 RadioButton.propTypes = {
-  className: PropTypes.string.isRequired
+  className: PropTypes.string.isRequired,
+  ['label-text']: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default RadioButton;

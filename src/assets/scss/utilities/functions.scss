@@ -17,6 +17,7 @@
   }
 }
 
+// Set blended color
 @function color($type) {
 
 
@@ -45,7 +46,7 @@
   }
 }
 
-// Determine wether to use white or black text
+// Determine whether to use white or black text
 $linear-channel-values:
   0
   .0003035269835488375
@@ -304,6 +305,7 @@ $linear-channel-values:
   .9911020971138298
   1;
 
+// Get luminance
 @function luminance($color) {
   $red: nth($linear-channel-values, red($color) + 1);
   $green: nth($linear-channel-values, green($color) + 1);
@@ -312,6 +314,7 @@ $linear-channel-values:
   @return .2126 * $red + .7152 * $green + .0722 * $blue;
 }
 
+// Check luminance
 @function contrast($back, $front) {
   $backLum: luminance($back) + .05;
   $foreLum: luminance($front) + .05;
@@ -319,6 +322,7 @@ $linear-channel-values:
   @return max($backLum, $foreLum) / min($backLum, $foreLum);
 }
 
+// Get contrast color
 @function choose-contrast-color($color) {
   $lightContrast: contrast($color, white);
   $darkContrast: contrast($color, black);

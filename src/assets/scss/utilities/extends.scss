@@ -1,3 +1,4 @@
+// Accessible behavior
 %accessible-border-behavior {
   outline: none;
 
@@ -6,6 +7,7 @@
   }
 }
 
+// Input label configuration
 %input-label {
   display: grid;
   width: fit-content;

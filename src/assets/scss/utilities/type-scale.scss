@@ -1,3 +1,5 @@
+// Type scale configuration
+
 :root {
   --base-size: 1rem;
   --type-scale: 1.125;
@@ -6,20 +8,15 @@
   --paragraph-secondary-font-family: var(--secondary-font);
   --header-font-color: var(--primary-color);
 
+  // Calculate and create H1-H6 custom properties
   @for $i from 1 through 5 {
-    @if $i == 1 {
-      --h5: calc(var(--base-size) * var(--type-scale));
-    }
+    @if $i == 1 { --h5: calc(var(--base-size) * var(--type-scale)); }
+    @else { --h#{6 - $i}: calc(var(--h#{7 - $i}) * var(--type-scale)); }
 
-    @else {
-      --h#{6 - $i}: calc(var(--h#{7 - $i}) * var(--type-scale));
-    }
-
-    h#{$i} {
-      font-size: var(--h#{$i});
-    }
+    h#{$i} { font-size: var(--h#{$i}); }
   }
 
+  // Allow for responsive behavior
   @media (min-width: var(--small-phone)) {
     --type-scale: 1.1;
   }
@@ -41,6 +38,7 @@
   }
 }
 
+// Setting type scale
 body {
   font-family: var(--primary-font);
 
@@ -53,6 +51,7 @@ body {
     color: var(--header-font-color);
     margin-top: 1rem;
 
+    // Type scale when page is being printed
     @media print {
       font-size: 1rem;
       --header-font-family: Arial, Helvetica, Serif;
@@ -62,17 +61,11 @@ body {
     }
   }
 
+  // Type scale for common elements
   p {
     font-family: var(--paragraph-secondary-font-family);
     font-size: calc(var(--base-size) * var(--type-scale));
     margin-bottom: 1.25rem;
-  }
-
-
-  footer {
-    p {
-      font-family: var(--paragraph-primary-font-family);
-    }
   }
 
   a {

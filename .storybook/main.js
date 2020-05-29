@@ -11,13 +11,13 @@ module.exports = {
   // Webpack for Storybook "manager"
   managerWebpack: config => {
     return {
-      ...config,
+      ...(config || []),
       module: {
         rules: [{
           test: /\.scss$/,
           use: [
-            { loader: "style-loader" }, // creates style nodes from JS strings
-            { loader: "css-loader" },   // translates CSS into CommonJS
+            { loader: 'style-loader' }, // creates style nodes from JS strings
+            { loader: 'css-loader' },   // translates CSS into CommonJS
             {
               loader: 'sass-loader', // compiles Sass to CSS
               options: { implementation: require('sass') } // Prefer `dart-sass`
@@ -25,9 +25,8 @@ module.exports = {
           ]
         }]
       },
-
       resolve: {
-        ...config.resolve,
+        ...(config.resolve || []),
         modules: [
           ...(config.resolve.modules || []),
 
@@ -46,10 +45,10 @@ module.exports = {
   // Webpack for Storybook "stories"
   webpackFinal: config => {
     return {
-      ...config,
+      ...(config || []),
 
       resolve: {
-        ...config.resolve,
+        ...(config.resolve || []),
         modules: [
           ...(config.resolve.modules || []),
 
@@ -60,6 +59,11 @@ module.exports = {
           ...(config.resolve.alias || []),
           components: path.resolve(__dirname, '../src/components')
         }
+      },
+
+      // Limit console noise during build
+      performance: {
+        hints: false
       }
     }
   }

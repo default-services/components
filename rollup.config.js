@@ -22,7 +22,10 @@ export default {
       modules: true,
       use: [ 'sass' ]
     }),
-    babel({ exclude: 'node_modules/**' }),
+    babel({
+      babelHelpers: 'bundled',
+      exclude: 'node_modules/**'
+    }),
     resolve(),
     commonjs()
   ],
