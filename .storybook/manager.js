@@ -23,17 +23,12 @@ addons.setConfig({
     textColor: '#050505',
     textInverseColor: '#f5f5f5',
 
-    // Toolbar default and active colors
+    // Toolbar colors
     barTextColor: "#773d3d",
     barSelectedColor: "#773d3d",
     barBg: "#e0e0e0",
 
-    // Form colors
-    inputBg: 'blue',
-    inputBorder: 'purple',
-    inputTextColor: '050505',
-    inputBorderRadius: 'pink',
-
+    // Brand
     brandTitle: 'Default Component Library',
     brandUrl: 'https://github.com/Default-Component-Library/default-component-library',
     brandImage: null
