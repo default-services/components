@@ -79,22 +79,23 @@ namespace('tasks', () => {
       const files = process.argv.reduce((accumulator, argument) => {
         switch(argument) {
           case 'project':
-            accumulator = [ 'dist', 'node_modules' ];
+            accumulator = [ ...accumulator, 'dist', 'node_modules' ];
             return accumulator;
 
           case 'storybook':
-            accumulator = [ 'docs', 'storybook-static' ];
+            accumulator = [ ...accumulator, 'docs', 'storybook-static' ];
             return accumulator;
 
           default:
-            accumulator = [ 'dist', 'docs', 'node_modules', 'storybook-static' ];
+            accumulator = [ ...accumulator, 'dist', 'docs', 'node_modules', 'storybook-static' ];
             return accumulator;
         }
-      }, []).push('package-lock.json');
+      }, [ 'package-lock.json' ]);
 
 
       // Delete selected file(s)
-      files.forEach(file => {
+      // Array.from(new Set()) used to remove potential duplicates
+      Array.from(new Set(files)).forEach(file => {
         try {
           rimraf(file, () => console.log(`${file} deleted.`));
         } catch (error) {
