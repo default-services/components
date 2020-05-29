@@ -4,7 +4,11 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
 
+// Rollup alias paths
 const path = require('path');
+const components = path.resolve(__dirname, 'src', 'components');
+const utilities = path.resolve(__dirname, 'src', 'utilities');
+const src = path.resolve(__dirname, 'src');
 
 // Post CSS plugins
 const postcssPresetEnv = require('postcss-preset-env');
@@ -26,9 +30,9 @@ export default {
   plugins: [
     alias({
       entries: [
-        { find: 'components', replacement: path.resolve(__dirname, 'src', 'components') },
-        { find: 'utilities', replacement: path.resolve(__dirname, 'src', 'utilities') },
-        { find: 'src', replacement: path.resolve(__dirname, 'src') }
+        { find: 'components', replacement: components },
+        { find: 'utilities', replacement: utilities },
+        { find: 'src', replacement: src }
       ]
     }),
     postcss({

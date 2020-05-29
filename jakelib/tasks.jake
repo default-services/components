@@ -1,6 +1,6 @@
 const rimraf = require('rimraf');
 const fs = require('fs');
-const { execSync } = require('child_process');
+const { exec, execSync } = require('child_process');
 
 namespace('tasks', () => {
   // Build scripts
@@ -27,17 +27,17 @@ namespace('tasks', () => {
       }, '');
 
       // Execute shell command
-      execSync(command, { stdio: 'inherit' });
+      exec(command, { stdio: 'inherit' }, () => {
+        // Post build Storybook script
+        if(command.includes('build-storybook')) {
+          const storybook = 'storybook-static';
+          const docs = 'docs';
 
-      // Post build Storybook script
-      if(command.includes('build-storybook')) {
-        const storybook = 'storybook-static';
-        const docs = 'docs';
-
-        // Rename "storybook-static" to "docs" for GitHub pages
-        rimraf(docs, () => console.log(`${docs} deleted.`));
-        fs.rename(storybook, docs, () => console.log(`${storybook} renamed to ${docs}.`));
-      }
+          // Rename "storybook-static" to "docs" for GitHub pages
+          rimraf(docs, () => console.log(`${docs} deleted.`));
+          fs.rename(storybook, docs, () => console.log(`${storybook} renamed to ${docs}.`));
+        }
+      });
     });
 
 

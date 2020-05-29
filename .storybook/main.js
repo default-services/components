@@ -1,4 +1,22 @@
 const path = require('path');
+const components = path.resolve(__dirname, '../', 'src', 'components');
+const src = path.resolve(__dirname, '../', 'src');
+
+// Webpack config
+const webpack = config => {
+  return {
+    ...config,
+    resolve: {
+      ...config.resolve,
+      modules: [ ...config.resolve.modules, src ],
+      alias: { ...config.resolve.alias, components, src }
+    },
+
+    // Limit console "noise"
+    performance: { hints: false }
+  }
+};
+
 
 module.exports = {
   stories: ['../src/**/*.stories.js'],
@@ -9,67 +27,8 @@ module.exports = {
   ],
 
   // Webpack for Storybook "manager"
-  managerWebpack: config => {
-    return {
-      ...(config || []),
-      module: {
-        rules: [{
-          test: /\.scss$/,
-          use: [
-            { loader: 'style-loader' }, // creates style nodes from JS strings
-            { loader: 'css-loader' },   // translates CSS into CommonJS
-            {
-              loader: 'sass-loader', // compiles Sass to CSS
-              options: { implementation: require('sass') } // Prefer `dart-sass`
-            }
-          ]
-        }]
-      },
-      resolve: {
-        ...(config.resolve || []),
-        modules: [
-          ...(config.resolve.modules || []),
-
-          // Allow absolute file paths in Storybook "manager"
-          path.resolve(__dirname, '../', 'src')
-        ],
-
-        // Webpack aliases for "manager"
-        alias: {
-          ...(config.resolve.alias || []),
-          components: path.resolve(__dirname, '../', 'src', 'components'),
-          src: path.resolve(__dirname, '../', 'src')
-        }
-      }
-    }
-  },
+  managerWebpack: config => webpack(config),
 
   // Webpack for Storybook "stories"
-  webpackFinal: config => {
-    return {
-      ...(config || []),
-
-      resolve: {
-        ...(config.resolve || []),
-        modules: [
-          ...(config.resolve.modules || []),
-
-          // Allow absolute file paths in Storybook "stories"
-          path.resolve(__dirname, '../', 'src')
-        ],
-
-        // Webpack aliases for "stories"
-        alias: {
-          ...(config.resolve.alias || []),
-          components: path.resolve(__dirname, '../', 'src', 'components'),
-          src: path.resolve(__dirname, '../', 'src')
-        }
-      },
-
-      // Limit console noise during build
-      performance: {
-        hints: false
-      }
-    }
-  }
+  webpackFinal: config => webpack(config)
 };
