@@ -30,7 +30,7 @@ namespace('tasks', () => {
       execSync(command, { stdio: 'inherit' });
 
       // Post build Storybook script
-      if(command === 'build-storybook') {
+      if(command.includes('build-storybook')) {
         const storybook = 'storybook-static';
         const docs = 'docs';
 

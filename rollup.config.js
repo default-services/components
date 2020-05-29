@@ -1,14 +1,18 @@
+import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
+import resolve from '@rollup/plugin-node-resolve';
+
+const path = require('path');
+
 
 export default {
   input: 'src/index.js',
 
   output: [
     {
-      name: 'comlib',
+      name: 'default',
       sourcemap: true,
       file: 'dist/index.js',
       format: 'umd',
@@ -17,6 +21,13 @@ export default {
   ],
 
   plugins: [
+    alias({
+      entries: [
+        { find: 'components', replacement: path.resolve(__dirname, 'src', 'components') },
+        { find: 'utilities', replacement: path.resolve(__dirname, 'src', 'utilities') },
+        { find: 'src', replacement: path.resolve(__dirname, 'src') }
+      ]
+    }),
     postcss({
       extract: false,
       modules: true,

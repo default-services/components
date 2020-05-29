@@ -31,12 +31,14 @@ module.exports = {
           ...(config.resolve.modules || []),
 
           // Allow absolute file paths in Storybook "manager"
-          path.resolve(__dirname, '../src')
+          path.resolve(__dirname, '../', 'src')
         ],
+
+        // Webpack aliases for "manager"
         alias: {
           ...(config.resolve.alias || []),
-          components: path.resolve(__dirname, '../src/components'),
-          dist: path.resolve(__dirname, '../dist')
+          components: path.resolve(__dirname, '../', 'src', 'components'),
+          src: path.resolve(__dirname, '../', 'src')
         }
       }
     }
@@ -53,11 +55,14 @@ module.exports = {
           ...(config.resolve.modules || []),
 
           // Allow absolute file paths in Storybook "stories"
-          path.resolve(__dirname, '../src')
+          path.resolve(__dirname, '../', 'src')
         ],
+
+        // Webpack aliases for "stories"
         alias: {
           ...(config.resolve.alias || []),
-          components: path.resolve(__dirname, '../src/components')
+          components: path.resolve(__dirname, '../', 'src', 'components'),
+          src: path.resolve(__dirname, '../', 'src')
         }
       },
 
