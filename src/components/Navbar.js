@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Navbar = props => {
   const { links, variant } = props;
-
   // Check if there's an 'underline' variant in props
   const underline = (
     variant === 'navbar-underline' ||
@@ -16,11 +15,12 @@ const Navbar = props => {
         <ul>
           {
             links.map(link => {
-              const { href, key, text } = link;
+              const { a, li, text } = link;
+              const { key } = li;
 
               return (
-                <li key={ key }>
-                  <a href={ href }>{ text }</a>
+                <li { ...li } key={ key }>
+                  <a { ...a }>{ text }</a>
                   { underline ? <span /> : undefined }
                 </li>
               );

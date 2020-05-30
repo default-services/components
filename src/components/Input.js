@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = props => {
-  const { type } = props;
+  const { className, type } = props;
 
   // Error for invalid `type` props
   const error = component => console.error(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
@@ -17,8 +17,8 @@ const Input = props => {
     // Else if valid
     default:
       return (
-        <label>
-          <input type='text' { ...props } />
+        <label className={ className }>
+          <input type='text' className={ undefined } { ...props } />
         </label>
       );
   };

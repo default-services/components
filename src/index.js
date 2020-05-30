@@ -6,6 +6,7 @@ import DefaultContainer from 'components/Container';
 import DefaultInput from 'components/Input';
 import DefaultNavbar from 'components/Navbar';
 import DefaultRadioButton from 'components/RadioButton';
+import DefaultSelect from 'components/Select';
 
 import setProps from 'utilities/setProps';
 
@@ -37,4 +38,9 @@ export const Navbar = props => (
 // Radio button
 export const RadioButton = props => (
   <DefaultRadioButton { ...setProps(props, 'radio') } />
+);
+
+// Radio button
+export const Select = props => (
+  <DefaultSelect { ...setProps(props, 'select') } />
 );

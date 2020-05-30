@@ -14,43 +14,81 @@ const src = path.resolve(__dirname, 'src');
 const postcssPresetEnv = require('postcss-preset-env');
 const autoprefixer = require('autoprefixer');
 
-export default {
-  input: 'src/index.js',
+// Plugin config
+const plugins = [
+  alias({
+    entries: [
+      { find: 'components', replacement: components },
+      { find: 'utilities', replacement: utilities },
+      { find: 'src', replacement: src }
+    ]
+  }),
+  postcss({
+    extract: false,
+    modules: true,
+    plugins: [
+      autoprefixer(),
+      postcssPresetEnv({ stage: 0 })
+    ],
+    use: [ 'sass' ]
+  }),
+  babel({
+    babelHelpers: 'bundled',
+    compact: true,
+    exclude: 'node_modules/**'
+  }),
+  resolve(),
+  commonjs()
+];
 
-  output: [
-    {
-      name: 'default',
-      sourcemap: true,
-      file: 'dist/index.js',
-      format: 'umd',
-      globals: { react: 'React' }
-    }
-  ],
+// Helper function to create config
+const createConfig = (input, name, output) => ({
+  input: `${input}.js`,
+  output: [ {
+    name: `${name}`,
+    sourcemap: true,
+    file: `${output}.js`,
+    format: 'umd',
+    globals: { react: 'React' }
+  } ],
+  plugins
+});
 
-  plugins: [
-    alias({
-      entries: [
-        { find: 'components', replacement: components },
-        { find: 'utilities', replacement: utilities },
-        { find: 'src', replacement: src }
-      ]
-    }),
-    postcss({
-      extract: false,
-      modules: true,
-      plugins: [
-        autoprefixer(),
-        postcssPresetEnv({ stage: 0 })
-      ],
-      use: [ 'sass' ]
-    }),
-    babel({
-      babelHelpers: 'bundled',
-      exclude: 'node_modules/**'
-    }),
-    resolve(),
-    commonjs()
-  ],
-
-  external: [ 'react', 'react-dom' ]
+// Index file config settings
+const indexConfig = {
+  input: 'src/index',
+  output: 'dist/index',
+  name: 'default',
+  plugins
 };
+
+// Brand icon file configuration
+const brandIconConfig = {
+  input: 'src/assets/icons/brands',
+  name: 'brand-icons',
+  output: 'icons/brands'
+};
+
+// Regular icon file configuration
+const regularIconConfig = {
+  input: 'src/assets/icons/regular',
+  name: 'regular-icons',
+  output: 'icons/regular'
+};
+
+// Solid icon file configuration
+const solidIconConfig = {
+  input: 'src/assets/icons/solid',
+  name: 'solid-icons',
+  output: 'icons/solid'
+};
+
+// Final configuration
+const configs = [
+  indexConfig,
+  brandIconConfig,
+  regularIconConfig,
+  solidIconConfig
+].map(path => createConfig(path.input, path.name, path.output));
+
+export default configs;

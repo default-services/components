@@ -8,5 +8,5 @@ export default {
 };
 
 export const Checkbox = () => (
-  <DefaultCheckbox onClick={ action('clicked') } label-text="Checkbox" />
+  <DefaultCheckbox onClick={ action('clicked') } text='Checkbox' />
 );

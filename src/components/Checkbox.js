@@ -10,9 +10,7 @@ const CheckIcon = () => {
 };
 
 const Checkbox = props => {
-  /* eslint-disable no-useless-computed-key */
-  const { className, ['label-text']: labelText, type } = props;
-  const inputProps = { ...props, className: undefined };
+  const { className, text, type } = props;
 
   if(type && type !== 'checkbox')
     return console.warn(
@@ -21,8 +19,8 @@ const Checkbox = props => {
 
   return (
     <label className={ className }>
-      <span>{ labelText || '' }</span>
-      <input { ...inputProps } type='checkbox' />
+      <span>{ text || '' }</span>
+      <input { ...props } className={ undefined } type='checkbox' />
       <CheckIcon />
     </label>
   );
@@ -30,7 +28,7 @@ const Checkbox = props => {
 
 Checkbox.propTypes = {
   className: PropTypes.string.isRequired,
-  ['label-text']: PropTypes.string,
+  text: PropTypes.string,
   type: PropTypes.string
 };
 

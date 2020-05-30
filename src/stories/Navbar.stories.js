@@ -7,10 +7,28 @@ export default {
   component: DefaultNavbar
 };
 
+
 const links = [
-  { key: 'link_one', href: '#one', text: 'link one' },
-  { key: 'link_two', href: '#two', text: 'link two' },
-  { key: 'link_three', href: '#three', text: 'link three' }
+  {
+    // `li` element props
+    li: { key: 'link_one'},
+
+    // `a` element props
+    a: { href: '#one', title: 'link one' },
+
+    // link text
+    text: 'link one'
+  },
+  {
+    li: { key: 'link_two' },
+    a: { href: '#two' },
+    text: 'link two'
+  },
+  {
+    li: { key: 'link_three' },
+    a: { href: '#three' },
+    text: 'link three'
+  }
 ];
 
 export const Navbar = () => (

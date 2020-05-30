@@ -62,7 +62,8 @@
     "node": ">= 10.16.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "icons"
   ],
   "peerDependencies": {
     "react": "^16.0.0"
