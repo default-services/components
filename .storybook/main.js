@@ -1,6 +1,8 @@
 const path = require('path');
-const components = path.resolve(__dirname, '../', 'src', 'components');
-const src = path.resolve(__dirname, '../', 'src');
+const components = path.resolve(__dirname, '../src/components');
+//const icons = path.resolve(__dirname, '../src/assets/icons');
+//const scss = path.resolve(__dirname, '../src/assets/scss/');
+const src = path.resolve(__dirname, '../src');
 
 // Webpack config
 const webpack = config => {

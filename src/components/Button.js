@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
-const Button = props => <a { ...props }>{ props.children }</a>;
+
+export const Button = props => (
+  <a { ...props } className={ setClassName(props, 'button') }>
+    { props.children }
+  </a>
+);
 
 Button.propTypes = {
-  className: PropTypes.string.isRequired,
   variant: PropTypes.string
 };
-
-export default Button;

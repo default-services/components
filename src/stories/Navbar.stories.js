@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Navbar as DefaultNavbar } from 'index';
+import { Navbar as DefaultNavbar } from 'components/Navbar';
 
 export default {
   title: 'Navbar',

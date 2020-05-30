@@ -20,7 +20,8 @@
     }
   },
   "rules": {
-    "curly": [2, "multi", "consistent"],
+    "array-bracket-spacing": 0,
+    "curly": 0,
     "eol-last": ["error", "never"],
     "import/export": 0,
     "keyword-spacing": [2, {"overrides": {
@@ -29,11 +30,11 @@
       "while": {"after": false},
       "switch": {"after": false}
     }}],
-    "array-bracket-spacing": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 2 }],
     "no-return-assign": 0,
     "no-trailing-spaces": "error",
     "no-useless-computed-key": 0,
+    "padded-blocks": 0,
     "react/jsx-curly-spacing": [2, { "when": "always" }],
     "react/jsx-fragments": 0,
     "react/jsx-handler-names": 0,

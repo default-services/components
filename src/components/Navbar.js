@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
-const Navbar = props => {
+
+export const Navbar = props => {
   const { links, variant } = props;
   // Check if there's an 'underline' variant in props
   const underline = (
@@ -10,7 +12,7 @@ const Navbar = props => {
   );
 
   return (
-    <header { ...props }>
+    <header { ...props } className={ setClassName(props, 'navbar') }>
       <nav>
         <ul>
           {
@@ -33,9 +35,6 @@ const Navbar = props => {
 };
 
 Navbar.propTypes = {
-  className: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(PropTypes.object).isRequired,
   variant: PropTypes.string
 };
-
-export default Navbar;

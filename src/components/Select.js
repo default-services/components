@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
-const Select = props => {
-  const { className, options } = props;
+
+export const Select = props => {
+  const { options } = props;
 
   return (
-    <label className={ className }>
+    <label className={ setClassName(props, 'select') }>
       <select { ...props } className={ undefined }>
         {
           options.map(option => {
@@ -21,5 +23,3 @@ const Select = props => {
 Select.propTypes = {
   options: PropTypes.array.isRequired
 };
-
-export default Select;

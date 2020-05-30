@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
-const Container = props => <section { ...props }>{ props.children }</section>;
 
-Container.propTypes = {
-  className: PropTypes.string.isRequired
-};
+export const Container = props => (
+  <section { ...props } className={ setClassName(props, 'container') }>
+    { props.children }
+  </section>
+);
 
-export default Container;
+Container.propTypes = { };

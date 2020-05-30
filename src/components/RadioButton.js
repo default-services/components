@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
 
-const RadioButton = props => {
-  const { className, text, type } = props;
+export const RadioButton = props => {
+  const { text, type } = props;
 
   if(type && type !== 'radio')
     return console.warn(
@@ -11,7 +12,7 @@ const RadioButton = props => {
     );
 
   return (
-    <label className={ className }>
+    <label className={ setClassName(props, 'radiobutton') }>
       <span>{ text || '' }</span>
       <input { ...props } className={ undefined } type='radio' />
       <span />
@@ -20,9 +21,6 @@ const RadioButton = props => {
 };
 
 RadioButton.propTypes = {
-  className: PropTypes.string.isRequired,
   text: PropTypes.string,
   type: PropTypes.string
 };
-
-export default RadioButton;

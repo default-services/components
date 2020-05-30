@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Checkbox as DefaultCheckbox } from 'index';
+import { Checkbox as DefaultCheckbox } from 'components/Checkbox';
 
 export default {
   title: 'Checkbox',

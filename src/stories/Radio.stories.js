@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { RadioButton as DefaultRadioButton } from 'index';
+import { RadioButton as DefaultRadioButton } from 'components/RadioButton';
 
 export default {
   title: 'Radio Button',
