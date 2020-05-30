@@ -1,18 +1,18 @@
-import React from 'react';
-import { action } from '@storybook/addon-actions';
-import { Select as DefaultSelect } from 'index';
+// import React from 'react';
+// import { action } from '@storybook/addon-actions';
+// import { Select as DefaultSelect } from 'index';
 
-export default {
-  title: 'Select',
-  component: DefaultSelect
-};
+// export default {
+//   title: 'Select',
+//   component: DefaultSelect
+// };
 
-const options = [
-  { value: 'option-a', text: 'first option' },
-  { value: 'option-b', text: 'second option' },
-  { value: 'option-c', text: 'third option' }
-]
+// const options = [
+//   { value: 'option-a', text: 'first option' },
+//   { value: 'option-b', text: 'second option' },
+//   { value: 'option-c', text: 'third option' }
+// ]
 
-export const Select = () => (
-  <DefaultSelect options={ options } onClick={ action('clicked') } />
-);
+// export const Select = () => (
+//   <DefaultSelect options={ options } onClick={ action('clicked') } />
+// );
