@@ -28,7 +28,7 @@
             background-color: var(--secondary-color);
             height: 0;
             width: 0;
-            transition: width .3s ease, height .3s ease, visibility .3s ease;
+            transition: width .3s ease, height .3s ease, visibility .3s ease, margin-bottom .3s ease;
           }
 
           &:hover {
@@ -38,6 +38,7 @@
               width: 100%;
               height: 2px;
               visibility: visible;
+              margin-bottom: -2px;
             }
           }
 

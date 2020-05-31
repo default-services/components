@@ -15,7 +15,7 @@ const utilities = path.resolve(__dirname, './src/utilities');
 const postcssPresetEnv = require('postcss-preset-env');
 const autoprefixer = require('autoprefixer');
 
-// Babel settings path
+// Babel config path
 const babelConfig = path.resolve(__dirname, '.babelrc');
 
 // Helper function to create config
