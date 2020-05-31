@@ -5,6 +5,7 @@
 [![License](https://img.shields.io/github/license/Default-Component-Library/default-component-library?color=%2357a9a9&style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library/blob/master/LICENSE)
 
 > A default, lightweight, component library for React.
+<br>
 
 ## 🐱‍🚀 Demo
 See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
@@ -21,6 +22,7 @@ npm install default-component-library
 ```bash
 yarn add default-component-library
 ```
+<br>
 
 ## 🐱‍💻 Usage
 ```jsx
@@ -39,7 +41,7 @@ const MyComponent = props => {
 
 ## 🐱‍👓 Documentation
 Coming soon..
-<br>
+<br><br>
 
 ## 🐱‍🐉 Browsers support
 Default component library utilizes technologies such as Babel and PostCSS to ensure all code is cross-browser compatible, and supports **at least** the following browsers:
