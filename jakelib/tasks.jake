@@ -1,7 +1,6 @@
 const { build } = require('./tasks/build.js');
 const { clean } = require('./tasks/clean.js');
 const { start } = require('./tasks/start.js');
-const { tests } = require('./tasks/tests.js');
 
 namespace('tasks', () => {
 
@@ -16,8 +15,4 @@ namespace('tasks', () => {
   // Clean scripts
   desc('Cleans project "junk" files.');
   task('clean', { async: true }, clean);
-
-  // Test scripts
-  desc('Runs tests (all, build, lint, unit, or watch).');
-  task('test', { async: true }, tests);
 });

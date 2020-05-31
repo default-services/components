@@ -99,13 +99,7 @@
     "clean:project": "npx jake tasks:clean project",
     "clean:storybook": "npx jake tasks:clean storybook",
     "start:project": "npx jake tasks:start project",
-    "start:storybook": "npx jake tasks:start storybook",
-    "test": "npx jake tasks:test all",
-    "test:all": "npx jake tasks:test all",
-    "test:build": "npx jake tasks:test build",
-    "test:lint": "npx jake tasks:test lint",
-    "test:unit": "npx jake tasks:test unit",
-    "test:watch": "npx jake tasks:test watch"
+    "start:storybook": "npx jake tasks:start storybook"
   },
   "script-comments": {
     "build": "See `build:all` below",
@@ -117,12 +111,6 @@
     "clean:project": "cleans project",
     "clean:storybook": "cleans Storybook",
     "start:project": "builds project and watches for changes",
-    "start:storybook": "starts Storybook",
-    "test": "See `test:all` below",
-    "test:all": "runs all tests",
-    "test:build": "runs build tests",
-    "test:lint": "runs eslint tests",
-    "test:unit": "runs unit tests",
-    "test:watch": "runs watch mode"
+    "start:storybook": "starts Storybook"
   }
 }

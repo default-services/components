@@ -1,9 +1,10 @@
 import alias from '@rollup/plugin-alias';
-import babel from '@rollup/plugin-babel';
+import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import multi from '@rollup/plugin-multi-entry';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
+
 
 // Rollup alias paths
 const path = require('path');
@@ -14,6 +15,9 @@ const utilities = path.resolve(__dirname, './src/utilities');
 const postcssPresetEnv = require('postcss-preset-env');
 const autoprefixer = require('autoprefixer');
 
+// Babel settings path
+const babelConfig = path.resolve(__dirname, '.babelrc');
+
 // Helper function to create config
 export default {
   input: 'src/components/**/*.js',
@@ -21,12 +25,11 @@ export default {
     name: 'default-component-library',
     sourcemap: true,
     file: 'dist/index.js',
-    format: 'umd',
+    format: 'esm',
     globals: { react: 'React' }
   }],
   plugins: [
     alias({
-      resolve: [ '', '.js', '.scss' ],
       entries: [
         { find: 'src', replacement: src },
         { find: 'utilities', replacement: utilities }
@@ -38,6 +41,7 @@ export default {
       exclude: 'node_modules/**'
     }),
     commonjs(),
+    getBabelOutputPlugin({ configFile: babelConfig }),
     multi(),
     postcss({
       extract: false,
