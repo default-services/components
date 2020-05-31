@@ -7,7 +7,7 @@
 > Default component library for React.
 
 ## 🐱‍🚀 Demo
-See our components in action in the Default Storybook, hosted on GitHub pages:<br>
+See the components in action in the Default Storybook, hosted on GitHub pages:<br>
 [Default Storybook](https://default-component-library.github.io/default-component-library)
 
 ## 🐱‍🏍 Install
