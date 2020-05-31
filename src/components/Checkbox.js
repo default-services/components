@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
-import { CheckIcon } from 'src/assets/icons/solid/CheckIcon';
+import { CheckIcon } from 'src/assets/icons/CheckIcon';
 
 
 export const Checkbox = props => {

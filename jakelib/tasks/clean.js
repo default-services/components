@@ -8,7 +8,7 @@ const clean = () => {
   const files = process.argv.reduce((accumulator, argument) => {
     switch(argument) {
       case 'project':
-        accumulator = [ ...accumulator, 'dist', 'icons', 'node_modules' ];
+        accumulator = [ ...accumulator, 'dist', 'node_modules' ];
         return accumulator;
 
       case 'storybook':
@@ -16,7 +16,7 @@ const clean = () => {
         return accumulator;
 
       default:
-        accumulator = [ ...accumulator, 'dist', 'docs', 'icons', 'node_modules', 'storybook-static' ];
+        accumulator = [ ...accumulator, 'dist', 'docs', 'node_modules', 'storybook-static' ];
         return accumulator;
     }
   }, defaultFiles);
