@@ -15,7 +15,7 @@ See our components in action in the Default Storybook, hosted on GitHub pages:<b
 npm install default-component-library
 ```
 
-**or..**
+**Or..**
 
 ```bash
 yarn add default-component-library
