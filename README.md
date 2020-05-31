@@ -21,7 +21,6 @@ npm install default-component-library
 ```bash
 yarn add default-component-library
 ```
-<br>
 
 ## 🐱‍💻 Usage
 ```jsx
