@@ -40,7 +40,7 @@ Coming soon..
 
 ## Developers
 Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br><br>
-[![Tech](https://user-images.githubusercontent.com/8584126/83081137-d0cc1280-a034-11ea-9879-68d5364df7a7.png)](https://user-images.githubusercontent.com/8584126/83081137-d0cc1280-a034-11ea-9879-68d5364df7a7.png)
+[![Tech](https://user-images.githubusercontent.com/8584126/83081137-d0cc1280-a034-11ea-9879-68d5364df7a7.png)](https://github.com/Default-Component-Library/default-component-library)
 
 ## License
 
