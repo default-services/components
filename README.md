@@ -10,7 +10,7 @@
 ## 🐱‍🚀 Demo
 See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
 [Default Storybook](https://default-component-library.github.io/default-component-library)
-<br>
+<br><br>
 
 ## 🐱‍🏍 Install
 
