@@ -7,7 +7,6 @@ import resolve from '@rollup/plugin-node-resolve';
 
 // Rollup alias paths
 const path = require('path');
-const components = path.resolve(__dirname, './src/components');
 const src = path.resolve(__dirname, './src');
 const utilities = path.resolve(__dirname, './src/utilities');
 
@@ -17,7 +16,7 @@ const autoprefixer = require('autoprefixer');
 
 // Helper function to create config
 export default {
-  input: 'src/components/*.js',
+  input: 'src/components/**/*.js',
   output: [{
     name: 'default-component-library',
     sourcemap: true,
@@ -27,8 +26,8 @@ export default {
   }],
   plugins: [
     alias({
+      resolve: [ '', '.js', '.scss' ],
       entries: [
-        { find: 'components', replacement: components },
         { find: 'src', replacement: src },
         { find: 'utilities', replacement: utilities }
       ]

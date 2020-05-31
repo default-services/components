@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Input as DefaultInput } from 'components/Input';
+import { Input as DefaultInput } from 'components/input/Input';
 
 export default {
   title: 'Input',

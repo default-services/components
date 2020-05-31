@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Container as DefaultContainer } from 'components/Container';
+import { Container as DefaultContainer } from 'components/container/Container';
 
 export default {
   title: 'Container',

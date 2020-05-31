@@ -1,15 +1,15 @@
 // Utilities
-@import 'src/assets/scss/utilities/functions.scss';
-@import 'src/assets/scss/utilities/variables.scss';
-@import 'src/assets/scss/utilities/custom-properties.scss';
-@import 'src/assets/scss/utilities/extends.scss';
-@import 'src/assets/scss/utilities/type-scale.scss';
-@import 'src/assets/scss/utilities/visibility.scss';
+@import 'src/assets/scss/functions.scss';
+@import 'src/assets/scss/variables.scss';
+@import 'src/assets/scss/custom-properties.scss';
+@import 'src/assets/scss/extends.scss';
+@import 'src/assets/scss/type-scale.scss';
+@import 'src/assets/scss/visibility.scss';
 
 // Components
-@import 'src/assets/scss/styles/Button.scss';
-@import 'src/assets/scss/styles/Checkbox.scss';
-@import 'src/assets/scss/styles/Container.scss';
-@import 'src/assets/scss/styles/Input.scss';
-@import 'src/assets/scss/styles/Navbar.scss';
-@import 'src/assets/scss/styles/RadioButton.scss';
+@import 'src/components/button/Button.scss';
+@import 'src/components/checkbox/Checkbox.scss';
+@import 'src/components/container/Container.scss';
+@import 'src/components/input/Input.scss';
+@import 'src/components/navbar/Navbar.scss';
+@import 'src/components/radiobutton/RadioButton.scss';

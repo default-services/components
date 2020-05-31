@@ -1,6 +1,6 @@
 // import React from 'react';
 // import { action } from '@storybook/addon-actions';
-// import { Select as DefaultSelect } from 'components/Select';
+// import { Select as DefaultSelect } from 'components/select/Select';
 
 // export default {
 //   title: 'Select',
