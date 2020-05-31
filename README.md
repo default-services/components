@@ -12,11 +12,11 @@ See the components in action, in the Default Storybook. Hosted on GitHub pages:<
 
 ## 🐱‍🏍 Install
 
-**NPM**
+**NPM:**
 ```bash
 npm install default-component-library
 ```
-**Yarn**
+**Yarn:**
 ```bash
 yarn add default-component-library
 ```
