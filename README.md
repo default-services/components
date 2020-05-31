@@ -33,7 +33,7 @@ const MyComponent = props => {
 };
 ```
 
-## 📚 Documentation
+## 🐱‍👓 Documentation
 Coming soon..
 
 ## 🌎 Browsers support
