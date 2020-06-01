@@ -9,7 +9,7 @@
   "module": "dist/index.modern.js",
   "name": "@default-services/components",
   "source": "src/index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "dependencies": {
     "fiber": "^1.0.4",
     "prop-types": "^15.7.2",
@@ -87,7 +87,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Default-Component-Library/default-component-library.git"
+    "url": "https://github.com/default-services/components"
   },
   "scripts": {
     "build": "npx jake tasks:build",
