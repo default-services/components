@@ -4,6 +4,7 @@
   align-items: center;
   background-color: var(--primary-color);
   color: var(--white-color);
-  height: 4rem;
+  min-height: 4rem;
+  width: 100vw;
   font-family: var(--secondary-font);
 }
