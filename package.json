@@ -3,13 +3,13 @@
   "contributors": [
     "Daniel Wade <wade.daniel.w@gmail.com> (https://github.com/iPzard)"
   ],
-  "description": "Default component library",
+  "description": "Default components",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "name": "default-component-library",
+  "name": "@default-services/components",
   "source": "src/index.js",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "dependencies": {
     "fiber": "^1.0.4",
     "prop-types": "^15.7.2",

@@ -1,33 +1,33 @@
 # Default Component Library
 
-[![NPM](https://img.shields.io/npm/v/default-component-library?color=%2357a9a9&style=for-the-badge)](https://www.npmjs.com/package/default-component-library)
-[![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library)
-[![License](https://img.shields.io/github/license/Default-Component-Library/default-component-library?color=%2357a9a9&style=for-the-badge)](https://github.com/Default-Component-Library/default-component-library/blob/master/LICENSE)
+[![NPM](https://img.shields.io/npm/v/@default-services/components?color=%2357a9a9&style=for-the-badge)](https://www.npmjs.com/package/@default-services/components)
+[![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/default-services/components)
+[![License](https://img.shields.io/github/license/default-services/components?color=%2357a9a9&style=for-the-badge)](https://github.com/default-services/components/blob/master/LICENSE)
 
 > A default, lightweight, component library for React.
 <br>
 
 ## 🐱‍🚀 Demo
 See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
-[Default Storybook](https://default-component-library.github.io/default-component-library)
+[Default Storybook](https://default-services.github.io/components)
 <br><br>
 
 ## 🐱‍🏍 Install
 
 **npm:**
 ```bash
-npm install default-component-library
+npm install @default-services/components
 ```
 **yarn:**
 ```bash
-yarn add default-component-library
+yarn add @default-services/components
 ```
 <br>
 
 ## 🐱‍💻 Use
 ```jsx
 import React, { Component } from 'react';
-import { Button } from 'default-component-library';
+import { Button } from '@default-services/components';
 
 const MyComponent = props => {
   return (
@@ -52,9 +52,9 @@ Default component library utilizes technologies such as Babel and PostCSS to ens
 
 ## 🐱‍👤 Develop
 Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br><br>
-[![Tech](https://user-images.githubusercontent.com/8584126/83371633-d3ea3a00-a377-11ea-90df-9d91525931c6.png)](https://github.com/Default-Component-Library/default-component-library)
+[![Tech](https://user-images.githubusercontent.com/8584126/83371633-d3ea3a00-a377-11ea-90df-9d91525931c6.png)](https://github.com/default-services/components)
 <br>
 
 ## 🏷️ License
 
-MIT © [Default Component Library](https://github.com/Default-Component-Library)
+MIT © [Default](https://github.com/default-services)
