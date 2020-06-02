@@ -9,7 +9,7 @@
   "module": "dist/index.modern.js",
   "name": "@default-services/components",
   "source": "src/index.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
     "fiber": "^1.0.4",
     "prop-types": "^15.7.2",
@@ -44,7 +44,7 @@
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.1.0",
-    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-minify": "^0.5.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -82,8 +82,18 @@
   "files": [
     "dist"
   ],
+  "keywords": [
+    "components",
+    "component",
+    "react",
+    "library",
+    "default"
+  ],
   "peerDependencies": {
     "react": "^16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",

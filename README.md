@@ -7,6 +7,10 @@
 > A default, lightweight, component library for React.
 <br>
 
+## 🧪 Beta
+The Default component library is still in its public beta stage; use at your own risk.
+<br>
+
 ## 🐱‍🚀 Demo
 See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
 [Default Storybook](https://default-services.github.io/components)
@@ -40,7 +44,7 @@ const MyComponent = props => {
 <br>
 
 ## 🐱‍👓 Learn
-Coming soon..
+Documentation is coming soon..
 <br><br>
 
 ## 🐱‍🐉 Support
@@ -52,9 +56,9 @@ Default component library utilizes technologies such as Babel and PostCSS to ens
 
 ## 🐱‍👤 Develop
 Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br><br>
-[![Tech](https://user-images.githubusercontent.com/8584126/83371633-d3ea3a00-a377-11ea-90df-9d91525931c6.png)](https://github.com/default-services/components)
+[![Tech](https://user-images.githubusercontent.com/8584126/83432596-f454db80-a3ed-11ea-93c3-28c5ae24a42d.png)](https://github.com/default-services/components)
 <br>
 
 ## 🏷️ License
 
-MIT © [Default](https://github.com/default-services)
+MIT © [Default](https://github.com/default-services/components/blob/master/LICENSE)
