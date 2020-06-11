@@ -36,11 +36,7 @@ export const Navbar = () => (
 );
 
 export const Navbar_Underline_On_Hover = () => (
-  <div>
-<DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-underline' />
-<h1>test</h1>
-  </div>
-
+  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-underline' />
 );
 
 export const Navbar_Right = () => (

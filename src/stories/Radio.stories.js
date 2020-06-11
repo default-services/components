@@ -10,3 +10,11 @@ export default {
 export const Radio = () => (
   <DefaultRadioButton onClick={ action('clicked') } text='Radio button' />
 );
+
+export const Radio_Filled = () => (
+  <DefaultRadioButton
+    onClick={ action('clicked') }
+    text='Radio button filled'
+    variant='filled'
+  />
+);

@@ -2,9 +2,6 @@
   @extend %input-label;
 
   input {
-
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     border-radius: var(--border-radius-round);
     width: var(--input-size);
@@ -35,6 +32,22 @@
         height: calc(var(--input-size) - calc(var(--border-size) * 4));
       }
     }
+
+    &[variant="filled"] {
+
+      &:checked {
+        background-color: var(--primary-color);
+
+        + span {
+          background-color: var(--white-color);
+          width: 5px;
+          height: 5px;
+          position: relative;
+          margin-left: .425rem;
+        }
+      }
+    }
+
     @extend %accessible-border-behavior;
   }
 

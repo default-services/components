@@ -15,8 +15,10 @@
   --white-color: #{$white-color};
   --black-color: #{$black-color};
   --grey-color-light: #{$grey-color-light};
+  --grey-color-super-light: #{$grey-color-super-light};
   --grey-color-dark: #{$grey-color-dark};
   --box-shadow: #{$box-shadow};
+  --box-shadow-light: #{$box-shadow-light};
 
   // Borders
   --border-radius: #{$border-radius};
@@ -40,5 +42,6 @@
 
   // Transitions
   --transition-speed: #{$transition-speed};
+  --transition-speed-variant: #{$transition-speed-variant};
   --transition-animation-type: #{$transition-animation-type};
 }

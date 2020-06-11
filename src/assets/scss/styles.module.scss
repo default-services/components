@@ -7,6 +7,7 @@
 @import 'src/assets/scss/visibility.scss';
 
 // Components
+@import 'src/components/avatar/Avatar.scss';
 @import 'src/components/button/Button.scss';
 @import 'src/components/checkbox/Checkbox.scss';
 @import 'src/components/container/Container.scss';
@@ -14,3 +15,5 @@
 @import 'src/components/input/Input.scss';
 @import 'src/components/navbar/Navbar.scss';
 @import 'src/components/radiobutton/RadioButton.scss';
+@import 'src/components/select/Select.scss';
+@import 'src/components/switch/Switch.scss';

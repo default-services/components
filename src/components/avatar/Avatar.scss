@@ -1,0 +1,36 @@
+.avatar {
+  border: solid 1px var(--grey-color-light);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-round);
+  overflow: hidden;
+
+  // Any/all children
+  * {
+    max-width: 100%;
+  }
+
+  @mixin size($avatar-padding, $avatar-size, $image-padding) {
+    padding: $avatar-padding;
+    width: $avatar-size;
+    height: $avatar-size;
+
+    img {
+      padding-top: $image-padding;
+    }
+  }
+
+  // Default
+  @include size(8px, 75px, .7rem);
+
+  &[variant="large"] {
+    @include size(10px, 100px, 1rem);
+  }
+
+  &[variant="medium"] {
+    @include size(5px, 50px, .45rem);
+  }
+
+  &[variant="small"] {
+    @include size(4px, 25px, .35rem);
+  }
+}

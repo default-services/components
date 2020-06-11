@@ -1,10 +1,19 @@
 .navbar {
   nav {
-    &:not(.right) {
-      ul {
-        padding-left: 1rem;
+    svg {
+      display: none;
+    }
+
+    @media(min-width: $tablet) {
+
+      &:not(.right) {
+        ul {
+          padding-left: 1rem;
+        }
       }
     }
+
+
 
     ul {
       display: flex;
@@ -19,7 +28,7 @@
           text-decoration: none;
           font-weight: bold;
           text-transform: uppercase;
-          transition: border-bottom .3s, color .3s;
+          transition: border-bottom var(--transition-speed-variant), color var(--transition-speed-variant);
 
           + span {
             display: block;
@@ -28,7 +37,7 @@
             background-color: var(--secondary-color);
             height: 0;
             width: 0;
-            transition: width .3s ease, height .3s ease, visibility .3s ease, margin-bottom .3s ease;
+            transition: width var(--transition-speed-variant) ease, height var(--transition-speed-variant) ease, visibility var(--transition-speed-variant) ease, margin-bottom var(--transition-speed-variant) ease;
           }
 
           &:hover {
@@ -55,22 +64,95 @@
       }
     }
   }
-}
 
-.navbar-underline {
-  @extend .navbar;
-}
+  @media(max-width: $tablet) { // can't use custom properties in media queries
+    display: grid;
+    justify-content: left;
+    position: absolute;
+    left: -100%;
+    transition: left var(--transition-speed-variant);
+    min-height: 45px;
 
-.navbar-right {
-  @extend .navbar;
-  nav {
-    ul {
-      justify-content: flex-end;
-      padding-right: 1rem;
+    nav {
+
+      svg {
+        display: block;
+        position: fixed;
+        left: .75rem;
+        top: .75rem;
+        fill: var(--primary-color);
+        width: 1.5rem;
+      }
+
+      ul {
+        justify-content: flex-start;
+        flex-direction: column;
+        position: absolute;
+        background: var(--grey-color-dark);
+        height: 100vh;
+        min-width: 250px;
+        top: -15px;
+        left: -15px;
+        padding-top: 3.5rem;
+        padding-left: .5rem;
+        padding-right: 0;
+        margin: 0;
+        z-index: 9990;
+
+        li {
+          margin: 0;
+          padding: 1rem 5rem 1rem 2rem;
+
+          a {
+            user-select: none;
+            font-size: 1.2rem;
+          }
+
+          &:hover, &:focus {
+            background-color: var(--grey-color-light);
+
+            a {
+              color: var(--secondary-color);
+            }
+          }
+        }
+
+      }
+
     }
   }
+
+  &[variant*="right"] {
+    nav {
+      ul {
+        @media(min-width: $tablet) {
+          justify-content: flex-end;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
+
 }
 
-.navbar-right-underline {
-  @extend .navbar-right;
+.navbar-open {
+  @extend .navbar;
+
+  @media(max-width: $tablet) { // can't use custom properties in media queries
+
+    left: 0;
+    nav {
+      display: grid;
+      grid-template-columns: 6fr 1fr 1fr;
+
+      svg {
+        width: 1.70rem;
+        z-index: 9991;
+        grid-column-start: 3;
+        position: relative;
+        margin-top: -.5rem;
+      }
+    }
+
+  }
 }

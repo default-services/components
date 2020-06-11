@@ -1,0 +1,33 @@
+.switch {
+  display: block;
+  width: 26px;
+  height: 8px;
+  border-radius: 25px;
+  background-color: var(--grey-color-super-light);
+  box-shadow: var(--box-shadow-light);
+  transition: background-color var(--transition-speed);
+  cursor: pointer;
+
+  span {
+    height: 16px;
+    width: 16px;
+    margin-top: -4px;
+    margin-left: -4px;
+    background-color: var(--grey-color-light);
+    position: absolute;
+    border-radius: 50px;
+    box-shadow: var(--box-shadow-light);
+    transition: background-color var(--transition-speed), margin-left var(--transition-speed);
+    pointer-events: none;
+  }
+
+  &[data-active="true"] {
+    span {
+      background-color: var(--primary-color);
+      margin-left: 14px;
+      transition: background-color var(--transition-speed), margin-left var(--transition-speed);
+    }
+  }
+
+}
+

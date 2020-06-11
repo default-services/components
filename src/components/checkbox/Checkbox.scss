@@ -3,8 +3,6 @@
 
   input {
     border-radius: var(--border-radius);
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     outline: none;
     width: var(--input-size);
@@ -19,14 +17,13 @@
     + svg {
       transition: var(--transition-speed);
       pointer-events: none;
-      width: .65rem;
-      margin-left: .48rem;
-      margin-top: .45rem;
+      width: .85rem;
+      margin-left: .4rem;
+      margin-top: .35rem;
       position: absolute;
-      border-radius: calc(var(--border-radius)  - 2px);
+      border-radius: calc(var(--border-radius) - 2px);
       fill: var(--white-color);
       position: absolute;
-      visibility: hidden;
     }
 
     &:checked {

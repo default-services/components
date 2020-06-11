@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
-import { CheckIcon } from 'src/assets/icons/CheckIcon';
+import { CheckAltIcon } from 'src/assets/icons/CheckAltIcon';
 
 
 export const Checkbox = props => {
@@ -17,7 +17,7 @@ export const Checkbox = props => {
     <label className={ setClassName(props, 'checkbox') }>
       <span>{ text || '' }</span>
       <input { ...props } className={ undefined } type='checkbox' />
-      <CheckIcon />
+      <CheckAltIcon />
     </label>
   );
 };

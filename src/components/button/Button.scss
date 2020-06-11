@@ -17,15 +17,14 @@
     background-color: var(--primary-color-dark);
   }
 
-  @media(max-width: var(--phone)) {
+  @media(max-width: $phone) {
     font-size: 1rem;
     padding: .5rem 1.25rem 1.25rem;
     margin: 0 .5rem;
   }
-}
 
-// Variant(s)
-.button-round {
-  @extend .button;
-  border-radius: var(--border-radius-round-button);
+  // Variant(s)
+  &[variant="button-round"] {
+    border-radius: var(--border-radius-round-button);
+  }
 }

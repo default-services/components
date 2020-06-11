@@ -9,6 +9,6 @@ export default {
 
 export const Footer = () => (
   <DefaultFooter onClick={ action('clicked') }>
-    <p>© { new Date().getFullYear() } Default</p>
+    <p>By Default Services</p>
   </DefaultFooter>
 );
