@@ -1,20 +1,23 @@
 // DEV: Work in progress
 
-// import React from 'react';
-// import { action } from '@storybook/addon-actions';
-// import { Select as DefaultSelect } from 'components/select/Select';
+import React from 'react';
+import { action } from '@storybook/addon-actions';
+import { Select as DefaultSelect } from 'components/select/Select';
 
-// export default {
-//   title: 'Select',
-//   component: DefaultSelect
-// };
+export default {
+  title: 'Select',
+  component: DefaultSelect
+};
 
-// const options = [
-//   { value: 'option-a', text: 'first option' },
-//   { value: 'option-b', text: 'second option' },
-//   { value: 'option-c', text: 'third option' }
-// ]
+const options = [
+  'first option',
+  'second option',
+  'third option'
+];
 
-// export const Select = () => (
-//   <DefaultSelect options={ options } onClick={ action('clicked') } />
-// );
+export const Select = () => (
+  <div>
+    <h2 style={{ color: 'var(--secondary-color)'}}>Development in-progress</h2>
+    <DefaultSelect options={ options } onClick={ action('clicked') } title='My options' />
+  </div>
+);

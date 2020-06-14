@@ -1,5 +1,52 @@
 .select {
-   select {
-    appearance: none;
-   }
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  width: fit-content;
+
+  div {
+    border: solid 1px var(--grey-color-light);
+    width: fit-content;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 95% 5%;
+    box-shadow: var(--box-shadow);
+
+    span {
+      display: grid;
+      align-items: center;
+    }
+
+    svg {
+      width: 1.5rem;
+      color: var(--primary-color);
+      transition: transform var(--transition-speed-variant);
+      margin-top: 0px;
+      margin-left: -15px;
+    }
+  }
+
+  ul {
+    list-style: none;
+    width: fit-content;
+    border: solid 1px var(--grey-color-light);
+    border-radius: var(--border-radius);
+    margin-top: 8px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding-left: 0;
+    padding-top: 0;
+
+    li {
+      padding: 1rem 1.5rem 1rem 1rem;
+
+      &:not(:first-child):not(:last-child) {
+        border-top: solid 1px var(--grey-color-light);
+        border-bottom: solid 1px var(--grey-color-light);
+      }
+    }
+
+  }
 }

@@ -37,6 +37,7 @@
     "no-return-assign": 0,
     "no-trailing-spaces": "error",
     "no-useless-computed-key": 0,
+    "operator-linebreak": 0,
     "padded-blocks": 0,
     "react/jsx-curly-spacing": [2, { "when": "always" }],
     "react/jsx-fragments": 0,
