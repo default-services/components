@@ -26,7 +26,7 @@ export const Select = props => {
 
   // Configure option padding based on longest option width
   const setOptionStyles = option => {
-    const paddingRight = `calc(${longestOptionWidth - option.length + 3 + 'ch'} + 1.5rem)`;
+    const paddingRight = `calc(${longestOptionWidth - option.length + 4 + 'ch'} + 1.5rem)`;
     return { paddingRight };
   };
 
@@ -56,7 +56,7 @@ export const Select = props => {
   return (
     <article { ...props } className={ setClassName(props, 'select') }>
 
-      <div onClick={ handleDropdownClick } style={ { width: `${longestOptionWidth + 4}ch` } }>
+      <div onClick={ handleDropdownClick } style={ { width: `${longestOptionWidth + 5}ch` } }>
         <span style={ { paddingRight: longestOptionWidth - currentOption.length } }>{ currentOption }</span>
         <span>|</span>
         <ChevronDownAltIcon style={ { transform: `scaleY(${showOptions ? '-1' : '1'})` } } />

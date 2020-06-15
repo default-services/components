@@ -1,5 +1,3 @@
-// DEV: Work in progress
-
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { Select as DefaultSelect } from 'components/select/Select';

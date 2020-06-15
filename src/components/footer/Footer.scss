@@ -5,5 +5,9 @@
   background-color: var(--primary-color);
   color: var(--white-color);
   min-height: 4rem;
-  font-family: var(--secondary-font);
+  font-family: var(--primary-font);
+
+  * {
+    font-family: inherit;
+  }
 }

@@ -1,5 +1,10 @@
 .checkbox {
   @extend %input-label;
+  font-family: var(--primary-font);
+
+  * {
+    font-family: inherit;
+  }
 
   input {
     border-radius: var(--border-radius);

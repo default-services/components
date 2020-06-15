@@ -2,4 +2,9 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
+  font-family: var(--primary-font);
+
+  * {
+    font-family: inherit;
+  }
 }
