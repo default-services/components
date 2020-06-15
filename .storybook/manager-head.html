@@ -1,11 +1,34 @@
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Nova+Flat|Roboto&display=swap" rel="stylesheet">
 <link id="favicon" rel="shortcut icon" href="#" type="image/x-icon">
 <title>Default Storybook</title>
 
 <!-- Apply random favicon on load -->
 <script>
-  window.onload = () => {
+  window.addEventListener('DOMContentLoaded', () => {
     const URL = 'https://user-images.githubusercontent.com/8584126/';
-    const colors = [ green, red ] = [ '83166610-08ce6680-a0c4-11ea-9eca-c9321369e26f.png', '83166653-17b51900-a0c4-11ea-85aa-a82a394e913a.png' ];
+
+    const colors = [ green, red ] = [
+      '83166610-08ce6680-a0c4-11ea-9eca-c9321369e26f.png',
+      '83166653-17b51900-a0c4-11ea-85aa-a82a394e913a.png'
+    ];
+
     document.querySelector('#favicon').setAttribute('href', URL + colors[Math.floor(Math.random() * colors.length)]);
-  };
+  });
 </script>
+
+<style>
+  a[id^=explorer] span {
+    font-size: 1rem;
+    margin-top: .1rem;
+    color: #484848;
+  }
+
+  a[id^=explorer] .selected span {
+    color: #f5f5f5;
+  }
+
+  a[id^=explorer] + div {
+    margin-bottom: .25rem;
+  }
+</style>

@@ -11,24 +11,24 @@ const image = 'https://user-images.githubusercontent.com/8584126/84220258-38e415
 
 export const Avatar_Small = () => (
   <DefaultAvatar variant="small" onClick={ action('clicked') }>
-    <img src={ image } />
+    <img src={ image } alt="avatar" />
   </DefaultAvatar>
 );
 
 export const Avatar_Medium = () => (
   <DefaultAvatar variant="medium" onClick={ action('clicked') }>
-    <img src={ image } />
+    <img src={ image } alt="avatar" />
   </DefaultAvatar>
 );
 
 export const Avatar_Default = () => (
   <DefaultAvatar onClick={ action('clicked') }>
-    <img src={ image } />
+    <img src={ image } alt="avatar" />
   </DefaultAvatar>
 );
 
 export const Avatar_Large = () => (
     <DefaultAvatar variant="large" onClick={ action('clicked') }>
-      <img src={ image } />
+      <img src={ image } alt="avatar" />
     </DefaultAvatar>
 );

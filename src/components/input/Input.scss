@@ -3,7 +3,7 @@
     padding: 5px 8px;
     border: solid var(--border-size) var(--grey-color-light);
     border-radius: var(--border-radius);
-    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
 
     @extend %accessible-border-behavior;
   }
