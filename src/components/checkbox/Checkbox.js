@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
 import { CheckAltIcon } from 'src/assets/icons/CheckAltIcon';
+import { CheckIcon } from 'src/assets/icons/CheckIcon';
 
 
 export const Checkbox = props => {
-  const { text, type } = props;
+  const { text, type, variant } = props;
 
   if(type && type !== 'checkbox')
     return console.warn(
@@ -17,7 +18,7 @@ export const Checkbox = props => {
     <label className={ setClassName(props, 'checkbox') }>
       <span>{ text || '' }</span>
       <input { ...props } className={ undefined } type='checkbox' />
-      <CheckAltIcon />
+      { variant === 'alt-icons' ? <CheckAltIcon /> : <CheckIcon /> }
     </label>
   );
 };

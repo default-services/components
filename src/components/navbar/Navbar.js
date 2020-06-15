@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
+import { MenuIcon } from 'assets/icons/MenuIcon';
 import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
+import { CloseIcon } from 'assets/icons/CloseIcon';
+
 
 export const Navbar = props => {
-  const { links, variant } = props;
+  const { links, variant = '' } = props;
 
 
   // Collecting the navbar offset is important for smooth transitions,
@@ -28,12 +31,23 @@ export const Navbar = props => {
 
   // Check if there's an 'underline' variant in props
   const underline = (
-    variant === 'navbar-underline' ||
-    variant === 'navbar-right-underline'
+    variant.includes('navbar-underline') ||
+    variant.includes('navbar-right-underline')
   );
 
   // Determining which menu icon to serve & menu offset
-  const Icon = props => menu.open ? <CloseAltIcon { ...props } /> : <MenuAltIcon { ...props } />;
+  const Close = props => variant.includes('alt-icons') ?
+    <CloseAltIcon { ...props } /> :
+    <CloseIcon { ...props } />;
+
+  const Menu = props => variant.includes('alt-icons') ?
+    <MenuAltIcon { ...props } /> :
+    <MenuIcon { ...props } />;
+
+  const Icon = props => menu.open ?
+    <Close { ...props } /> :
+    <Menu { ...props } />;
+
   const menuOffset = !menu.open && navbarOffset ? `-${navbarOffset}px` : undefined;
 
   return (

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 import { ChevronDownAltIcon } from 'assets/icons/ChevronDownAltIcon';
+import { ChevronDownIcon } from 'assets/icons/ChevronDownIcon';
 
 export const Select = props => {
-  const { options, title } = props;
+  const { options, title, variant = '' } = props;
   const [ currentOption, setCurrentOption ] = useState(title);
   const [ showOptions, setShowOptions ] = useState(false);
 
@@ -52,6 +53,9 @@ export const Select = props => {
     </ul>
   );
 
+  const ChevronDown = props => variant.includes('alt-icons') ?
+    <ChevronDownAltIcon { ...props } /> :
+    <ChevronDownIcon { ...props } />;
 
   return (
     <article { ...props } className={ setClassName(props, 'select') }>
@@ -59,7 +63,7 @@ export const Select = props => {
       <div onClick={ handleDropdownClick } style={ { width: `${longestOptionWidth + 1}ch` } }>
         <span style={ { paddingRight: longestOptionWidth - currentOption.length } }>{ currentOption }</span>
         <span>|</span>
-        <ChevronDownAltIcon style={ { transform: `scaleY(${showOptions ? '-1' : '1'})` } } />
+        <ChevronDown style={ { transform: `scaleY(${showOptions ? '-1' : '1'})` } } />
       </div>
 
       { showOptions ? optionList : undefined }

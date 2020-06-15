@@ -20,9 +20,10 @@ const webpack = config => {
 module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [
-    '@storybook/preset-create-react-app',
     '@storybook/addon-actions',
     '@storybook/addon-links',
+    '@storybook/addon-viewport/register',
+    '@storybook/preset-create-react-app',
   ],
 
   // Webpack for Storybook "manager"

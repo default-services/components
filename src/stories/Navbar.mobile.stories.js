@@ -5,6 +5,11 @@ import { Navbar as DefaultNavbar } from 'components/navbar/Navbar';
 export default {
   title: 'Navbar',
   component: DefaultNavbar,
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphone6'
+    },
+  }
 };
 
 
@@ -31,18 +36,10 @@ const links = [
   }
 ];
 
-export const Navbar = () => (
+export const Navbar_On_Mobile = () => (
   <DefaultNavbar onClick={ action('clicked') } links={ links } />
 );
 
-export const Navbar_Underline_On_Hover = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-underline' />
-);
-
-export const Navbar_Right = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-right' />
-);
-
-export const Navbar_Right_Underline_On_Hover = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-right-underline' />
+export const Navbar_On_Mobile_Alt_Icons = () => (
+  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='alt-icons' />
 );

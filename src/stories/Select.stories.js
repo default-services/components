@@ -19,3 +19,9 @@ export const Select = () => (
     <DefaultSelect options={ options } onClick={ action('clicked') } title='My options' />
   </div>
 );
+
+export const Select_Alt_Icons = () => (
+  <div style={{ padding: '1rem'}} >
+    <DefaultSelect options={ options } onClick={ action('clicked') } title='My options' variant='alt-icons' />
+  </div>
+);
