@@ -4,48 +4,63 @@
   width: fit-content;
 
   div {
-    border: solid 1px var(--grey-color-light);
+    border: var(--border);
     width: fit-content;
-    padding: .5rem 1rem;
+    padding: .25rem .85rem;
     border-radius: var(--border-radius);
     display: grid;
     grid-template-rows: 100%;
-    grid-template-columns: 95% 5%;
-    box-shadow: var(--box-shadow);
+    grid-template-columns: 90% 5% 5%;
+    min-height: 1.25rem;
+    //box-shadow: var(--box-shadow);
+    @extend %accessible-border-behavior;
 
     span {
       display: grid;
       align-items: center;
+
+      + span {
+        margin-left: -15px;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        height: 1px;
+      }
     }
 
     svg {
       width: 1.5rem;
       color: var(--primary-color);
-      transition: transform var(--transition-speed-variant);
-      margin-top: 0px;
-      margin-left: -15px;
+      transition: transform var(--transition-speed-quick);
+      margin-top: 1px;
+      margin-left: -10px;
     }
   }
 
   ul {
     list-style: none;
     width: fit-content;
-    border: solid 1px var(--grey-color-light);
+    border: var(--border);
     border-radius: var(--border-radius);
     margin-top: 8px;
-    box-shadow: var(--box-shadow);
+    //box-shadow: var(--box-shadow);
     background-color: var(--white-color);
     color: var(--black-color);
     padding-left: 0;
     padding-top: 0;
+    @extend %accessible-border-behavior;
 
     li {
-      padding: 1rem 1.5rem 1rem 1rem;
+      padding: .5rem 1.5rem .5rem .85rem;
+      border-top: solid 1px var(--grey-color-light);
+      border-bottom: solid 1px var(--grey-color-light);
 
-      &:not(:first-child):not(:last-child) {
-        border-top: solid 1px var(--grey-color-light);
-        border-bottom: solid 1px var(--grey-color-light);
+      &:first-child {
+        border-top: none;
       }
+      &:last-child {
+        border-bottom: none;
+      }
+
     }
 
   }

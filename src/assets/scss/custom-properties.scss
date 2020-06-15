@@ -2,6 +2,8 @@
 // However, custom properties are more override friendly for developers.
 // This file sets custom properties from the variables in `variables.scss`.
 // These custom properties are what's used in the component `*.scss` files.
+// With the exception of media query breakpoints, which currently cannot be
+// Used with custom properties, so those use Sass variables.
 
 :root {
 
@@ -15,7 +17,7 @@
   --white-color: #{$white-color};
   --black-color: #{$black-color};
   --grey-color-light: #{$grey-color-light};
-  --grey-color-super-light: #{$grey-color-super-light};
+  --grey-color-very-light: #{$grey-color-very-light};
   --grey-color-dark: #{$grey-color-dark};
   --box-shadow: #{$box-shadow};
   --box-shadow-light: #{$box-shadow-light};
@@ -25,6 +27,7 @@
   --border-radius-round: #{$border-radius-round};
   --border-radius-round-button: #{$border-radius-round-button};
   --border-size: #{$border-size};
+  --border: #{$border};
 
   // Fonts
   --primary-font: #{$primary-font};
@@ -41,7 +44,7 @@
   --input-size: #{$input-size};
 
   // Transitions
-  --transition-speed: #{$transition-speed};
-  --transition-speed-variant: #{$transition-speed-variant};
+  --transition-speed-quick: #{$transition-speed-quick};
+  --transition-speed-slow: #{$transition-speed-slow};
   --transition-animation-type: #{$transition-animation-type};
 }

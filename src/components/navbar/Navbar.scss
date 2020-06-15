@@ -28,7 +28,7 @@
           text-decoration: none;
           font-weight: bold;
           text-transform: uppercase;
-          transition: border-bottom var(--transition-speed-variant), color var(--transition-speed-variant);
+          transition: border-bottom var(--transition-speed-slow), color var(--transition-speed-slow);
 
           + span {
             display: block;
@@ -37,7 +37,7 @@
             background-color: var(--secondary-color);
             height: 0;
             width: 0;
-            transition: width var(--transition-speed-variant) ease, height var(--transition-speed-variant) ease, visibility var(--transition-speed-variant) ease, margin-bottom var(--transition-speed-variant) ease;
+            transition: width var(--transition-speed-slow) ease, height var(--transition-speed-slow) ease, visibility var(--transition-speed-slow) ease, margin-bottom var(--transition-speed-slow) ease;
           }
 
           &:hover {
@@ -70,7 +70,7 @@
     justify-content: left;
     position: absolute;
     left: -100%;
-    transition: left var(--transition-speed-variant);
+    transition: left var(--transition-speed-slow);
     min-height: 45px;
 
     nav {

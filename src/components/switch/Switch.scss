@@ -3,9 +3,9 @@
   width: 26px;
   height: 8px;
   border-radius: 25px;
-  background-color: var(--grey-color-super-light);
+  background-color: var(--grey-color-very-light);
   box-shadow: var(--box-shadow-light);
-  transition: background-color var(--transition-speed);
+  transition: background-color var(--transition-speed-quick);
   cursor: pointer;
 
   span {
@@ -17,7 +17,7 @@
     position: absolute;
     border-radius: 50px;
     box-shadow: var(--box-shadow-light);
-    transition: background-color var(--transition-speed), margin-left var(--transition-speed);
+    transition: background-color var(--transition-speed-quick), margin-left var(--transition-speed-quick);
     pointer-events: none;
   }
 
@@ -25,7 +25,7 @@
     span {
       background-color: var(--primary-color);
       margin-left: 14px;
-      transition: background-color var(--transition-speed), margin-left var(--transition-speed);
+      transition: background-color var(--transition-speed-quick), margin-left var(--transition-speed-quick);
     }
   }
 

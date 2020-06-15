@@ -14,7 +14,7 @@ $secondary-color-dark: color(secondary-dark);
 $white-color: #f5f5f5;
 $black-color: #050505;
 $grey-color-light: #a5a5a5;
-$grey-color-super-light: lighten($grey-color-light, 15%);
+$grey-color-very-light: lighten($grey-color-light, 25%);
 $grey-color-dark: #484848;
 $box-shadow: 1px 1px 6px 0px rgba(0,0,0,.25);
 $box-shadow-light: 0 1px 1px 0px rgba(0,0,0,0.2);
@@ -25,6 +25,7 @@ $border-radius: 4px;
 $border-radius-round: 50%;
 $border-radius-round-button: 25px;
 $border-size: 2px;
+$border: solid $border-size $grey-color-light;
 
 // Fonts
 $primary-font: 'Nova Flat', monospace;
@@ -41,6 +42,6 @@ $large-desktop: 1200px;
 $input-size: 1.15rem;
 
 // Transitions
-$transition-speed: .1s;
-$transition-speed-variant: .3s;
+$transition-speed-quick: .1s;
+$transition-speed-slow: .3s;
 $transition-animation-type: ease-in-out;

@@ -7,7 +7,7 @@
     width: var(--input-size);
     height: var(--input-size);
     border: solid var(--border-size) var(--grey-color-light);
-    transition: var(--transition-speed) background-color var(--transition-animation-type);
+    transition: var(--transition-speed-quick) background-color var(--transition-animation-type);
     cursor: pointer;
     margin: .01rem;
     margin-right: .5rem;

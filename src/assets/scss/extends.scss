@@ -1,11 +1,48 @@
 // Accessible behavior
 %accessible-border-behavior {
-  &:hover {
-    border: $border-size solid $grey-color-dark;
+
+  // For accessible inputs
+  &:not(li):hover {
+    border: var(--border-size) solid var(--grey-color-dark);
   }
 
-  outline-color: $grey-color-dark;
+  // For accessible list items (e.g, select)
+  li {
+    &:hover {
+      background-color: var(--grey-color-very-light);
+      &:first-child {
+        border-bottom: solid 1px var(--grey-color-dark);
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+        + li {
+          border-top: solid 1px var(--grey-color-dark);
+        }
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-top: solid 2px var(--grey-color-dark);
+        border-bottom: solid 1px var(--grey-color-dark);
+        margin-top: -1px;
+
+        + li {
+          border-top: solid 1px var(--grey-color-dark);
+        }
+      }
+
+      &:last-child {
+        border-top: solid 2px var(--grey-color-dark);
+        margin-top: -1px;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+      }
+
+
+    }
+
+  }
+
+  outline-color: var(--grey-color-dark);
 }
+
 
 // Input label configuration
 %input-label {

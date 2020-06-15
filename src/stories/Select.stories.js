@@ -12,12 +12,12 @@ export default {
 const options = [
   'first option',
   'second option',
-  'third option'
+  'third option',
+  'fourth option'
 ];
 
 export const Select = () => (
-  <div>
-    <h2 style={{ color: 'var(--secondary-color)'}}>Development in-progress</h2>
+  <div style={{ padding: '1rem'}} >
     <DefaultSelect options={ options } onClick={ action('clicked') } title='My options' />
   </div>
 );

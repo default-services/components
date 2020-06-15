@@ -8,14 +8,14 @@
     width: var(--input-size);
     height: var(--input-size);
     border: var(--border-size) solid var(--grey-color-light);
-    transition: var(--transition-speed);
+    transition: var(--transition-speed-quick);
     cursor: pointer;
     margin-right: .5rem;
 
     @extend %accessible-border-behavior;
 
     + svg {
-      transition: var(--transition-speed);
+      transition: var(--transition-speed-quick);
       pointer-events: none;
       width: .85rem;
       margin-left: .4rem;
