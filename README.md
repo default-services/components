@@ -59,6 +59,6 @@ Default is equipped with the latest and greatest tech stack, improve your develo
 [![Tech](https://user-images.githubusercontent.com/8584126/83432596-f454db80-a3ed-11ea-93c3-28c5ae24a42d.png)](https://github.com/default-services/components)
 <br>
 
-## 🏷️&nbsp;&nbsp;&nbsp;&nbsp;License
+## 🏷️ License
 
 MIT © [Default](https://github.com/default-services/components/blob/master/LICENSE)
