@@ -3,7 +3,7 @@
   width: 26px;
   height: 8px;
   border-radius: 25px;
-  background-color: var(--grey-color-very-light);
+  background-color: var(--grey-color-light);
   box-shadow: var(--box-shadow-light);
   transition: background-color var(--transition-speed-quick);
   cursor: pointer;
@@ -13,7 +13,7 @@
     width: 16px;
     margin-top: -4px;
     margin-left: -4px;
-    background-color: var(--grey-color-light);
+    background-color: var(--grey-color-medium);
     position: absolute;
     border-radius: 50px;
     box-shadow: var(--box-shadow-light);

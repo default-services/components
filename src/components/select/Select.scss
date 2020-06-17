@@ -49,16 +49,17 @@
 
     li {
       padding: .5rem 1.5rem .5rem .85rem;
-      border-top: solid 1px var(--grey-color-light);
-      border-bottom: solid 1px var(--grey-color-light);
-
+      border-top: solid 1px var(--grey-color-medium);
+      border-bottom: solid 1px var(--grey-color-medium);
       &:first-child {
         border-top: none;
       }
       &:last-child {
         border-bottom: none;
       }
-
+      &:hover {
+        background-color: var(--grey-color-light);
+      }
     }
 
   }

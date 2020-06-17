@@ -1,26 +1,20 @@
 {
-  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
   "extends": [
     "plugin:compat/recommended",
     "standard",
     "standard-react"
   ],
-  "env": {
-    "browser": true,
-    "node": true
-  },
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2020,
     "ecmaFeatures": {
       "legacyDecorators": true,
       "jsx": true
     }
-  },
-  "settings": {
-    "react": {
-      "version": "16"
-    },
-    "polyfills": [ "Array", "Promise", "fetch" ]
   },
   "rules": {
     "array-bracket-spacing": 0,
@@ -33,6 +27,12 @@
       "while": {"after": false},
       "switch": {"after": false}
     }}],
+    "settings": {
+      "react": {
+        "version": "16"
+      },
+      "polyfills": [ "Array", "Promise", "fetch" ]
+    },
     "no-multiple-empty-lines": ["error", { "max": 2 }],
     "no-return-assign": 0,
     "no-trailing-spaces": "error",
@@ -45,6 +45,9 @@
     "react/no-unused-prop-types": 0,
     "react/prop-types": 0,
     "semi": ["error", "always", { "omitLastInOneLineBlock": true }],
+    "sort-imports": "error",
+    "sort-keys": "error",
+    "sort-vars": "error",
     "space-before-function-paren": 0
   }
 }

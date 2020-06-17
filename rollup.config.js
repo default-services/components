@@ -8,6 +8,7 @@ import resolve from '@rollup/plugin-node-resolve';
 
 // Rollup alias paths
 const path = require('path');
+const assets = path.resolve(__dirname, './src/assets');
 const src = path.resolve(__dirname, './src');
 const utilities = path.resolve(__dirname, './src/utilities');
 
@@ -31,6 +32,7 @@ export default {
   plugins: [
     alias({
       entries: [
+        { find: 'assets', replacement: assets },
         { find: 'src', replacement: src },
         { find: 'utilities', replacement: utilities }
       ]

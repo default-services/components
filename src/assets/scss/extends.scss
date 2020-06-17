@@ -9,7 +9,7 @@
   // For accessible list items (e.g, select)
   li {
     &:hover {
-      background-color: var(--grey-color-very-light);
+      background-color: var(--grey-color-light);
       &:first-child {
         border-bottom: solid 1px var(--grey-color-dark);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
