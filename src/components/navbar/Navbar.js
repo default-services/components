@@ -20,9 +20,10 @@ export class Navbar extends Component {
 
   render() {
     const { props: { links, variant = '' } } = this;
+    const { state: { menuOpen } } = this;
 
-    const toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
-    const className = this.state.menuOpen ? 'navbar-open' : 'navbar';
+    const toggleMenu = () => this.setState({ menuOpen: !menuOpen });
+    const className = menuOpen ? 'navbar-open' : 'navbar';
 
     // Check if there's an 'underline' variant in props
     const underline = (
@@ -39,18 +40,19 @@ export class Navbar extends Component {
       <MenuAltIcon { ...props } /> :
       <MenuIcon { ...props } />;
 
-    const Icon = props => this.state.menuOpen ?
+    const Icon = props => menuOpen ?
       <Close { ...props } /> :
       <Menu { ...props } />;
 
+    const labelText = menuOpen ? 'close' : 'open';
     return (
       <header
         { ...this.props }
         className={ setClassName(this.props, className) }
       >
-        <div />
+        <aside role='dialog' />
         <nav>
-          <Icon onClick={ toggleMenu } />
+          <Icon onClick={ toggleMenu } aria-label={ labelText } />
           <ul>
             {
               links.map(link => {

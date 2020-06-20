@@ -15,7 +15,7 @@ const Welcome = () => {
 
         <h5 style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>Component To-Do:</h5>
         <ol>
-          <li>Create pagination component.</li>
+          <li>Create to-top component.</li>
           <li>Create alert/confirm/prompt component.</li>
           <li>Create loading component.</li>
           <li>Create card component.</li>

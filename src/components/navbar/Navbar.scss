@@ -2,8 +2,9 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
 
 .navbar {
 
+  margin-left: -16px;
 
-  div {
+  aside[role="dialog"] {
     position: fixed;
     background: rgba(0,0,0,0);
     transition: background var(--transition-speed-slow);
@@ -11,16 +12,23 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
     right: 0;
     bottom: 0;
     left: 0;
+
+    @media(min-width: $tablet) {
+      display: none;
+    }
   }
 
-  margin-left: -16px;
-
   nav {
-    svg {
+    svg[aria-label="close"] {
       opacity: 1;
     }
 
+
     @media(min-width: $tablet) {
+      svg[aria-label="close"],
+      svg[aria-label="open"] {
+        display: none;
+      }
 
       &:not(.right) {
         ul {
@@ -36,7 +44,7 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
 
       li {
         margin: 1rem;
-
+        cursor: pointer;
         a {
           text-decoration: none;
           font-weight: bold;
@@ -95,7 +103,7 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
 
     nav {
 
-      svg {
+      svg[aria-label="open"], svg[aria-label="close"] {
         display: block;
         position: fixed;
         left: .75rem;
@@ -172,7 +180,7 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
 
     left: 0;
 
-    div {
+    aside[role="dialog"]  {
       background: rgba(0,0,0,.1);
     }
 
@@ -191,7 +199,7 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
         to { opacity: 1 }
       }
 
-      svg {
+      svg[aria-label="close"] {
         width: 1.70rem;
         z-index: 9991;
         grid-column-start: 3;

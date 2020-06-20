@@ -1,10 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import setClassName from 'utilities/setClassName';
-
 import { CheckAltIcon } from 'src/assets/icons/CheckAltIcon';
 import { CheckIcon } from 'src/assets/icons/CheckIcon';
-
+import PropTypes from 'prop-types';
+import React from 'react';
+import setClassName from 'utilities/setClassName';
 
 export const Checkbox = props => {
   const { text, type, variant } = props;
@@ -17,7 +15,7 @@ export const Checkbox = props => {
   return (
     <label className={ setClassName(props, 'checkbox') }>
       <span>{ text || '' }</span>
-      <input { ...props } className={ undefined } type='checkbox' />
+      <input { ...props } className={ undefined } type='checkbox' role='checkbox' />
       { variant === 'alt-icons' ? <CheckAltIcon /> : <CheckIcon /> }
     </label>
   );

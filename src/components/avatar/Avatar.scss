@@ -1,7 +1,7 @@
 .avatar {
   border: solid 1px var(--grey-color-medium);
-  box-shadow: var(--box-shadow-heavy);
   border-radius: var(--border-radius-round);
+  box-shadow: var(--box-shadow-heavy);
   overflow: hidden;
 
   // Any/all children
@@ -28,9 +28,11 @@
 
   &[variant="medium"] {
     @include size(5px, 50px, .45rem);
+    box-shadow: var(--box-shadow-medium);
   }
 
   &[variant="small"] {
     @include size(4px, 25px, .35rem);
+    box-shadow: var(--box-shadow-medium);
   }
 }

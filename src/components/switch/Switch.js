@@ -13,10 +13,10 @@ export class Switch extends Component {
 
     return (
       <article
-        { ...this.props }
-        className={ setClassName(this.props, 'switch') }
         onClick={ this.toggle }
         data-active={ this.state.status }
+        { ...this.props }
+        className={ setClassName(this.props, 'switch') }
       >
         <span />
       </article>
