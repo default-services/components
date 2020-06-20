@@ -5,6 +5,6 @@
     border-radius: var(--border-radius);
     font-family: var(--primary-font);
 
-    @extend %accessible-border-behavior;
+    @include accessible-border-behavior;
   }
 }

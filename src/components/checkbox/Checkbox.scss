@@ -1,5 +1,5 @@
 .checkbox {
-  @extend %input-label;
+  @include input-label;
   font-family: var(--primary-font);
 
   * {
@@ -12,12 +12,11 @@
     outline: none;
     width: var(--input-size);
     height: var(--input-size);
-    border: var(--border-size) solid var(--grey-color-medium);
     transition: var(--transition-speed-quick);
     cursor: pointer;
     margin-right: .5rem;
 
-    @extend %accessible-border-behavior;
+    @include accessible-border-behavior;
 
     + svg {
       transition: var(--transition-speed-quick);
@@ -36,10 +35,6 @@
       + svg {
         visibility: visible;
       }
-    }
-
-    &:after {
-      border: solid var(--white-color);
     }
 
   }

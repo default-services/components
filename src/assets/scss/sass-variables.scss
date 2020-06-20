@@ -1,0 +1,17 @@
+// Sass variables and custom properties are both computed differently
+// this makes having both available useful if in some cases. For example
+// Custom properties can't be used in Sass functions or as media query
+// breakpoints. Using Sass to work around these areas.
+
+// Colors
+$primary-color: #57A9A9; // Cadet Blue
+$primary-color-contrast: choose-contrast-color($primary-color);
+$secondary-color:#A95757; // Apple Blossom
+$secondary-color-contrast: choose-contrast-color($secondary-color);
+
+// Media breakpoints
+$small-phone: 380px;
+$phone: 480px;
+$tablet: 768px;
+$desktop: 960px;
+$large-desktop: 1200px;

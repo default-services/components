@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import setClassName from 'utilities/setClassName';
-
 
 export const RadioButton = props => {
   const { text, type } = props;
@@ -14,7 +13,7 @@ export const RadioButton = props => {
   return (
     <label className={ setClassName(props, 'radiobutton') }>
       <span>{ text || '' }</span>
-      <input { ...props } className={ undefined } type='radio' />
+      <input { ...props } type='radio' className={ undefined } />
       <span />
     </label>
   );

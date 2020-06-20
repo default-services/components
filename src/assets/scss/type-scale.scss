@@ -17,23 +17,25 @@
   }
 
   // Allow for responsive behavior
-  @media (min-width: var(--small-phone)) {
+  // Custom properties don't work
+  // must use Sass variables instead
+  @media (min-width: $small-phone) {
     --type-scale: 1.1;
   }
 
-  @media (min-width: var(--phone)) {
+  @media (min-width: $phone) {
     --type-scale: 1.125;
   }
 
-  @media (min-width: var(--tablet)) {
+  @media (min-width: $tablet) {
     --type-scale: 1.15;
   }
 
-  @media (min-width: var(--desktop)) {
+  @media (min-width: $desktop) {
     --type-scale: 1.175;
   }
 
-  @media (min-width: var(--large-desktop)) {
+  @media (min-width: $large-desktop) {
     --type-scale: 1.2;
   }
 }
@@ -72,15 +74,11 @@ body {
     color: var(--primary-color);
 
     &:hover {
-      color: var(--secondary-color);
+      color: var(--primary-color-hover);
     }
 
     &:active, &:focus {
-      color: var(--secondary-color-dark);
+      color: var(--primary-color-focus);
     }
-  }
-
-  small {
-    font-size: calc(var(--base-size) / var(--type-scale));
   }
 }

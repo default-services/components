@@ -1,83 +1,75 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import setClassName from 'utilities/setClassName';
-import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
-import { MenuIcon } from 'assets/icons/MenuIcon';
+import React, { Component } from 'react';
+
 import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
 import { CloseIcon } from 'assets/icons/CloseIcon';
+import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
+import { MenuIcon } from 'assets/icons/MenuIcon';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
+export class Navbar extends Component {
 
-export const Navbar = props => {
-  const { links, variant = '' } = props;
+  state = {
+    menuOpen: false
+  }
 
+  componentDidUpdate() {
+    if(this.state.menuOpen)
+      document.body.style.overflow = 'hidden';
+  };
 
-  // Collecting the navbar offset is important for smooth transitions,
-  // as the correct value affects overall transition speed
-  const navbar = useRef(Navbar);
-  const [ navbarOffset, setNavbarOffset] = useState(0);
+  render() {
+    const { props: { links, variant = '' } } = this;
 
-  useEffect(() => {
-    const offset = navbar.current.offsetWidth;
-    if(offset > 0)
-      setNavbarOffset(offset + 50); // 50 to account for padding
-  }, [navbar.current.offsetWidth]);
+    const toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+    const className = this.state.menuOpen ? 'navbar-open' : 'navbar';
 
+    // Check if there's an 'underline' variant in props
+    const underline = (
+      variant.includes('navbar-underline') ||
+      variant.includes('navbar-right-underline')
+    );
 
-  // Menu toggling
-  const [ menu, setMenu ] = useState({ open: false });
-  const toggleMenu = () => setMenu({ open: !menu.open });
-  const className = menu.open ? 'navbar-open' : 'navbar';
+    // Determining which menu icon to serve & menu offset
+    const Close = props => variant.includes('alt-icons') ?
+      <CloseAltIcon { ...props } /> :
+      <CloseIcon { ...props } />;
 
+    const Menu = props => variant.includes('alt-icons') ?
+      <MenuAltIcon { ...props } /> :
+      <MenuIcon { ...props } />;
 
-  // Check if there's an 'underline' variant in props
-  const underline = (
-    variant.includes('navbar-underline') ||
-    variant.includes('navbar-right-underline')
-  );
+    const Icon = props => this.state.menuOpen ?
+      <Close { ...props } /> :
+      <Menu { ...props } />;
 
-  // Determining which menu icon to serve & menu offset
-  const Close = props => variant.includes('alt-icons') ?
-    <CloseAltIcon { ...props } /> :
-    <CloseIcon { ...props } />;
+    return (
+      <header
+        { ...this.props }
+        className={ setClassName(this.props, className) }
+      >
+        <div />
+        <nav>
+          <Icon onClick={ toggleMenu } />
+          <ul>
+            {
+              links.map(link => {
+                const { a, li, text } = link;
+                const { key } = li;
 
-  const Menu = props => variant.includes('alt-icons') ?
-    <MenuAltIcon { ...props } /> :
-    <MenuIcon { ...props } />;
-
-  const Icon = props => menu.open ?
-    <Close { ...props } /> :
-    <Menu { ...props } />;
-
-  const menuOffset = !menu.open && navbarOffset ? `-${navbarOffset}px` : undefined;
-
-  return (
-    <header
-      { ...props }
-      className={ setClassName(props, className) }
-      ref={ navbar }
-      style={ { left: menuOffset } }
-    >
-      <nav>
-        <Icon onClick={ toggleMenu } />
-        <ul>
-          {
-            links.map(link => {
-              const { a, li, text } = link;
-              const { key } = li;
-
-              return (
-                <li { ...li } key={ key }>
-                  <a { ...a }>{ text }</a>
-                  { underline ? <span /> : undefined }
-                </li>
-              );
-            })
-          }
-        </ul>
-      </nav>
-    </header>
-  );
-
+                return (
+                  <li { ...li } key={ key }>
+                    <a { ...a }>{ text }</a>
+                    { underline ? <span /> : undefined }
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </nav>
+      </header>
+    );
+  };
 };
 
 Navbar.propTypes = {

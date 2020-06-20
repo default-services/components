@@ -1,6 +1,6 @@
+import { Button as DefaultButton } from 'components/button/Button';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Button as DefaultButton } from 'components/button/Button';
 
 export default {
   title: 'Button',
@@ -17,7 +17,7 @@ export const Square = () => (
 
 export const Round = () => (
   <div style={ { padding: '1rem .25rem' } }>
-    <DefaultButton variant='button-round' onClick={ action('clicked') }>
+    <DefaultButton variant='round' onClick={ action('clicked') }>
       Round Button
     </DefaultButton>
   </div>

@@ -12,7 +12,7 @@
     grid-template-rows: 100%;
     grid-template-columns: 90% 5% 5%;
     min-height: 1.25rem;
-    @extend %accessible-border-behavior;
+    @include accessible-border-behavior;
 
     span {
       display: grid;
@@ -45,7 +45,7 @@
     color: var(--black-color);
     padding-left: 0;
     padding-top: 0;
-    @extend %accessible-border-behavior;
+    @include accessible-border-behavior;
 
     li {
       padding: .5rem 1.5rem .5rem .85rem;

@@ -1,5 +1,5 @@
 .radiobutton {
-  @extend %input-label;
+  @include input-label;
 
   input {
     appearance: none;
@@ -12,12 +12,6 @@
     margin: .01rem;
     margin-right: .5rem;
 
-    &:hover, &:focus {
-      outline: none;
-      &:not(:checked) {
-        border: solid var(--border-size) var(--grey-color-dark);
-      }
-    }
 
     &:checked {
       cursor: default;
@@ -48,7 +42,7 @@
       }
     }
 
-    @extend %accessible-border-behavior;
+    @include accessible-border-behavior;
   }
 
 }

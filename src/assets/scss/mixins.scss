@@ -1,12 +1,32 @@
-// Accessible behavior
-%accessible-border-behavior {
+@mixin primary-accessible-behavior {
+  &:hover {
+    color: var(--primary-color-hover);
+  }
+  &:focus {
+    color: var(--primary-color-focus);
+  }
+}
 
-  // For accessible inputs
+@mixin secondary-accessible-behavior {
+  &:hover {
+    color: var(--secondary-color-hover);
+  }
+  &:focus {
+    color: var(--secondary-color-focus);
+  }
+}
+
+@mixin accessible-border-behavior {
+  border: var(--border);
+
+  &:hover, &:focus {
+    outline: none;
+  }
+
   &:not(li):hover {
     border: var(--border-size) solid var(--grey-color-dark);
   }
 
-  // For accessible list items (e.g, select)
   li {
     &:hover {
       background-color: var(--grey-color-light);
@@ -34,18 +54,13 @@
         margin-top: -1px;
         border-radius: 0 0 var(--border-radius) var(--border-radius);
       }
-
-
     }
-
   }
 
   outline-color: var(--grey-color-dark);
 }
 
-
-// Input label configuration
-%input-label {
+@mixin input-label {
   display: grid;
   width: fit-content;
   grid-template-rows: 100%;

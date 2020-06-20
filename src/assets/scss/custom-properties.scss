@@ -1,21 +1,13 @@
-// Sass variables
-// Media queries can't currently use custom properties
-// as breakpoints, allowing for Sass workaround
-$small-phone: 380px;
-$phone: 480px;
-$tablet: 768px;
-$desktop: 960px;
-$large-desktop: 1200px;
-
-
 :root {
 
 // Main Colors
-  --primary-color: #57A9A9; // Cadet Blue
+  --primary-color: #{$primary-color}; // Cadet Blue
+  --primary-color-contrast: #{$primary-color-contrast};
   --primary-color-hover: #468787; // Paradiso
   --primary-color-focus: #386C6C; // Ming
 
-  --secondary-color:#A95757; // Apple Blossom
+  --secondary-color: #{$secondary-color}; // Apple Blossom
+  --secondary-color-contrast: #{$secondary-color-contrast};
   --secondary-color-hover: #874646; // Lotus
   --secondary-color-focus: #6C3838; // Brown Sanguine
 
@@ -30,7 +22,7 @@ $large-desktop: 1200px;
   --grey-color-dark: #484848; // Charcoal
 
 // Notices
-  --notice-color: #BADCDC; // Powder
+  --notice-color: #BADCDC; // Powder Blue
   --warning-color: #F9E6AB; // Banana Mania
   --error-color: #E5C3C3; // Vanilla Ice
   --success-color: #C3E5C3; // Sea Mist

@@ -35,5 +35,5 @@ export default {
 export const ToStorybook = () => <Welcome />;
 
 ToStorybook.story = {
-  name: 'Default Storybook'
+  name: 'to the Default Storybook'
 };

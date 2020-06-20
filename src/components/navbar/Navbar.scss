@@ -1,7 +1,23 @@
+$transition: var(--transition-speed-slow) var(--transition-animation-type);
+
 .navbar {
+
+
+  div {
+    position: fixed;
+    background: rgba(0,0,0,0);
+    transition: background var(--transition-speed-slow);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  margin-left: -16px;
+
   nav {
     svg {
-      display: none;
+      opacity: 1;
     }
 
     @media(min-width: $tablet) {
@@ -22,7 +38,6 @@
         margin: 1rem;
 
         a {
-          color: var(--primary-color);
           text-decoration: none;
           font-weight: bold;
           text-transform: uppercase;
@@ -32,42 +47,49 @@
             display: block;
             visibility: hidden;
             margin: 0 auto;
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             height: 0;
             width: 0;
-            transition: width var(--transition-speed-slow) ease, height var(--transition-speed-slow) ease, visibility var(--transition-speed-slow) ease, margin-bottom var(--transition-speed-slow) ease;
+            transition:
+              width $transition,
+              height $transition,
+              visibility $transition,
+              margin-bottom $transition,
+              background-color $transition;
           }
 
           &:hover {
-            color: var(--secondary-color);
 
             + span {
               width: 100%;
               height: 2px;
               visibility: visible;
               margin-bottom: -2px;
+              background-color: var(--primary-color-hover);
             }
           }
 
           &:active, &:focus {
-            color: var(--secondary-color-dark);
+            + span {
+              background-color: var(--primary-color-focus);
+            }
           }
         }
 
         &.default-navbar-active {
           a {
-            color: var(--secondary-color);
+            color: var(--primary-color-focus);
           }
         }
       }
     }
   }
 
-  @media(max-width: $tablet) { // can't use custom properties in media queries
+  @media(max-width: $tablet) {
     display: grid;
     justify-content: left;
     position: absolute;
-    left: -100%;
+    left: -70vw;
     transition: left var(--transition-speed-slow);
     min-height: 45px;
 
@@ -80,6 +102,8 @@
         top: .75rem;
         color: var(--primary-color);
         width: 1.5rem;
+        cursor: pointer;
+        @include primary-accessible-behavior;
       }
 
       ul {
@@ -87,11 +111,11 @@
         flex-direction: column;
         position: absolute;
         background: var(--grey-color-dark);
-        height: 100vh;
-        min-width: 250px;
-        top: -15px;
-        left: -15px;
-        padding-top: 3.5rem;
+        width: 70vw;
+        height: calc(100vh - 4px);
+        top: -8px;
+        left: -16px;
+        padding-top: .25rem;
         padding-left: .5rem;
         padding-right: 0;
         margin: 0;
@@ -104,17 +128,24 @@
           a {
             user-select: none;
             font-size: 1.2rem;
+            transition: none;
           }
 
-          &:hover, &:focus {
+          &:hover {
             background-color: var(--grey-color-medium);
-
             a {
-              color: var(--secondary-color);
+              color: var(--primary-color-hover);
             }
           }
-        }
 
+          &:focus {
+            background-color: var(--grey-color-medium);
+            a {
+              color: var(--primary-color-focus);
+            }
+          }
+
+        }
       }
 
     }
@@ -135,20 +166,39 @@
 
 .navbar-open {
   @extend .navbar;
+  position: relative;
 
   @media(max-width: $tablet) { // can't use custom properties in media queries
 
     left: 0;
+
+    div {
+      background: rgba(0,0,0,.1);
+    }
+
     nav {
       display: grid;
-      grid-template-columns: 6fr 1fr 1fr;
+      grid-template-columns: 8fr 1fr 1fr;
+
+      ul {
+        position: relative;
+        border-right: solid var(--black-color) var(--border-size);
+        box-shadow: var(--box-shadow-heavy);
+      }
+
+      @keyframes show {
+        from { opacity: 0 }
+        to { opacity: 1 }
+      }
 
       svg {
         width: 1.70rem;
         z-index: 9991;
         grid-column-start: 3;
-        position: relative;
-        margin-top: -.5rem;
+        position: fixed;
+        left: unset;
+        right: 1rem;
+        animation: show var(--transition-speed-slow) 1
       }
     }
 
