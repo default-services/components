@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import setClassName from 'utilities/setClassName';
+
 import { ChevronDownAltIcon } from 'assets/icons/ChevronDownAltIcon';
 import { ChevronDownIcon } from 'assets/icons/ChevronDownIcon';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
 
+// TODO: convert to class based component
 export const Select = props => {
   const { options, title, variant = '' } = props;
   const [ currentOption, setCurrentOption ] = useState(title);
