@@ -1,22 +1,17 @@
 $transition: var(--transition-speed-slow) var(--transition-animation-type);
+$navbar-height: 3rem;
 
 .navbar {
 
-  margin-left: -16px;
-
   aside[role="dialog"] {
     position: fixed;
-    background: rgba(0,0,0,0);
     transition: background var(--transition-speed-slow);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 
     @media(min-width: $tablet) {
       display: none;
     }
   }
+
 
   nav {
     svg[aria-label="close"] {
@@ -100,6 +95,18 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
     left: -70vw;
     transition: left var(--transition-speed-slow);
     min-height: 45px;
+    position: fixed;
+    top: 0;
+
+    div[role='dialog'] {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: $navbar-height;
+      background: var(--white-color);
+      box-shadow: var(--box-shadow-medium);
+    }
 
     nav {
 
@@ -111,6 +118,7 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
         color: var(--primary-color);
         width: 1.5rem;
         cursor: pointer;
+        margin: 0;
         @include primary-accessible-behavior;
       }
 
@@ -120,11 +128,9 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
         position: absolute;
         background: var(--grey-color-dark);
         width: 70vw;
-        height: calc(100vh - 4px);
-        top: -8px;
-        left: -16px;
+        height: 100vh;
         padding-top: .25rem;
-        padding-left: .5rem;
+        padding-left: 0;
         padding-right: 0;
         margin: 0;
         z-index: 9990;
@@ -170,18 +176,24 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
     }
   }
 
+  + div[role="dialog"] {
+    height: calc(#{$navbar-height} + .5rem);
+  }
 }
 
 .navbar-open {
   @extend .navbar;
-  position: relative;
 
   @media(max-width: $tablet) { // can't use custom properties in media queries
-
+    position: fixed;
     left: 0;
 
-    aside[role="dialog"]  {
+    aside[role="dialog"] {
       background: rgba(0,0,0,.1);
+      top: $navbar-height;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     nav {

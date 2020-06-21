@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
 import { CloseIcon } from 'assets/icons/CloseIcon';
@@ -12,11 +12,6 @@ export class Navbar extends Component {
   state = {
     menuOpen: false
   }
-
-  componentDidUpdate() {
-    if(this.state.menuOpen)
-      document.body.style.overflow = 'hidden';
-  };
 
   render() {
     const { props: { links, variant = '' } } = this;
@@ -46,30 +41,35 @@ export class Navbar extends Component {
 
     const labelText = menuOpen ? 'close' : 'open';
     return (
-      <header
-        { ...this.props }
-        className={ setClassName(this.props, className) }
-      >
-        <aside role='dialog' />
-        <nav>
-          <Icon onClick={ toggleMenu } aria-label={ labelText } />
-          <ul>
-            {
-              links.map(link => {
-                const { a, li, text } = link;
-                const { key } = li;
+      <Fragment>
+        <header
+          { ...this.props }
+          className={ setClassName(this.props, className) }
+        >
+          <aside role='dialog' />
+          <nav>
+            <div role='dialog'>
+              <Icon onClick={ toggleMenu } aria-label={ labelText } />
+            </div>
+            <ul>
+              {
+                links.map(link => {
+                  const { a, li, text } = link;
+                  const { key } = li;
 
-                return (
-                  <li { ...li } key={ key }>
-                    <a { ...a }>{ text }</a>
-                    { underline ? <span /> : undefined }
-                  </li>
-                );
-              })
-            }
-          </ul>
-        </nav>
-      </header>
+                  return (
+                    <li { ...li } key={ key }>
+                      <a { ...a }>{ text }</a>
+                      { underline ? <span /> : undefined }
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </nav>
+        </header>
+        <div role='dialog' />
+      </Fragment>
     );
   };
 };

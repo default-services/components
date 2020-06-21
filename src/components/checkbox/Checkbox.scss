@@ -26,13 +26,14 @@
       margin-top: .35rem;
       position: absolute;
       border-radius: calc(var(--border-radius) - 2px);
-      color: var(--white-color);
+      color: rgba(0,0,0,0);
       position: absolute;
     }
 
     &:checked {
       background-color: var(--primary-color);
       + svg {
+        color: var(--primary-color-contrast);
         visibility: visible;
       }
     }

@@ -3,34 +3,65 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+const getChildren = props => props.children.reduce((accumulator, child, index) => {
+  const current = Math.floor(index / (props.results || 10));
+  accumulator[current] ? accumulator[current] = [ accumulator[current], child] : accumulator[current] = child;
+  return accumulator;
+}, {});
+
 export class PaginationList extends Component {
 
   state = {
     active: false,
-    currentResultsPage: 0,
-    list: {},
+    currentPageNo: 0,
+    list: getChildren(this.props),
     offsetHeight: 0,
     userList: createRef(PaginationList)
   };
 
-  // TODO: change to "getDerivedStateFromProps"
-  componentDidMount() {
 
-    // Separate pages into corresponding arrays within an object
-    const resultPages = this.props.children.reduce((accumulator, child, index) => {
-      const current = Math.floor(index / (this.props.results || 10));
-      accumulator[current] ? accumulator[current] = [ accumulator[current], child] : accumulator[current] = child;
-      return accumulator;
-    }, {});
+  componentDidUpdate(prevProps) {
 
-    this.setState({ list: resultPages });
+    // Old and new list keys
+    const oldPropKeys = prevProps.children.map(child => child.key);
+    const newPropKeys = this.props.children.map(child => child.key);
+
+    // Old and new user watched properties
+    const oldUserWatch = prevProps.watch;
+    const newUserWatch = this.props.watch;
+
+    // If keys changed
+    if(JSON.stringify(oldPropKeys) !== JSON.stringify(newPropKeys))
+      this.updateList();
+
+    // If properties user wants to watch have changed, update list/state
+    else if(oldUserWatch !== newUserWatch)
+      this.updateStateFromPropChild();
+
   };
 
+  updateList = () => this.setState({
+    currentPageNo: 0,
+    list: getChildren(this.props)
+  });
+
+  updateStateFromPropChild = () => this.setState({
+    list: getChildren(this.props)
+  });
 
   render() {
 
     // Reference to current page
-    const currentPage = this.state.list[this.state.currentResultsPage];
+    const {
+      state: {
+        active,
+        currentPageNo,
+        list,
+        userList
+      }
+    } = this;
+
+    const currentPage = list[currentPageNo];
 
     // List provided by user
     const UserList = providedListProps => {
@@ -44,7 +75,7 @@ export class PaginationList extends Component {
       })();
 
       return (
-        <ul { ...defaultListProps } { ...providedListProps } ref={ this.state.userList }>
+        <ul { ...defaultListProps } { ...providedListProps } ref={ userList }>
           { currentPage }
         </ul>
       );
@@ -57,26 +88,55 @@ export class PaginationList extends Component {
       return (
         <article>
           {
-            Object.keys(this.state.list).map((page, index) => {
+            Object.keys(list).map((page, index, array) => {
               const handlePageChange = () => {
-                const offsetHeight = this.state.userList.current.offsetHeight;
+                const offsetHeight = userList.current.offsetHeight;
 
-                if(offsetHeight > 0 && !this.state.active)
+                if(offsetHeight > 0 && !active)
                   this.setState({
                     offsetHeight,
                     active: true,
-                    currentResultsPage: index
+                    currentPageNo: index
                   });
 
                 else
-                  this.setState({ currentResultsPage: index });
+                  this.setState({ currentPageNo: index });
               };
 
-              return (
-                <span key={ index } onClick={ handlePageChange }>
-                  { index + 1 }
-                </span>
-              );
+              if(array.length > 1) {
+
+                const cleanNumber = (() => {
+                  if(array.length > 999) {
+                    console.warn('PaginationList does not currently format numbers (e.g., adding leading zeros) for lists that contain over 1000 pages of results.');
+                    return false;
+                  }
+
+                  if(array.length > 9 && index < 9)
+                    return `0${index + 1}`;
+
+                  else if(array.length > 99 && index < 9)
+                    return `00${index + 1}`;
+
+                  else if(array.length > 99 && index >= 9 && index < 99)
+                    return `0${index + 1}`;
+
+                  else
+                    return `${index + 1}`;
+                })();
+
+                return (
+                  <span
+                    key={ index }
+                    onClick={ handlePageChange }
+                    data-active={ currentPageNo === index }
+                  >
+                    { cleanNumber }
+                  </span>
+                );
+              }
+
+              return false;
+
             })
           }
         </article>
@@ -85,7 +145,7 @@ export class PaginationList extends Component {
 
 
     return (
-      <section className={ setClassName(this.props, 'pagination-list') }>
+      <section className={ setClassName(this.props, 'pagination-list') } page={ currentPageNo + 1 }>
         <UserList style={ { minHeight: this.state.offsetHeight } } />
         <PageOptions />
       </section>
@@ -96,7 +156,7 @@ export class PaginationList extends Component {
 
 
 PaginationList.propTypes = {
-  list: PropTypes.array,
+  children: PropTypes.array,
   results: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
