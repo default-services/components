@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
+import { ArrowLeftAltIcon } from 'assets/icons/ArrowLeftAltIcon';
+import { ArrowLeftIcon } from 'assets/icons/ArrowLeftIcon';
 import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
 import { CloseIcon } from 'assets/icons/CloseIcon';
 import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
@@ -9,15 +11,23 @@ import setClassName from 'utilities/setClassName';
 
 export class Navbar extends Component {
 
-  state = {
-    menuOpen: false
-  }
+  state = { menuOpen: false };
+
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
 
   render() {
-    const { props: { links, variant = '' } } = this;
+    const {
+      props: {
+        links,
+        logo,
+        ['logo-link']: logoLink,
+        ['logo-title']: logoTitle,
+        variant = ''
+      }
+    } = this;
     const { state: { menuOpen } } = this;
+    const { toggleMenu } = this;
 
-    const toggleMenu = () => this.setState({ menuOpen: !menuOpen });
     const className = menuOpen ? 'navbar-open' : 'navbar';
 
     // Check if there's an 'underline' variant in props
@@ -28,8 +38,14 @@ export class Navbar extends Component {
 
     // Determining which menu icon to serve & menu offset
     const Close = props => variant.includes('alt-icons') ?
-      <CloseAltIcon { ...props } /> :
-      <CloseIcon { ...props } />;
+      variant.includes('arrow-close') ?
+        <ArrowLeftAltIcon { ...props } /> :
+        <CloseAltIcon { ...props } /> :
+
+      variant.includes('arrow-close') ?
+        <ArrowLeftIcon { ...props } /> :
+        <CloseIcon { ...props } />;
+
 
     const Menu = props => variant.includes('alt-icons') ?
       <MenuAltIcon { ...props } /> :
@@ -40,6 +56,8 @@ export class Navbar extends Component {
       <Menu { ...props } />;
 
     const labelText = menuOpen ? 'close' : 'open';
+
+
     return (
       <Fragment>
         <header
@@ -51,21 +69,38 @@ export class Navbar extends Component {
             <div role='dialog'>
               <Icon onClick={ toggleMenu } aria-label={ labelText } />
             </div>
-            <ul>
+            <section>
+              { logoTitle ? <h3>{ logoTitle }</h3> : undefined }
               {
-                links.map(link => {
-                  const { a, li, text } = link;
-                  const { key } = li;
-
-                  return (
-                    <li { ...li } key={ key }>
-                      <a { ...a }>{ text }</a>
-                      { underline ? <span /> : undefined }
-                    </li>
-                  );
-                })
+                logo ?
+                  <aside>
+                    {
+                      logoLink ?
+                        <a href={ logoLink } title={ logoTitle || null }>
+                          <img src={ logo } alt={ logoTitle || 'logo' } />
+                        </a> :
+                        <img src={ logo } alt={ logoTitle || 'logo' } />
+                    }
+                  </aside> :
+                  undefined
               }
-            </ul>
+              <ul>
+                {
+                  links.map(link => {
+                    const { a, li, text } = link;
+                    const { key } = li;
+
+                    return (
+                      <li { ...li } key={ key } onClick={ toggleMenu }>
+                        <a { ...a }>{ text }</a>
+                        { underline ? <span /> : undefined }
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+
+            </section>
           </nav>
         </header>
         <div role='dialog' />

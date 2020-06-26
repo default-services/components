@@ -20,10 +20,10 @@
         pointer-events: none;
         border-radius: var(--border-radius-round);
         position: absolute;
-        margin: .27rem;
+        margin: .325rem;
         background-color: var(--primary-color);
-        width: calc(var(--input-size) - calc(var(--border-size) * 4));
-        height: calc(var(--input-size) - calc(var(--border-size) * 4));
+        width: calc(1.15rem - 10px);
+        height: calc(1.15rem - 10px);
       }
     }
 

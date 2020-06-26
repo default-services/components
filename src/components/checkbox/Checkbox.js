@@ -5,7 +5,7 @@ import React from 'react';
 import setClassName from 'utilities/setClassName';
 
 export const Checkbox = props => {
-  const { text, type, variant } = props;
+  const { label, type, variant } = props;
 
   if(type && type !== 'checkbox')
     return console.warn(
@@ -14,7 +14,7 @@ export const Checkbox = props => {
 
   return (
     <label className={ setClassName(props, 'checkbox') }>
-      <span>{ text || '' }</span>
+      <span>{ label || '' }</span>
       <input { ...props } className={ undefined } type='checkbox' role='checkbox' />
       { variant === 'alt-icons' ? <CheckAltIcon /> : <CheckIcon /> }
     </label>
@@ -22,6 +22,6 @@ export const Checkbox = props => {
 };
 
 Checkbox.propTypes = {
-  text: PropTypes.string,
+  label: PropTypes.string,
   type: PropTypes.string
 };

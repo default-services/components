@@ -1,6 +1,6 @@
+import { Checkbox as DefaultCheckbox } from 'components/checkbox/Checkbox';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Checkbox as DefaultCheckbox } from 'components/checkbox/Checkbox';
 
 export default {
   title: 'Checkbox',
@@ -8,9 +8,9 @@ export default {
 };
 
 export const Checkbox = () => (
-  <DefaultCheckbox onClick={ action('clicked') } text='Checkbox' />
+  <DefaultCheckbox onClick={ action('clicked') } label='Checkbox' />
 );
 
 export const Checkbox_Alt_Icons = () => (
-  <DefaultCheckbox onClick={ action('clicked') } text='Checkbox' variant='alt-icons' />
+  <DefaultCheckbox onClick={ action('clicked') } label='Checkbox' variant='alt-icons' />
 );

@@ -2,14 +2,10 @@ $transition: var(--transition-speed-slow) var(--transition-animation-type);
 $navbar-height: 3rem;
 
 .navbar {
-
+  z-index: 9990;
   aside[role="dialog"] {
     position: fixed;
     transition: background var(--transition-speed-slow);
-
-    @media(min-width: $tablet) {
-      display: none;
-    }
   }
 
 
@@ -88,6 +84,29 @@ $navbar-height: 3rem;
     }
   }
 
+  @media(min-width: $tablet) {
+    aside[role="dialog"], section h3 {
+      display: none;
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      padding-top: .25rem;
+    }
+
+
+    &[variant*="navbar-right"] section {
+      justify-content: space-between;
+    }
+
+    section aside img {
+      height: $navbar-height;
+      margin: 0 0 0 1.5rem;
+    }
+  }
+
+
   @media(max-width: $tablet) {
     display: grid;
     justify-content: left;
@@ -122,44 +141,82 @@ $navbar-height: 3rem;
         @include primary-accessible-behavior;
       }
 
-      ul {
-        justify-content: flex-start;
-        flex-direction: column;
-        position: absolute;
+      section {
+        background: var(--grey-color-dark);
         background: var(--grey-color-dark);
         width: 70vw;
         height: 100vh;
-        padding-top: .25rem;
+        padding-top: 1rem;
         padding-left: 0;
         padding-right: 0;
         margin: 0;
         z-index: 9990;
+        position: absolute;
 
-        li {
-          margin: 0;
-          padding: 1rem 5rem 1rem 2rem;
+        aside {
+          display: flex;
+          justify-content: center;
+          border-bottom: solid var(--border-size) var(--primary-color);
+          padding-bottom: 1.15rem;
+          margin-bottom: 1rem;
+
+          img {
+            max-width: 60%;
+            margin: .75rem 0 0;
+          }
 
           a {
-            user-select: none;
-            font-size: 1.2rem;
-            transition: none;
-          }
-
-          &:hover {
-            background-color: var(--grey-color-medium);
-            a {
-              color: var(--primary-color-hover);
+            text-align: center;
+            img {
+              max-width: 70%;
             }
           }
-
-          &:focus {
-            background-color: var(--grey-color-medium);
-            a {
-              color: var(--primary-color-focus);
-            }
-          }
-
         }
+
+        h3 {
+          text-align: center;
+          margin: -2px 5px 5px;
+          font-weight: bold;
+        }
+
+        ul {
+          justify-content: flex-start;
+          flex-direction: column;
+          padding-left: 0;
+          padding-right: 0;
+          margin: 0;
+
+          li {
+            margin: 0;
+            padding: 1rem 5rem 1rem 2rem;
+
+            a {
+              user-select: none;
+              font-size: 1.2rem;
+              transition: none;
+
+              + span {
+                display: none;
+              }
+            }
+
+            &:hover {
+              background-color: var(--grey-color-medium);
+              a {
+                color: var(--primary-color-hover);
+              }
+            }
+
+            &:focus {
+              background-color: var(--grey-color-medium);
+              a {
+                color: var(--primary-color-focus);
+              }
+            }
+
+          }
+        }
+
       }
 
     }
@@ -183,6 +240,7 @@ $navbar-height: 3rem;
 
 .navbar-open {
   @extend .navbar;
+  touch-action: none;
 
   @media(max-width: $tablet) { // can't use custom properties in media queries
     position: fixed;
@@ -194,16 +252,17 @@ $navbar-height: 3rem;
       right: 0;
       bottom: 0;
       left: 0;
+      touch-action: none;
     }
 
     nav {
       display: grid;
       grid-template-columns: 8fr 1fr 1fr;
 
-      ul {
-        position: relative;
+      section {
         border-right: solid var(--black-color) var(--border-size);
         box-shadow: var(--box-shadow-heavy);
+        position: relative;
       }
 
       @keyframes show {

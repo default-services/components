@@ -21,6 +21,7 @@ const Welcome = () => {
           <li>Create card component.</li>
           <li>Create 404 page component.</li>
           <li>Create datepicker component.</li>
+          <li>Update pagination component (for 10+ pages).</li>
         </ol>
       </section>
     </div>

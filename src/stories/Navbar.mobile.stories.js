@@ -1,6 +1,7 @@
 import { Navbar as DefaultNavbar } from 'components/navbar/Navbar';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import defaultLogo from 'assets/images/default-logo.png';
 
 export default {
   title: 'Navbar',
@@ -37,9 +38,40 @@ const links = [
 ];
 
 export const Navbar_On_Mobile = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } />
+  <DefaultNavbar
+    onClick={ action('clicked') }
+    links={ links }
+    logo={ defaultLogo }
+    logo-link='https://default.services'
+    logo-title='Default Services'
+  />
 );
 
 export const Navbar_On_Mobile_Alt_Icons = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='alt-icons' />
+  <DefaultNavbar
+    onClick={ action('clicked') }
+    links={ links }
+    variant='alt-icons'
+    logo={ defaultLogo }
+    logo-title='Default Services'
+  />
+);
+
+export const Navbar_On_Mobile_Arrow_Close = () => (
+  <DefaultNavbar
+    onClick={ action('clicked') }
+    links={ links }
+    variant='arrow-close'
+    logo={ defaultLogo }
+    logo-link='https://default.services'
+  />
+);
+
+export const Navbar_On_Mobile_Arrow_Close_Alt_Icons = () => (
+  <DefaultNavbar
+    onClick={ action('clicked') }
+    links={ links }
+    variant='arrow-close alt-icons'
+    logo={ defaultLogo }
+  />
 );

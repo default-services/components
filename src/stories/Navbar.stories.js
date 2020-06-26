@@ -1,6 +1,7 @@
+import { Navbar as DefaultNavbar } from 'components/navbar/Navbar';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Navbar as DefaultNavbar } from 'components/navbar/Navbar';
+import defaultLogo from 'assets/images/default-logo.png';
 
 export default {
   title: 'Navbar',
@@ -32,17 +33,43 @@ const links = [
 ];
 
 export const Navbar = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } />
+  <DefaultNavbar
+    links={ links }
+    logo={ defaultLogo }
+    logo-title='Default Services'
+    logo-link='https://default.services'
+    onClick={ action('clicked') }
+  />
 );
 
 export const Navbar_Underline_On_Hover = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-underline' />
+  <DefaultNavbar
+    links={ links }
+    logo={ defaultLogo }
+    logo-title='Default Services'
+    logo-link='https://default.services'
+    onClick={ action('clicked') }
+    variant='navbar-underline' />
 );
 
 export const Navbar_Right = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-right' />
+  <DefaultNavbar
+    links={ links }
+    logo={ defaultLogo }
+    logo-title='Default Services'
+    logo-link='https://default.services'
+    onClick={ action('clicked') }
+    variant='navbar-right'
+  />
 );
 
 export const Navbar_Right_Underline_On_Hover = () => (
-  <DefaultNavbar onClick={ action('clicked') } links={ links } variant='navbar-right-underline' />
+  <DefaultNavbar
+    links={ links }
+    logo={ defaultLogo }
+    logo-title='Default Services'
+    logo-link='https://default.services'
+    onClick={ action('clicked') }
+    variant='navbar-right-underline'
+  />
 );
