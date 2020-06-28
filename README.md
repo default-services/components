@@ -44,7 +44,7 @@ const MyComponent = props => {
 <br>
 
 ## 🐱‍👓 Learn
-Documentation is coming soon..
+Learn about the Default component library by reviewing the [Default documentation](https://default.services).
 <br><br>
 
 ## 🐱‍🐉 Support
