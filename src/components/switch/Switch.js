@@ -7,15 +7,16 @@ import setClassName from 'utilities/setClassName';
 
 export class Switch extends Component {
   state = { status: false };
-  toggle = () => this.setState({ status: !this.state.status });
+  toggle = (callback) => this.setState({ status: !this.state.status }, () => callback || null);
+  handleClick = () => this.toggle(this.props.onClick());
 
   render() {
 
     return (
       <article
-        onClick={ this.toggle }
-        data-active={ this.state.status }
         { ...this.props }
+        onClick={ this.handleClick }
+        data-active={ this.state.status }
         className={ setClassName(this.props, 'switch') }
       >
         <span />
