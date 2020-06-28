@@ -5,12 +5,10 @@
   --primary-color-contrast: #{$primary-color-contrast};
   --primary-color-hover: #468787; // Paradiso
   --primary-color-focus: #386C6C; // Ming
-
   --secondary-color: #{$secondary-color}; // Apple Blossom
   --secondary-color-contrast: #{$secondary-color-contrast};
   --secondary-color-hover: #874646; // Lotus
   --secondary-color-focus: #6C3838; // Brown Sanguine
-
 
 // Light / Dark
   --white-color: #F5F5F5; // WhiteSmoke
@@ -26,7 +24,6 @@
   --warning-color: #F9E6AB; // Banana Mania
   --error-color: #E5C3C3; // Vanilla Ice
   --success-color: #C3E5C3; // Sea Mist
-
 
 // Box shadows
   --box-shadow-heavy: 1px 1px 6px 0px rgba(0,0,0,.25);
