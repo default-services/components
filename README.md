@@ -55,14 +55,7 @@ Default component library utilizes technologies such as Babel and PostCSS to ens
 <br>
 
 ## 🐱‍👤 Develop
-Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br>
-
-#### Component to-do:
-* Create "Loading" component.
-* Create "Card" component.
-* Create "To Top" component.
-* Create "Date Picker" component.
-<br><br>
+Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library. To learn more about contributing, see our [CONTRIBUTING.md](https://github.com/default-services/components/blob/master/CONTRIBUTING.md).<br>
 
 [![Tech](https://user-images.githubusercontent.com/8584126/83432596-f454db80-a3ed-11ea-93c3-28c5ae24a42d.png)](https://github.com/default-services/components)
 <br>
