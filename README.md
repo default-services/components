@@ -55,7 +55,7 @@ Default component library utilizes technologies such as Babel and PostCSS to ens
 <br>
 
 ## 🐱‍👤 Develop
-Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library. To learn more about contributing, see: [Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default).<br>
+Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library. To learn more about contributing, see:<br>[Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default).<br>
 <br>
 **To-do:**
 * Create "Loading" component.
