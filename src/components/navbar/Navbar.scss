@@ -143,7 +143,6 @@ $navbar-height: 3rem;
 
       section {
         background: var(--grey-color-dark);
-        background: var(--grey-color-dark);
         width: 70vw;
         height: 100vh;
         padding-top: 1rem;
@@ -247,12 +246,8 @@ $navbar-height: 3rem;
     left: 0;
 
     aside[role="dialog"] {
-      background: rgba(0,0,0,.1);
+      @include mask;
       top: $navbar-height;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      touch-action: none;
     }
 
     nav {
