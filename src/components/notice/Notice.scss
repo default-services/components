@@ -35,6 +35,13 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
     display: grid;
     padding: .75rem 1rem 1rem .75rem;
 
+    p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--black-color);
+      text-align: left;
+    }
+
     article {
       display: flex;
       justify-content: flex-end;
@@ -75,7 +82,6 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
 .notice-mask {
   @include mask;
   position: fixed;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9991;

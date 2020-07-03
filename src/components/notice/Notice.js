@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import { Button } from 'components/button/Button';
+import { Button } from 'src/components/button/Button';
 import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
 import { CloseIcon } from 'assets/icons/CloseIcon';
-import { Input } from 'components/input/Input';
+import { Input } from 'src/components/input/Input';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
@@ -28,7 +28,7 @@ export class Notice extends Component {
 
   state = {
     promptInputText: '',
-    okayFunc: () => userOkFunc(this)
+    stateOkayFunc: () => userOkFunc(this)
   };
 
   handleClose = () => this.props.setShow(false);
@@ -41,23 +41,26 @@ export class Notice extends Component {
   // Configure for mobile devices
 
   render() {
-    const {
+    var {
       handleClose,
       handleKeyUp,
       props,
       props: {
-        cancelFunc = () => this.props.setShow(false),
-        cancelText = 'Cancel',
-        children,
-        closeOnBackgroundClick = true,
+        cancelFunc,
+        cancelText,
+        children: message,
         header,
         inputPlaceholder = 'Type here',
-        okayText = 'Okay',
+        okayFunc,
+        okayText,
+        setShow,
+        show,
         type,
-        variant
+        variant,
+        ...drilledProps
       },
       state: {
-        okayFunc,
+        stateOkayFunc,
         promptInputText
       },
       stopPropagation
@@ -66,19 +69,25 @@ export class Notice extends Component {
     const Close = iconProps => variant && variant.includes('alt-icons') ?
       <CloseAltIcon { ...iconProps } /> : <CloseIcon { ...iconProps } />;
 
+    const handleCancel = () => {
+      if(props.cancelFunc) cancelFunc();
+      this.props.setShow(false);
+    };
+
+    const display = (() => show ? 'flex' : 'none')();
     return (
       <div
         className={ setClassName(props, 'notice-mask') }
-        onClick={ () => closeOnBackgroundClick ? handleClose() : undefined }
-        style={ !this.props.show ? { display: 'none' } : undefined }
+        onClick={ handleClose }
+        style={ { display } }
       >
-        <aside { ...props } className={ setClassName(props, 'notice') } onClick={ stopPropagation }>
+        <aside { ...drilledProps } className={ setClassName(props, 'notice') } onClick={ stopPropagation }>
           <header>
             <h5>{ header || '' }</h5>
             <Close aria-label='close' onClick={ handleClose } />
           </header>
           <article>
-            { children }
+            <p>{ message }</p>
             {
               type === 'confirm' || type === 'prompt' ?
                 <article>
@@ -92,8 +101,8 @@ export class Notice extends Component {
                       /> :
                       undefined
                   }
-                  <Button onClick={ okayFunc }>{ okayText }</Button>
-                  <Button onClick={ cancelFunc }>{ cancelText }</Button>
+                  <Button onClick={ stateOkayFunc }>{ okayText || 'Okay' }</Button>
+                  <Button onClick={ handleCancel }>{ cancelText || 'Cancel' }</Button>
                 </article> :
                 undefined
             }
@@ -108,10 +117,9 @@ export class Notice extends Component {
 Notice.propTypes = {
   cancelFunc: PropTypes.func,
   cancelText: PropTypes.string,
-  closeOnBackgroundClick: PropTypes.bool,
   header: PropTypes.string,
   inputPlaceholder: PropTypes.string,
-  okayFunc: PropTypes.func.isRequired,
+  okayFunc: PropTypes.func,
   okayText: PropTypes.string,
   setShow: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,

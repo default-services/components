@@ -32,6 +32,7 @@ export const Notice = () => {
       </article>
 
       <DefaultNotice
+        inputPlaceholder = 'Type text here'
         header='Alert'
         show={ showAlert }
         setShow={ setShowAlert }
@@ -40,7 +41,11 @@ export const Notice = () => {
       </DefaultNotice>
 
       <DefaultNotice
+        cancelFunc={ ()=> console.log('Confirm canceled.') }
+        cancelText='Cancel'
         header='Confirm'
+        okayFunc={ ()=> console.log('Confirm "Okay" button pressed.') }
+        okayText='Okay'
         show={ showConfirm }
         setShow={ setShowConfirm }
         type='confirm'
@@ -49,8 +54,11 @@ export const Notice = () => {
       </DefaultNotice>
 
       <DefaultNotice
+        cancelFunc={ ()=> console.log('Prompt canceled.') }
+        cancelText='Cancel'
         header='Prompt'
         okayFunc={ handleOkPrompt }
+        okayText='Okay'
         show={ showPrompt }
         setShow={ setShowPrompt }
         type='prompt'
@@ -82,6 +90,8 @@ export const Notice_Alt_Icons = () => {
 
       <DefaultNotice
         header='Alert'
+        okayFunc={ ()=> console.log('Prompt "Okay" button pressed.') }
+        okayText='Okay'
         show={ showAlert }
         setShow={ setShowAlert }
         variant='alt-icons'
@@ -91,6 +101,8 @@ export const Notice_Alt_Icons = () => {
 
       <DefaultNotice
         header='Confirm'
+        okayFunc={ ()=> console.log('Prompt "Okay" button pressed.') }
+        okayText='Okay'
         show={ showConfirm }
         setShow={ setShowConfirm }
         variant='alt-icons'
@@ -101,6 +113,7 @@ export const Notice_Alt_Icons = () => {
 
       <DefaultNotice
         header='Prompt'
+        okayText='Okay'
         okayFunc={ handleOkPrompt }
         show={ showPrompt }
         setShow={ setShowPrompt }
