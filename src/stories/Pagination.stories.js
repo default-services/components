@@ -3,7 +3,7 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'PaginationList',
+  title: 'Pagination',
   component: DefaultPaginationList,
 };
 
@@ -50,13 +50,13 @@ const linkMap = links.map( link => {
   return <li key={ link.li.key }><a href={ link.a }>{ link.text }</a></li>
 });
 
-export const PaginationList = () => (
+export const Pagination_List = () => (
   <DefaultPaginationList results='3' onClick={ action('clicked') }>
       { linkMap }
   </DefaultPaginationList>
 );
 
-export const PaginationList_Round = () => (
+export const Pagination_List_Round = () => (
   <DefaultPaginationList results='3' variant='round' onClick={ action('clicked') }>
       { linkMap }
   </DefaultPaginationList>

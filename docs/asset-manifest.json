@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.20156a49.chunk.css",
-    "main.js": "./main.50a29e1e8550a92c383b.bundle.js",
-    "main.css.map": "./static/css/main.20156a49.chunk.css.map",
-    "main.js.map": "./main.50a29e1e8550a92c383b.bundle.js.map",
-    "runtime~main.js": "./runtime~main.50a29e1e8550a92c383b.bundle.js",
-    "runtime~main.js.map": "./runtime~main.50a29e1e8550a92c383b.bundle.js.map",
-    "vendors~main.js": "./vendors~main.50a29e1e8550a92c383b.bundle.js",
-    "vendors~main.js.map": "./vendors~main.50a29e1e8550a92c383b.bundle.js.map",
+    "main.css": "./static/css/main.6280ed79.chunk.css",
+    "main.js": "./main.f57eebddbdc7524f1cd4.bundle.js",
+    "main.css.map": "./static/css/main.6280ed79.chunk.css.map",
+    "main.js.map": "./main.f57eebddbdc7524f1cd4.bundle.js.map",
+    "runtime~main.js": "./runtime~main.f57eebddbdc7524f1cd4.bundle.js",
+    "runtime~main.js.map": "./runtime~main.f57eebddbdc7524f1cd4.bundle.js.map",
+    "vendors~main.js": "./vendors~main.f57eebddbdc7524f1cd4.bundle.js",
+    "vendors~main.js.map": "./vendors~main.f57eebddbdc7524f1cd4.bundle.js.map",
     "iframe.html": "./iframe.html",
-    "precache-manifest.a274bde32502bacf07fc6ac6dd8f74c0.js": "./precache-manifest.a274bde32502bacf07fc6ac6dd8f74c0.js",
+    "precache-manifest.7dbbc986a531193374f8bb864cea8ab6.js": "./precache-manifest.7dbbc986a531193374f8bb864cea8ab6.js",
     "service-worker.js": "./service-worker.js",
-    "vendors~main.50a29e1e8550a92c383b.bundle.js.LICENSE.txt": "./vendors~main.50a29e1e8550a92c383b.bundle.js.LICENSE.txt"
+    "vendors~main.f57eebddbdc7524f1cd4.bundle.js.LICENSE.txt": "./vendors~main.f57eebddbdc7524f1cd4.bundle.js.LICENSE.txt"
   },
   "entrypoints": [
-    "runtime~main.50a29e1e8550a92c383b.bundle.js",
-    "vendors~main.50a29e1e8550a92c383b.bundle.js",
-    "static/css/main.20156a49.chunk.css",
-    "main.50a29e1e8550a92c383b.bundle.js"
+    "runtime~main.f57eebddbdc7524f1cd4.bundle.js",
+    "vendors~main.f57eebddbdc7524f1cd4.bundle.js",
+    "static/css/main.6280ed79.chunk.css",
+    "main.f57eebddbdc7524f1cd4.bundle.js"
   ]
 }

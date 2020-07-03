@@ -20,6 +20,8 @@ $notice-padding: .75rem 1rem 1rem .75rem;
     padding: $notice-padding;
     background-color: var(--primary-color);
     border-radius: $notice-border-radius;
+    border: solid 1px var(--primary-color);
+    border-bottom: none;
 
     h5 {
       color: var(--primary-color-contrast);
@@ -41,7 +43,7 @@ $notice-padding: .75rem 1rem 1rem .75rem;
       label[class*='input'] {
 
         input {
-          width: 342px;
+          width: 324px;
           margin: .75rem 0 -10px;
           padding: .5rem;
           padding-right: 1.25rem;
@@ -62,8 +64,8 @@ $notice-padding: .75rem 1rem 1rem .75rem;
     width: 1.15rem;
     cursor: pointer;
     color: var(--primary-color-contrast);
-    margin-top: -.5rem;
-    margin-right: -.15rem;
+    margin-top: -1rem;
+    margin-right: -.7rem;
   }
 }
 
