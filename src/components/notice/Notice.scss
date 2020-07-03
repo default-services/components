@@ -4,20 +4,22 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
   var(--border-radius)
   var(--border-radius);
 
-$notice-padding: .75rem 1rem 1rem .75rem;
 .notice {
-  width: 400px;
   min-height: 125px;
   background: var(--white-color);
   border: var(--border);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-medium);
   border-radius: $notice-backing-border-radius;
+  width: 400px;
+  @media (max-width: 420px) {
+    width: calc(100vw - 40px);
+  }
 
   header {
     display: flex;
     justify-content: space-between;
-    padding: $notice-padding;
+    padding: .75rem 1rem .75rem .75rem;
     background-color: var(--primary-color);
     border-radius: $notice-border-radius;
     border: solid 1px var(--primary-color);
@@ -31,7 +33,7 @@ $notice-padding: .75rem 1rem 1rem .75rem;
 
   article {
     display: grid;
-    padding: $notice-padding;
+    padding: .75rem 1rem 1rem .75rem;
 
     article {
       display: flex;
@@ -41,9 +43,10 @@ $notice-padding: .75rem 1rem 1rem .75rem;
 
       // Default Input
       label[class*='input'] {
+        width: 100%;
 
         input {
-          width: 324px;
+          width: calc(100% - 1.25rem);
           margin: .75rem 0 -10px;
           padding: .5rem;
           padding-right: 1.25rem;

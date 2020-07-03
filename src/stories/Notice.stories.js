@@ -9,6 +9,9 @@ export default {
   component: DefaultNotice
 };
 
+const margin = '1rem';
+const padding = '2rem';
+
 export const Notice = () => {
   const [ showAlert, setShowAlert ] = useState(false);
   const [ showConfirm, setShowConfirm ] = useState(false);
@@ -19,12 +22,13 @@ export const Notice = () => {
   const handlePromptClick = () => setShowPrompt(true);
   const handleOkPrompt = (inputValue) => console.log(inputValue);
 
+
   return (
     <div>
-      <article style={{ padding: '2rem' }} onClick={ action('clicked') }>
-        <Button onClick={ handleAlertClick } style={{ margin: '1rem' }}>Alert</Button>
-        <Button onClick={ handleConfirmClick } style={{ margin: '1rem' }}>Confirm</Button>
-        <Button onClick={ handlePromptClick } style={{ margin: '1rem' }}>Prompt</Button>
+      <article style={{ padding }} onClick={ action('clicked') }>
+        <Button onClick={ handleAlertClick } style={{ margin }}>Alert</Button>
+        <Button onClick={ handleConfirmClick } style={{ margin }}>Confirm</Button>
+        <Button onClick={ handlePromptClick } style={{ margin }}>Prompt</Button>
       </article>
 
       <DefaultNotice
@@ -55,7 +59,6 @@ export const Notice = () => {
       </DefaultNotice>
     </div>
   )
-
 };
 
 
@@ -71,10 +74,10 @@ export const Notice_Alt_Icons = () => {
 
   return (
     <div>
-      <article style={{ padding: '2rem' }} onClick={ action('clicked') }>
-        <Button onClick={ handleAlertClick } style={{ margin: '1rem' }}>Alert (alt)</Button>
-        <Button onClick={ handleConfirmClick } style={{ margin: '1rem' }}>Confirm (alt)</Button>
-        <Button onClick={ handlePromptClick } style={{ margin: '1rem' }}>Prompt (alt)</Button>
+      <article style={{ padding }} onClick={ action('clicked') }>
+        <Button onClick={ handleAlertClick } style={{ margin }}>Alert</Button>
+        <Button onClick={ handleConfirmClick } style={{ margin }}>Confirm</Button>
+        <Button onClick={ handlePromptClick } style={{ margin }}>Prompt</Button>
       </article>
 
       <DefaultNotice
