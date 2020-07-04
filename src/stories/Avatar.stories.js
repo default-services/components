@@ -1,13 +1,13 @@
+import { Avatar as DefaultAvatar } from 'components/avatar/Avatar';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Avatar as DefaultAvatar } from 'components/avatar/Avatar';
 
 export default {
   title: 'Avatar',
   component: DefaultAvatar
 };
 
-const image = 'https://user-images.githubusercontent.com/8584126/84220258-38e41500-aa87-11ea-948b-150038991a67.png'
+const image = `https://robohash.org/${Date.now()}?size=400x400`;
 
 export const Avatar_Small = () => (
   <DefaultAvatar variant="small" onClick={ action('clicked') }>
