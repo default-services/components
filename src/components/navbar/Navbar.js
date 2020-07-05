@@ -20,11 +20,19 @@ export class Navbar extends Component {
       props: {
         links,
         logo,
-        ['logo-link']: logoLink,
-        ['logo-title']: logoTitle,
-        variant = ''
+        logoLink,
+        logoTitle,
+        ['logo-link']: logolink, // depreciated
+        ['logo-title']: logotitle, // depreciated
+        variant = '',
+        ...drilledProps
       }
     } = this;
+
+    // allow for depreciated prop usage (remove in version 2+)
+    const link = logoLink || (logolink || undefined);
+    const title = logoTitle || (logotitle || undefined);
+
     const { state: { menuOpen } } = this;
     const { toggleMenu } = this;
 
@@ -61,7 +69,7 @@ export class Navbar extends Component {
     return (
       <Fragment>
         <header
-          { ...this.props }
+          { ...drilledProps }
           className={ setClassName(this.props, className) }
         >
           <aside role='dialog' />
@@ -70,16 +78,16 @@ export class Navbar extends Component {
               <Icon onClick={ toggleMenu } aria-label={ labelText } />
             </div>
             <section>
-              { logoTitle ? <h3>{ logoTitle }</h3> : undefined }
+              { title ? <h3>{ title }</h3> : undefined }
               {
                 logo ?
                   <aside>
                     {
-                      logoLink ?
-                        <a href={ logoLink } title={ logoTitle || null }>
-                          <img src={ logo } alt={ logoTitle || 'logo' } />
+                      link ?
+                        <a href={ link } title={ title || null }>
+                          <img src={ logo } alt={ title || 'logo' } />
                         </a> :
-                        <img src={ logo } alt={ logoTitle || 'logo' } />
+                        <img src={ logo } alt={ title || 'logo' } />
                     }
                   </aside> :
                   undefined
