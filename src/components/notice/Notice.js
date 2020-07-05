@@ -74,12 +74,13 @@ export class Notice extends Component {
       this.props.setShow(false);
     };
 
-    const display = (() => show ? 'flex' : 'none')();
+    if(!show)
+      return (<></>);
+
     return (
       <div
         className={ setClassName(props, 'notice-mask') }
         onClick={ handleClose }
-        style={ { display } }
       >
         <aside { ...drilledProps } className={ setClassName(props, 'notice') } onClick={ stopPropagation }>
           <header>
