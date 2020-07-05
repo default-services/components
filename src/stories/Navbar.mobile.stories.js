@@ -42,8 +42,8 @@ export const Navbar_On_Mobile = () => (
     onClick={ action('clicked') }
     links={ links }
     logo={ defaultLogo }
-    logo-link='https://default.services'
-    logo-title='Default Services'
+    logoLink='https://default.services'
+    logoTitle='Default Services'
   />
 );
 
@@ -53,7 +53,7 @@ export const Navbar_On_Mobile_Alt_Icons = () => (
     links={ links }
     variant='alt-icons'
     logo={ defaultLogo }
-    logo-title='Default Services'
+    logoTitle='Default Services'
   />
 );
 
@@ -63,7 +63,7 @@ export const Navbar_On_Mobile_Arrow_Close = () => (
     links={ links }
     variant='arrow-close'
     logo={ defaultLogo }
-    logo-link='https://default.services'
+    logoLink='https://default.services'
   />
 );
 

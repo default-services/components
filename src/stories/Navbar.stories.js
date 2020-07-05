@@ -36,8 +36,8 @@ export const Navbar = () => (
   <DefaultNavbar
     links={ links }
     logo={ defaultLogo }
-    logo-title='Default Services'
-    logo-link='https://default.services'
+    logoTitle='Default Services'
+    logoLink='https://default.services'
     onClick={ action('clicked') }
   />
 );
@@ -46,8 +46,8 @@ export const Navbar_Underline_On_Hover = () => (
   <DefaultNavbar
     links={ links }
     logo={ defaultLogo }
-    logo-title='Default Services'
-    logo-link='https://default.services'
+    logoTitle='Default Services'
+    logoLink='https://default.services'
     onClick={ action('clicked') }
     variant='navbar-underline' />
 );
@@ -56,8 +56,8 @@ export const Navbar_Right = () => (
   <DefaultNavbar
     links={ links }
     logo={ defaultLogo }
-    logo-title='Default Services'
-    logo-link='https://default.services'
+    logoTitle='Default Services'
+    logoLink='https://default.services'
     onClick={ action('clicked') }
     variant='navbar-right'
   />
@@ -67,8 +67,8 @@ export const Navbar_Right_Underline_On_Hover = () => (
   <DefaultNavbar
     links={ links }
     logo={ defaultLogo }
-    logo-title='Default Services'
-    logo-link='https://default.services'
+    logoTitle='Default Services'
+    logoLink='https://default.services'
     onClick={ action('clicked') }
     variant='navbar-right-underline'
   />
