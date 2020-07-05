@@ -11,6 +11,7 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow-medium);
   border-radius: $notice-backing-border-radius;
+  margin-top: 5rem;
   width: 400px;
   @media (max-width: 420px) {
     width: calc(100vw - 40px);
@@ -82,7 +83,8 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
 .notice-mask {
   @include mask;
   position: fixed;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   z-index: 9991;
 }
