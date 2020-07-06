@@ -7,10 +7,6 @@
 > A Default, open source, component library for React.
 <br>
 
-## 🧪 Beta
-The Default component library is still in its public beta stage; use at your own risk.
-<br><br>
-
 ## 🐱‍🚀 Demo
 See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
 [Default Storybook](https://default-services.github.io/components)
