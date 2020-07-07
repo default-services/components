@@ -56,7 +56,7 @@ export class Notice extends Component {
         setShow,
         show,
         type,
-        variant,
+        variant = '',
         ...drilledProps
       },
       state: {
@@ -66,7 +66,7 @@ export class Notice extends Component {
       stopPropagation
     } = this;
 
-    const Close = iconProps => variant && variant.includes('alt-icons') ?
+    const Close = iconProps => variant.includes('alt-icons') ?
       <CloseAltIcon { ...iconProps } /> : <CloseIcon { ...iconProps } />;
 
     const handleCancel = () => {
@@ -82,7 +82,12 @@ export class Notice extends Component {
         className={ setClassName(props, 'notice-mask') }
         onClick={ handleClose }
       >
-        <aside { ...drilledProps } className={ setClassName(props, 'notice') } onClick={ stopPropagation }>
+        <aside
+          { ...drilledProps }
+          className={ setClassName(props, 'notice') }
+          onClick={ stopPropagation }
+          variant={ variant }
+        >
           <header>
             <h5>{ header || '' }</h5>
             <Close aria-label='close' onClick={ handleClose } />
