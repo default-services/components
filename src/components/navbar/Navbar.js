@@ -70,6 +70,7 @@ export class Navbar extends Component {
       <Fragment>
         <header
           { ...drilledProps }
+          variant={ variant }
           className={ setClassName(this.props, className) }
         >
           <aside role='dialog' />

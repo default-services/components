@@ -217,7 +217,6 @@ $navbar-height: 3rem;
         }
 
       }
-
     }
   }
 
@@ -276,5 +275,11 @@ $navbar-height: 3rem;
       }
     }
 
+  }
+
+  ~ div[class*="to-top"][role="button"] {
+
+    // Hide to-top button if they're using it
+    opacity: 0 !important; // !important is here because this style is set in-line on the element
   }
 }
