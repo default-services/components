@@ -7,10 +7,22 @@ export default {
   component: DefaultToTop
 };
 
+const styles = `
+  div[class*="to-top"][role="button"] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+`;
 export const ToTop = () => (
-  <DefaultToTop onClick={ action('clicked') } />
+  <div>
+    <DefaultToTop onClick={ action('clicked') } />
+    <style>{ styles }</style>
+  </div>
 );
 
 export const ToTop_Alt_Icons = () => (
-  <DefaultToTop onClick={ action('clicked') } variant='alt-icons' />
+  <div>
+    <DefaultToTop onClick={ action('clicked') } variant='alt-icons' />
+    <style>{ styles }</style>
+  </div>
 );
