@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { ArrowUpAltIcon } from 'src/assets/icons/ArrowUpAltIcon';
 import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
 export class ToTop extends Component {
@@ -61,4 +61,6 @@ export class ToTop extends Component {
   }
 };
 
-// Switch.propTypes = {};
+ToTop.propTypes = {
+  variant: PropTypes.string
+};
