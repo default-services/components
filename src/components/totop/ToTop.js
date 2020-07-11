@@ -35,14 +35,16 @@ export class ToTop extends Component {
 
   };
 
-  handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // this.setState({ opacity: 0, pointerEvents: 'none' });
-  };
+  handleClick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   render() {
-    const { handleClick, props } = this;
-    const ArrowUp = () => (props.variant || '').includes('alt-icons') ?
+    const {
+      handleClick,
+      props,
+      props: { variant = '' }
+    } = this;
+
+    const ArrowUp = () => variant.includes('alt-icons') ?
       <ArrowUpAltIcon /> :
       <ArrowUpIcon />;
 
