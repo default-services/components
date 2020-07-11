@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { ArrowUpAltIcon } from 'src/assets/icons/ArrowUpAltIcon';
 import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
 export class ToTop extends Component {
@@ -35,14 +35,16 @@ export class ToTop extends Component {
 
   };
 
-  handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    // this.setState({ opacity: 0, pointerEvents: 'none' });
-  };
+  handleClick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   render() {
-    const { handleClick, props } = this;
-    const ArrowUp = () => (props.variant || '').includes('alt-icons') ?
+    const {
+      handleClick,
+      props,
+      props: { variant = '' }
+    } = this;
+
+    const ArrowUp = () => variant.includes('alt-icons') ?
       <ArrowUpAltIcon /> :
       <ArrowUpIcon />;
 
@@ -61,4 +63,6 @@ export class ToTop extends Component {
   }
 };
 
-// Switch.propTypes = {};
+ToTop.propTypes = {
+  variant: PropTypes.string
+};

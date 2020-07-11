@@ -13,6 +13,7 @@ const styles = `
     pointer-events: auto !important;
   }
 `;
+
 export const ToTop = () => (
   <div>
     <DefaultToTop onClick={ action('clicked') } />
