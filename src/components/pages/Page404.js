@@ -51,21 +51,19 @@ export class Page404 extends Component {
   render() {
     return (
       <div className="error">
-        <div className="container-floud">
-          <div className="col-xs-12 ground-color text-center">
-            <div className="container-error-404">
-              <div className="clip">
-                <div className="shadow"><span className="digit thirdDigit">{this.state.selector3}</span></div>
-              </div>
-              <div className="clip">
-                <div className="shadow"><span className="digit secondDigit">{this.state.selector2}</span></div>
-              </div>
-              <div className="clip">
-                <div className="shadow"><span className="digit firstDigit">{this.state.selector1}</span></div>
-              </div>
+        <div className="col-xs-12 ground-color text-center">
+          <div className="container-error-404">
+            <div className="clip">
+              <div className="shadow"><span className="digit thirdDigit">{this.state.selector3}</span></div>
             </div>
-            <h2 className="h1">Page not found</h2>
+            <div className="clip">
+              <div className="shadow"><span className="digit secondDigit">{this.state.selector2}</span></div>
+            </div>
+            <div className="clip">
+              <div className="shadow"><span className="digit firstDigit">{this.state.selector1}</span></div>
+            </div>
           </div>
+          <h2 className="h1">Page not found</h2>
         </div>
       </div>
     );
