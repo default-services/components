@@ -49,8 +49,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="SvnConfiguration">
@@ -75,6 +79,7 @@
       <workItem from="1595416905495" duration="645000" />
       <workItem from="1595417585507" duration="2109000" />
       <workItem from="1595506762815" duration="1221000" />
+      <workItem from="1595688792522" duration="355000" />
     </task>
     <servers />
   </component>
