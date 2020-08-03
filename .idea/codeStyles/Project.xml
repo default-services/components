@@ -3,12 +3,18 @@
     <option name="FORMATTER_TAGS_ENABLED" value="true" />
     <JSCodeStyleSettings version="0">
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
+<<<<<<< HEAD
       <option name="SPACE_BEFORE_GENERATOR_MULT" value="true" />
+=======
+>>>>>>> feature-404page
       <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
       <option name="USE_DOUBLE_QUOTES" value="false" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
       <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
+<<<<<<< HEAD
       <option name="OBJECT_LITERAL_WRAP" value="2" />
+=======
+>>>>>>> feature-404page
       <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
     </JSCodeStyleSettings>
@@ -36,6 +42,7 @@
       </arrangement>
     </codeStyleSettings>
     <codeStyleSettings language="JavaScript">
+<<<<<<< HEAD
       <option name="RIGHT_MARGIN" value="80" />
       <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="ALIGN_MULTILINE_FOR" value="false" />
@@ -51,6 +58,8 @@
       <option name="TERNARY_OPERATION_WRAP" value="5" />
       <option name="ARRAY_INITIALIZER_WRAP" value="5" />
       <option name="ARRAY_INITIALIZER_LBRACE_ON_NEXT_LINE" value="true" />
+=======
+>>>>>>> feature-404page
       <option name="SOFT_MARGINS" value="80" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
