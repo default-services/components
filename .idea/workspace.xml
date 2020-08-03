@@ -56,6 +56,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -103,5 +104,9 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1007" y="396" key="FileChooserDialogImpl/0.0.2560.1400/2560.0.2560.1400@0.0.2560.1400" timestamp="1594081454991" />
+    <state x="3261" y="258" key="SettingsEditor" timestamp="1596474887885">
+      <screen x="2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="3261" y="258" key="SettingsEditor/0.0.2560.1400/2560.0.2560.1400@2560.0.2560.1400" timestamp="1596474887885" />
   </component>
 </project>

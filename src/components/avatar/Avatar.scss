@@ -9,30 +9,30 @@
     max-width: 100%;
   }
 
-  @mixin size($avatar-padding, $avatar-size, $image-padding) {
-    padding: $avatar-padding;
+  @mixin size($avatar-size, $margin-left) {
     width: $avatar-size;
     height: $avatar-size;
 
     img {
-      padding-top: $image-padding;
+      padding-left: $margin-left;
+      margin-bottom: -3px;
     }
   }
 
   // Default
-  @include size(8px, 75px, .7rem);
+  @include size(75px, .09rem);
 
   &[variant="large"] {
-    @include size(10px, 100px, 1rem);
+    @include size(100px, .125rem);
   }
 
   &[variant="medium"] {
-    @include size(5px, 50px, .45rem);
+    @include size(50px, .075rem);
     box-shadow: var(--box-shadow-medium);
   }
 
   &[variant="small"] {
-    @include size(4px, 25px, .35rem);
+    @include size(25px, .05rem);
     box-shadow: var(--box-shadow-medium);
   }
 }
