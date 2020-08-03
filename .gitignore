@@ -23,3 +23,7 @@ yarn-error.log*
 .env.production.local
 .idea/
 .yarn/
+
+# npm generated lock file
+# use yarn instead of npm
+package-lock.json
