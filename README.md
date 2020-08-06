@@ -29,7 +29,7 @@ yarn add @default-services/components
 import React from 'react';
 import { Button } from '@default-services/components';
 
-const MyComponent = props => {
+const MyComponent = (props) => {
   return (
     <div>
       <Button>Hello Default!</Button>
