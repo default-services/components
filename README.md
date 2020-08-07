@@ -4,7 +4,7 @@
 [![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/default-services/components)
 [![License](https://img.shields.io/github/license/default-services/components?color=%2357a9a9&style=for-the-badge)](https://github.com/default-services/components/blob/master/LICENSE)
 
-> A Default, open source, component library for React.
+> A Default, open-source, component library for React.
 <br>
 
 ## 🐱‍🚀 Demo
@@ -29,7 +29,7 @@ yarn add @default-services/components
 import React from 'react';
 import { Button } from '@default-services/components';
 
-const MyComponent = props => {
+const MyComponent = (props) => {
   return (
     <div>
       <Button>Hello Default!</Button>
@@ -39,7 +39,7 @@ const MyComponent = props => {
 ```
 <br>
 
-## 🐱‍👓 Learn
+## 🐱‍👓 Docs
 Learn more, with the [Default documentation](https://default.services).
 <br><br>
 
