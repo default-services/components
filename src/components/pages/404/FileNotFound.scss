@@ -1,0 +1,40 @@
+.container {
+  text-align: center;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: calc(180px * 3);
+  margin-top: 10em;
+
+  h2 {
+    font-size: 32px;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding-bottom: 20px;
+  }
+
+  > div {
+    display: inline-block;
+
+    span {
+      color: var(--white-color);
+      background: var(--primary-color);
+      border-radius: 50%;
+      display: inline-block;
+      width: 150px;
+      line-height: 150px;
+      font-size: 120px;
+      font-weight: bold;
+      margin: 15px;
+    }
+  }
+
+}
+
+@media(max-width: $tablet) {
+
+  .container h2 {
+    font-size: 24px;
+  }
+}

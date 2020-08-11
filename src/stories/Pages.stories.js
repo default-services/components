@@ -1,11 +1,12 @@
+import { FileNotFound as FileNotFoundPage } from 'components/pages/404/FileNotFound';
 import React from 'react';
-import { Page404 } from 'components/pages/Page404';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Pages',
-  component: Page404
+  component: 'Pages'
 };
 
 export const Page_404 = () => (
-  <Page404  />
+  <FileNotFoundPage  />
 );
