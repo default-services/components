@@ -35,7 +35,7 @@ const MyComponent = (props) => {
 <br>
 
 ## 🐱‍👓 Docs
-Learn more about using the Default component library for your project, with our [Default documentation](https://default.services).
+Learn more about using the Default component library for your project:<br/> [Default documentation](https://default.services)
 <br>
 
 ## 🐱‍🐉 Support
