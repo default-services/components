@@ -7,6 +7,24 @@ import { Input } from 'src/components/input/Input';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace Notice
+ * @description Default styled alert, confirm, and prompt notification components.
+ * @property {function} cancelFunc - Cancel button function.
+ * @property {string} cancelText - Cancel button text.
+ * @property {{ children: JSX.Element}} - Child elements to nest in notice (e.g., the message).
+ * @property {string} header - Header text for notice component.
+ * @property {string} inputPlaceholder - Placeholder for input of notice component.
+ * @property {function} okayFunc - Okay button function.
+ * @property {string} okayText - Okay button text.
+ * @property {function} setShow - Function which accepts a boolean of whether to show notice.
+ * @property {boolean} show - Boolean associated with the setShow function described above.
+ * @property {string} type - type of notice being used (e.g., "alert", "confirm", or "prompt").
+ * @property {string} variant - Variant of notices to use (e.g., "alt-icons").
+ * @tutorial `src\stories\Notice.stories.js`.
+ */
+
+
 // Pass input value to user's Okay function (if prompt) and close the dialog
 const userOkFunc = (context) => {
 

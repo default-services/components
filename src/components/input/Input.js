@@ -1,7 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace Input
+ * @description Default styled input component.
+ * @property {string} type - If provided, is discarded and replaced with "text".
+ * @tutorial `src\stories\Input.stories.js`.
+ */
 
 export const Input = props => {
   const { type } = props;
@@ -20,7 +26,7 @@ export const Input = props => {
     default:
       return (
         <label className={ setClassName(props, 'input') }>
-          <input type='text' className={ undefined } { ...props } />
+          <input { ...props } type='text' className={ undefined } />
         </label>
       );
   };
@@ -28,5 +34,5 @@ export const Input = props => {
 
 
 Input.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string
 };

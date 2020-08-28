@@ -3,6 +3,14 @@ import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace Pagination
+ * @description Default styled pagination component.
+ * @property {Array} children - Array of objects to make up pagination.
+ * @property {number|string} results - How many results to show on each page.
+ * @tutorial `src\stories\Pagination.stories.js`
+ */
+
 const getChildren = props => props.children.reduce((accumulator, child, index) => {
   const current = Math.floor(index / (props.results || 10));
   accumulator[current] ? accumulator[current] = [ accumulator[current], child] : accumulator[current] = child;

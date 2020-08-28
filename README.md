@@ -7,11 +7,6 @@
 > A Default, open-source, component library for React.
 <br>
 
-## 🐱‍🚀 Demo
-See the components in action, in the Default Storybook. Hosted on GitHub pages:<br>
-[Default Storybook](https://default-services.github.io/components)
-<br><br>
-
 ## 🐱‍🏍 Install
 
 **npm:**
@@ -40,8 +35,8 @@ const MyComponent = (props) => {
 <br>
 
 ## 🐱‍👓 Docs
-Learn more, with the [Default documentation](https://default.services).
-<br><br>
+Learn more about using the Default component library for your project, with our [Default documentation](https://default.services).
+<br>
 
 ## 🐱‍🐉 Support
 Default component library utilizes technologies such as Babel and PostCSS to ensure all code is cross-browser compatible, and supports **at least** the following browsers:
@@ -51,12 +46,10 @@ Default component library utilizes technologies such as Babel and PostCSS to ens
 <br>
 
 ## 🐱‍👤 Develop
-
-Default is equipped with the latest and greatest tech stack, improve your developer portfolio by contributing to a modern open-source project like the Default component library.<br><br>
-For Default contribution guidelines, see:<br>[Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default)
+Code documentation for this project, created with [JSDoc](https://github.com/jsdoc/jsdoc), can be found here:<br>
+[Default component library](https://default-services.github.io/components)
 <br><br>
-
-[![Tech](https://user-images.githubusercontent.com/8584126/83432596-f454db80-a3ed-11ea-93c3-28c5ae24a42d.png)](https://github.com/default-services/components)
+For Default contribution guidelines, see:<br>[Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default)
 <br>
 
 ## 🏷️ License

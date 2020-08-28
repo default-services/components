@@ -4,6 +4,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace Checkbox
+ * @description Default styled checkbox component.
+ * @property {string} label - Label (text) for checkbox.
+ * @property {string} type - If provided, discarded and replaced with "checkbox".
+ * @property {string} variant - Variant of checkbox to use (e.g., "alt-icons").
+ * @tutorial `src\stories\Checkbox.stories.js`.
+ */
+
 export const Checkbox = props => {
   const { label, type, variant } = props;
 
@@ -23,5 +32,6 @@ export const Checkbox = props => {
 
 Checkbox.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  variant: PropTypes.string
 };

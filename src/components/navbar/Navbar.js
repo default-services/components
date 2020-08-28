@@ -9,6 +9,17 @@ import { MenuIcon } from 'assets/icons/MenuIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace Navbar
+ * @description Default styled navbar component.
+ * @property {Array.<Object>} links - Array of navigation link objects.
+ * @property {string} logo - "src" attribute for logo <img />.
+ * @property {string} logoLink - Link navbar logo/icon directs to.
+ * @property {string} logoTitle - Title text for logo/icon.
+ * @property {string} variant - Variant of navbar to use (e.g., "navbar-underline").
+ * @tutorial `src\stories\Navbar.stories.js`.
+ */
+
 export class Navbar extends Component {
 
   state = { menuOpen: false };

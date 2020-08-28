@@ -5,6 +5,13 @@ import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace ToTop
+ * @description Default styled to-top button component.
+ * @property {string} variant Variant of to-top component to use (e.g., "alt-icons").
+ * @tutorial `src\stories\ToTop.stories.js`
+ */
+
 export class ToTop extends Component {
 
   state = {

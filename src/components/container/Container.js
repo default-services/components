@@ -1,12 +1,28 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+// import PropTypes from 'prop-types';
 
-export const Container = props => (
-  <section { ...props } className={ setClassName(props, 'container') }>
-    { props.children }
-  </section>
-);
+
+/**
+ * @namespace Container
+ * @description Default styled container component.
+ * @property {{ children: JSX.Element}} - Child elements to nest in container.
+ * @tutorial `src\stories\Container.stories.js`.
+ */
+
+export const Container = props => {
+
+  const {
+    children,
+    ...componentProps
+  } = props;
+
+  return (
+    <section { ...componentProps } className={ setClassName(props, 'container') }>
+      { children }
+    </section>
+  );
+};
 
 // Container.propTypes = { };

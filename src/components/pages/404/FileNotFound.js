@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace FileNotFound
+ * @description Default styled 404 page component.
+ * @tutorial `src\stories\Pages.stories.js`.
+ */
+
 export class FileNotFound extends Component {
   state = {
     0: 0,

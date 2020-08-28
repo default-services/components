@@ -1,13 +1,25 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
 
+// import PropTypes from 'prop-types';
+
+
+/**
+ * @namespace Footer
+ * @description Default styled footer component.
+ * @property {{ children: JSX.Element}} - Child elements to nest in footer.
+ * @tutorial `src\stories\Footer.stories.js`.
+ */
 
 export const Footer = props => {
+  const {
+    children,
+    ...componentProps
+  } = props;
 
   return (
-    <footer { ...props } className={ setClassName(props, 'footer') }>
-      { props.children }
+    <footer { ...componentProps } className={ setClassName(props, 'footer') }>
+      { children }
     </footer>
   );
 };

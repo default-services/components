@@ -2,6 +2,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
 
+/**
+ * @namespace RadioButton
+ * @description Default styled radio button component.
+ * @property {string} type - If provided, is discarded and "radio" is used.
+ * @property {string} text - Radio button text.
+ * @property {string} variant - Radio button variant to use (e.g., "alt-icons").
+ * @tutorial `src\stories\Radio.stories.js`
+ */
+
 export const RadioButton = props => {
   const { text, type } = props;
 

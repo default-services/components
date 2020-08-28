@@ -1,52 +1,157 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><title>Storybook</title><meta name="viewport" content="width=device-width,initial-scale=1"/><style>html, body {
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
 
-  * {
-    box-sizing: border-box;
-  }</style><script>/* globals window */
-  /* eslint-disable no-underscore-dangle */
-  try {
-    if (window.top !== window) {
-      window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.top.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-    }
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.warn('unable to connect to top frame for connecting dev tools');
-  }</script><link href="https://fonts.googleapis.com/css?family=Nova+Flat|Roboto&display=swap" rel="stylesheet"><link id="favicon" rel="shortcut icon" href="#" type="image/x-icon"><title>Default Storybook</title><script>window.addEventListener('DOMContentLoaded', () => {
-    const URL = 'https://user-images.githubusercontent.com/8584126/';
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="Home - Documentation"/>
 
-    const colors = [ green, red ] = [
-      '83166610-08ce6680-a0c4-11ea-9eca-c9321369e26f.png',
-      '83166653-17b51900-a0c4-11ea-85aa-a82a394e913a.png'
-    ];
+</head>
+<body>
 
-    document.querySelector('#favicon').setAttribute('href', URL + colors[Math.floor(Math.random() * colors.length)]);
-  });</script><style>a[id^=explorer] span {
-    font-size: 1rem;
-    margin-top: .1rem;
-    color: #484848;
-  }
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
 
-  a[id^=explorer] .selected span {
-    color: #f5f5f5;
-  }
+<label for="nav-trigger" class="overlay"></label>
 
-  a[id^=explorer] + div {
-    margin-bottom: .25rem;
-  }</style><style>#root[hidden],
-      #docs-root[hidden] {
-        display: none !important;
-      }</style></head><body><div id="root"></div><div id="docs-root"></div><script>window['LOGLEVEL'] = "info";
-            
-        
-            
-        
-            
-        
-            
-              window['DOCS_MODE'] = false;</script><script src="./sb_dll/storybook_ui_dll.js"></script><script src="runtime~main.870e8ee0658e83d05c6b.bundle.js"></script><script src="vendors~main.b3728e18857e2df6c710.bundle.js"></script><script src="main.a3b61ef3ae532b46eec8.bundle.js"></script></body></html>
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>Default Component Library</h1>
+<p><a href="https://www.npmjs.com/package/@default-services/components"><img src="https://img.shields.io/npm/v/@default-services/components?color=%2357a9a9&amp;style=for-the-badge" alt="NPM"></a>
+<a href="https://github.com/default-services/components"><img src="https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge" alt="Build"></a>
+<a href="https://github.com/default-services/components/blob/master/LICENSE"><img src="https://img.shields.io/github/license/default-services/components?color=%2357a9a9&amp;style=for-the-badge" alt="License"></a></p>
+<blockquote>
+<p>A Default, open-source, component library for React.
+<br></p>
+</blockquote>
+<h2>🐱‍🏍 Install</h2>
+<p><strong>npm:</strong></p>
+<pre class="prettyprint source lang-bash"><code>npm install @default-services/components
+</code></pre>
+<p><strong>yarn:</strong></p>
+<pre class="prettyprint source lang-bash"><code>yarn add @default-services/components
+</code></pre>
+<br>
+<h2>🐱‍💻 Use</h2>
+<pre class="prettyprint source lang-jsx"><code>import React from 'react';
+import { Button } from '@default-services/components';
+
+const MyComponent = (props) => {
+  return (
+    &lt;div>
+      &lt;Button>Hello Default!&lt;/Button>
+    &lt;/div>
+  );
+};
+</code></pre>
+<br>
+<h2>🐱‍👓 Docs</h2>
+<p>Learn more about using the Default component library for your project, with our <a href="https://default.services">Default documentation</a>.
+<br></p>
+<h2>🐱‍🐉 Support</h2>
+<p>Default component library utilizes technologies such as Babel and PostCSS to ensure all code is cross-browser compatible, and supports <strong>at least</strong> the following browsers:</p>
+<table>
+<thead>
+<tr>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" /></a><br/>IE / Edge</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /></a><br/>Firefox</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /></a><br/>Chrome</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /></a><br/>Safari</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" /></a><br/>iOS Safari</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" /></a><br/>Samsung</th>
+<th><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" /></a><br/>Opera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IE11, Edge</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+<td>last 2 versions</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h2>🐱‍👤 Develop</h2>
+<p>Code documentation for this project, created with <a href="https://github.com/jsdoc/jsdoc">JSDoc</a>, can be found here:<br>
+<a href="https://default-services.github.io/components">Default component library</a>
+<br><br>
+For Default contribution guidelines, see:<br><a href="https://github.com/default-services/components/wiki/Contributing-to-Default">Contributing to Default</a>
+<br></p>
+<h2>🏷️ License</h2>
+<p>MIT © <a href="https://github.com/default-services/components/blob/master/LICENSE">Default</a></p></article>
+    </section>
+
+
+
+
+
+
+
+<style>
+
+nav>.search+ul li:first-child:after {
+    display: none;
+}
+nav>.search+ul li:first-child h4, nav>.search+ul li:first-child ul {
+    display: block;
+}
+
+
+nav li[file="home"]:after {
+    display: none;
+}
+nav li[file="home"] h4, nav li[file="home"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>

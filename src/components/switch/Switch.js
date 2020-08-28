@@ -4,6 +4,11 @@ import setClassName from 'utilities/setClassName';
 
 // import PropTypes from 'prop-types';
 
+/**
+ * @namespace Switch
+ * @description [INCOMPLETE] Default styled switch/toggle component.
+ * @tutorial `src\stories\Switch.stories.js`
+ */
 
 export class Switch extends Component {
   state = { status: false };

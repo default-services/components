@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>navbar/Navbar.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="navbar/Navbar.js - Documentation"/>
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">navbar/Navbar.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component, Fragment } from 'react';
+
+import { ArrowLeftAltIcon } from 'assets/icons/ArrowLeftAltIcon';
+import { ArrowLeftIcon } from 'assets/icons/ArrowLeftIcon';
+import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
+import { CloseIcon } from 'assets/icons/CloseIcon';
+import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
+import { MenuIcon } from 'assets/icons/MenuIcon';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace Navbar
+ * @description Default styled navbar component.
+ * @property {Array.&lt;Object>} links - Array of navigation link objects.
+ * @property {string} logo - "src" attribute for logo &lt;img />.
+ * @property {string} logoLink - Link navbar logo/icon directs to.
+ * @property {string} logoTitle - Title text for logo/icon.
+ * @property {string} variant - Variant of navbar to use (e.g., "navbar-underline").
+ * @tutorial `src\stories\Navbar.stories.js`.
+ */
+
+export class Navbar extends Component {
+
+  state = { menuOpen: false };
+
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+
+  render() {
+    const {
+      props: {
+        links,
+        logo,
+        logoLink,
+        logoTitle,
+        ['logo-link']: logolink, // depreciated
+        ['logo-title']: logotitle, // depreciated
+        variant = '',
+        ...drilledProps
+      }
+    } = this;
+
+    // allow for depreciated prop usage (remove in version 2+)
+    const link = logoLink || (logolink || undefined);
+    const title = logoTitle || (logotitle || undefined);
+
+    const { state: { menuOpen } } = this;
+    const { toggleMenu } = this;
+
+    const className = menuOpen ? 'navbar-open' : 'navbar';
+
+    // Check if there's an 'underline' variant in props
+    const underline = (
+      variant.includes('navbar-underline') ||
+      variant.includes('navbar-right-underline')
+    );
+
+    // Determining which menu icon to serve &amp; menu offset
+    const Close = props => variant.includes('alt-icons') ?
+      variant.includes('arrow-close') ?
+        &lt;ArrowLeftAltIcon { ...props } /> :
+        &lt;CloseAltIcon { ...props } /> :
+
+      variant.includes('arrow-close') ?
+        &lt;ArrowLeftIcon { ...props } /> :
+        &lt;CloseIcon { ...props } />;
+
+
+    const Menu = props => variant.includes('alt-icons') ?
+      &lt;MenuAltIcon { ...props } /> :
+      &lt;MenuIcon { ...props } />;
+
+    const Icon = props => menuOpen ?
+      &lt;Close { ...props } /> :
+      &lt;Menu { ...props } />;
+
+    const labelText = menuOpen ? 'close' : 'open';
+
+
+    return (
+      &lt;Fragment>
+        &lt;header
+          { ...drilledProps }
+          variant={ variant }
+          className={ setClassName(this.props, className) }
+        >
+          &lt;aside role='dialog' />
+          &lt;nav>
+            &lt;div role='dialog'>
+              &lt;Icon onClick={ toggleMenu } aria-label={ labelText } />
+            &lt;/div>
+            &lt;section>
+              { title ? &lt;h3>{ title }&lt;/h3> : undefined }
+              {
+                logo ?
+                  &lt;aside>
+                    {
+                      link ?
+                        &lt;a href={ link } title={ title || null }>
+                          &lt;img src={ logo } alt={ title || 'logo' } />
+                        &lt;/a> :
+                        &lt;img src={ logo } alt={ title || 'logo' } />
+                    }
+                  &lt;/aside> :
+                  undefined
+              }
+              &lt;ul>
+                {
+                  links.map(link => {
+                    const { a, li, text } = link;
+                    const { key } = li;
+
+                    return (
+                      &lt;li { ...li } key={ key } onClick={ toggleMenu }>
+                        &lt;a { ...a }>{ text }&lt;/a>
+                        { underline ? &lt;span /> : undefined }
+                      &lt;/li>
+                    );
+                  })
+                }
+              &lt;/ul>
+
+            &lt;/section>
+          &lt;/nav>
+        &lt;/header>
+        &lt;div role='dialog' />
+      &lt;/Fragment>
+    );
+  };
+};
+
+Navbar.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.object).isRequired,
+  variant: PropTypes.string
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+<style>
+
+
+nav li[file="navbar/navbar"]:after {
+    display: none;
+}
+nav li[file="navbar/navbar"] h4, nav li[file="navbar/navbar"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>pages/404/FileNotFound.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="pages/404/FileNotFound.js - Documentation"/>
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">pages/404/FileNotFound.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace FileNotFound
+ * @description Default styled 404 page component.
+ * @tutorial `src\stories\Pages.stories.js`.
+ */
+
+export class FileNotFound extends Component {
+  state = {
+    0: 0,
+    1: 0,
+    2: 0
+  };
+
+  componentDidMount() {
+    const randomNum = () => {
+      return Math.floor(Math.random() * 9) + 1;
+    };
+
+    const loopOne = setInterval(() => this.setState({ [0]: randomNum() }), 30);
+    const loopTwo = setInterval(() => this.setState({ [1]: randomNum() }), 30);
+    const loopThree = setInterval(() => this.setState({ [2]: randomNum() }), 30);
+
+    setTimeout(() => {
+      const clearIt = (interval, digit, time, value) => {
+        setTimeout(() => {
+          clearInterval(interval);
+          this.setState({ [digit]: value });
+        }, time);
+      };
+
+      clearIt(loopOne, 0, 40, 4);
+      clearIt(loopTwo, 1, 80, 0);
+      clearIt(loopThree, 2, 100, 4);
+    }, 1000);
+  };
+
+  render() {
+    const { props, state: numbers } = this;
+    return (
+      &lt;div className={ setClassName(props, 'container') }>
+        &lt;div>
+          &lt;span>{numbers[2]}&lt;/span>
+        &lt;/div>
+
+        &lt;div>
+          &lt;span>{numbers[1]}&lt;/span>
+        &lt;/div>
+
+        &lt;div>
+          &lt;span>{numbers[2]}&lt;/span>
+        &lt;/div>
+
+        &lt;h2>Page not found&lt;/h2>
+      &lt;/div>
+    );
+  }
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+<style>
+
+
+nav li[file="pages/404/filenotfound"]:after {
+    display: none;
+}
+nav li[file="pages/404/filenotfound"] h4, nav li[file="pages/404/filenotfound"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>

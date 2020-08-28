@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>notice/Notice.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="notice/Notice.js - Documentation"/>
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">notice/Notice.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import { Button } from 'src/components/button/Button';
+import { CloseAltIcon } from 'assets/icons/CloseAltIcon';
+import { CloseIcon } from 'assets/icons/CloseIcon';
+import { Input } from 'src/components/input/Input';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace Notice
+ * @description Default styled alert, confirm, and prompt notification components.
+ * @property {function} cancelFunc - Cancel button function.
+ * @property {string} cancelText - Cancel button text.
+ * @property {{ children: JSX.Element}} - Child elements to nest in notice (e.g., the message).
+ * @property {string} header - Header text for notice component.
+ * @property {string} inputPlaceholder - Placeholder for input of notice component.
+ * @property {function} okayFunc - Okay button function.
+ * @property {string} okayText - Okay button text.
+ * @property {function} setShow - Function which accepts a boolean of whether to show notice.
+ * @property {boolean} show - Boolean associated with the setShow function described above.
+ * @property {string} type - type of notice being used (e.g., "alert", "confirm", or "prompt").
+ * @property {string} variant - Variant of notices to use (e.g., "alt-icons").
+ * @tutorial `src\stories\Notice.stories.js`.
+ */
+
+
+// Pass input value to user's Okay function (if prompt) and close the dialog
+const userOkFunc = (context) => {
+
+  // If Okay function exists
+  if(context.props.okayFunc) {
+    context.props.type === 'prompt' ?
+      context.props.okayFunc(context.state.promptInputText) :
+      context.props.okayFunc();
+
+  // If no Okay function exists
+  } else console.error('no okayFunc property set.');
+
+  // Reset prompt input text and close the dialog
+  context.setState({ promptInputText: '' }, context.props.setShow(false));
+};
+
+
+export class Notice extends Component {
+
+  state = {
+    promptInputText: '',
+    stateOkayFunc: () => userOkFunc(this)
+  };
+
+  handleClose = () => this.props.setShow(false);
+  handleKeyUp = event => {
+    this.setState({ promptInputText: event.target.value });
+  };
+
+  stopPropagation = event => event.stopPropagation();
+
+  // Configure for mobile devices
+
+  render() {
+    var {
+      handleClose,
+      handleKeyUp,
+      props,
+      props: {
+        cancelFunc,
+        cancelText,
+        children: message,
+        header,
+        inputPlaceholder = 'Type here',
+        okayFunc,
+        okayText,
+        setShow,
+        show,
+        type,
+        variant = '',
+        ...drilledProps
+      },
+      state: {
+        stateOkayFunc,
+        promptInputText
+      },
+      stopPropagation
+    } = this;
+
+    const Close = iconProps => variant.includes('alt-icons') ?
+      &lt;CloseAltIcon { ...iconProps } /> : &lt;CloseIcon { ...iconProps } />;
+
+    const handleCancel = () => {
+      if(props.cancelFunc) cancelFunc();
+      this.props.setShow(false);
+    };
+
+    if(!show)
+      return (&lt;>&lt;/>);
+
+    return (
+      &lt;div
+        className={ setClassName(props, 'notice-mask') }
+        onClick={ handleClose }
+      >
+        &lt;aside
+          { ...drilledProps }
+          className={ setClassName(props, 'notice') }
+          onClick={ stopPropagation }
+          variant={ variant }
+        >
+          &lt;header>
+            &lt;h5>{ header || '' }&lt;/h5>
+            &lt;Close aria-label='close' onClick={ handleClose } />
+          &lt;/header>
+          &lt;article>
+            &lt;p>{ message }&lt;/p>
+            {
+              type === 'confirm' || type === 'prompt' ?
+                &lt;article>
+                  {
+                    type === 'prompt' ?
+                      &lt;Input
+                        onChange={ handleKeyUp }
+                        placeholder={ inputPlaceholder }
+                        type='text'
+                        value={ promptInputText }
+                      /> :
+                      undefined
+                  }
+                  &lt;Button onClick={ stateOkayFunc }>{ okayText || 'Okay' }&lt;/Button>
+                  &lt;Button onClick={ handleCancel }>{ cancelText || 'Cancel' }&lt;/Button>
+                &lt;/article> :
+                undefined
+            }
+          &lt;/article>
+        &lt;/aside>
+      &lt;/div>
+    );
+  }
+};
+
+
+Notice.propTypes = {
+  cancelFunc: PropTypes.func,
+  cancelText: PropTypes.string,
+  header: PropTypes.string,
+  inputPlaceholder: PropTypes.string,
+  okayFunc: PropTypes.func,
+  okayText: PropTypes.string,
+  setShow: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired,
+  type: PropTypes.string,
+  variant: PropTypes.string
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+<style>
+
+
+nav li[file="notice/notice"]:after {
+    display: none;
+}
+nav li[file="notice/notice"] h4, nav li[file="notice/notice"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>
