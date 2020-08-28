@@ -36,7 +36,7 @@ const MyComponent = (props) => {
 
 ## 🐱‍👓 Docs
 Learn more about using the Default component library for your project:<br/> [Default documentation](https://default.services)
-<br>
+<br><br>
 
 ## 🐱‍🐉 Support
 Default component library utilizes technologies such as Babel and PostCSS to ensure all code is cross-browser compatible, and supports **at least** the following browsers:
@@ -50,7 +50,7 @@ Code documentation for this project, created with [JSDoc](https://github.com/jsd
 [Default component library](https://default-services.github.io/components)
 <br><br>
 For Default contribution guidelines, see:<br>[Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default)
-<br>
+<br><br>
 
 ## 🏷️ License
 
