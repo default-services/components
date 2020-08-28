@@ -12,7 +12,7 @@ import setClassName from 'utilities/setClassName';
  * @description Default styled alert, confirm, and prompt notification components.
  * @property {function} cancelFunc - Cancel button function.
  * @property {string} cancelText - Cancel button text.
- * @property {{ children: JSX.Element}} - Child elements to nest in notice (e.g., the message).
+ * @property {children} - Child elements to nest in notice (e.g., the message).
  * @property {string} header - Header text for notice component.
  * @property {string} inputPlaceholder - Placeholder for input of notice component.
  * @property {function} okayFunc - Okay button function.

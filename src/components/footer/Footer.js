@@ -7,7 +7,6 @@ import setClassName from 'utilities/setClassName';
 /**
  * @namespace Footer
  * @description Default styled footer component.
- * @property {{ children: JSX.Element}} - Child elements to nest in footer.
  * @tutorial `src\stories\Footer.stories.js`.
  */
 

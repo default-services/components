@@ -6,7 +6,7 @@ import setClassName from 'utilities/setClassName';
 
 /**
  * @namespace Switch
- * @description [INCOMPLETE] Default styled switch/toggle component.
+ * @description Default styled switch/toggle component.
  * @tutorial `src\stories\Switch.stories.js`
  */
 
