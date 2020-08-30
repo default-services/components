@@ -1,10 +1,9 @@
-.container {
-  text-align: center;
-  flex-wrap: wrap;
+.file-not-found-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
   align-items: flex-end;
-  width: calc(180px * 3);
   margin-top: 10em;
 
   h2 {
@@ -15,26 +14,29 @@
   }
 
   > div {
-    display: inline-block;
+    width: calc(180px * 3);
 
-    span {
-      color: var(--white-color);
-      background: var(--primary-color);
-      border-radius: 50%;
+    > div {
       display: inline-block;
-      width: 150px;
-      line-height: 150px;
-      font-size: 120px;
-      font-weight: bold;
-      margin: 15px;
+
+      span {
+        color: var(--white-color);
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: inline-block;
+        width: 150px;
+        line-height: 150px;
+        font-size: 120px;
+        font-weight: bold;
+        margin: 15px;
+      }
     }
   }
-
 }
 
 @media(max-width: $tablet) {
 
-  .container h2 {
+  .file-not-found-container h2 {
     font-size: 24px;
   }
 }

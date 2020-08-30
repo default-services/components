@@ -41,20 +41,22 @@ export class FileNotFound extends Component {
   render() {
     const { props, state: numbers } = this;
     return (
-      <div className={ setClassName(props, 'container') }>
+      <div className={ setClassName(props, 'file-not-found-container') }>
         <div>
-          <span>{numbers[2]}</span>
-        </div>
+          <div>
+            <span>{numbers[2]}</span>
+          </div>
 
-        <div>
-          <span>{numbers[1]}</span>
-        </div>
+          <div>
+            <span>{numbers[1]}</span>
+          </div>
 
-        <div>
-          <span>{numbers[2]}</span>
-        </div>
+          <div>
+            <span>{numbers[2]}</span>
+          </div>
 
-        <h2>Page not found</h2>
+          <h2>Page not found</h2>
+        </div>
       </div>
     );
   }
