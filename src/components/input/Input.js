@@ -10,7 +10,11 @@ import setClassName from 'utilities/setClassName';
  */
 
 export const Input = props => {
-  const { type } = props;
+  const {
+    className,
+    type,
+    ...inputProps
+  } = props;
 
   // Error for invalid `type` props
   const error = component => console.error(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
@@ -26,7 +30,7 @@ export const Input = props => {
     default:
       return (
         <label className={ setClassName(props, 'input') }>
-          <input { ...props } type='text' className={ undefined } />
+          <input { ...inputProps } type='text' />
         </label>
       );
   };
