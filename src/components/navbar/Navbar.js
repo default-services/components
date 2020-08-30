@@ -33,16 +33,10 @@ export class Navbar extends Component {
         logo,
         logoLink,
         logoTitle,
-        ['logo-link']: logolink, // depreciated
-        ['logo-title']: logotitle, // depreciated
         variant = '',
         ...drilledProps
       }
     } = this;
-
-    // allow for depreciated prop usage (remove in version 2+)
-    const link = logoLink || (logolink || undefined);
-    const title = logoTitle || (logotitle || undefined);
 
     const { state: { menuOpen } } = this;
     const { toggleMenu } = this;
@@ -90,16 +84,16 @@ export class Navbar extends Component {
               <Icon onClick={ toggleMenu } aria-label={ labelText } />
             </div>
             <section>
-              { title ? <h3>{ title }</h3> : undefined }
+              { logoTitle ? <h3>{ logoTitle }</h3> : undefined }
               {
                 logo ?
                   <aside>
                     {
-                      link ?
-                        <a href={ link } title={ title || null }>
-                          <img src={ logo } alt={ title || 'logo' } />
+                      logoLink ?
+                        <a href={ logoLink } title={ logoTitle || null }>
+                          <img src={ logo } alt={ logoTitle || 'logo' } />
                         </a> :
-                        <img src={ logo } alt={ title || 'logo' } />
+                        <img src={ logo } alt={ logoTitle || 'logo' } />
                     }
                   </aside> :
                   undefined

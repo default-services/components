@@ -9,11 +9,11 @@ const build = () => {
         return accumulator;
 
       case 'storybook':
-        accumulator = 'build-storybook -o docs';
+        accumulator = 'build-storybook';
         return accumulator;
 
       default:
-        accumulator = 'rollup -c && build-storybook -o docs';
+        accumulator = 'rollup -c && build-storybook';
         return accumulator;
     }
   }, '');

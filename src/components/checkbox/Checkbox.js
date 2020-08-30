@@ -14,7 +14,13 @@ import setClassName from 'utilities/setClassName';
  */
 
 export const Checkbox = props => {
-  const { label, type, variant } = props;
+  const {
+    className, // Intentionally excluded from inputProps
+    label,
+    type,
+    variant,
+    ...inputProps
+  } = props;
 
   if(type && type !== 'checkbox')
     return console.warn(
@@ -24,7 +30,7 @@ export const Checkbox = props => {
   return (
     <label className={ setClassName(props, 'checkbox') }>
       <span>{ label || '' }</span>
-      <input { ...props } className={ undefined } type='checkbox' role='checkbox' />
+      <input { ...inputProps } type='checkbox' />
       { variant === 'alt-icons' ? <CheckAltIcon /> : <CheckIcon /> }
     </label>
   );

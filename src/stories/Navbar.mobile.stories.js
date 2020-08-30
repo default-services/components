@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import defaultLogo from 'assets/images/default-logo.png';
 
 export default {
-  title: 'Navbar',
+  title: 'Navbar (mobile)',
   component: DefaultNavbar,
   parameters: {
     viewport: {

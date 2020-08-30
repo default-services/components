@@ -20,9 +20,9 @@ export class FileNotFound extends Component {
       return Math.floor(Math.random() * 9) + 1;
     };
 
-    const loopOne = setInterval(() => this.setState({ [0]: randomNum() }), 30);
-    const loopTwo = setInterval(() => this.setState({ [1]: randomNum() }), 30);
-    const loopThree = setInterval(() => this.setState({ [2]: randomNum() }), 30);
+    const loopOne = setInterval(() => this.setState({ 0: randomNum() }), 30);
+    const loopTwo = setInterval(() => this.setState({ 1: randomNum() }), 30);
+    const loopThree = setInterval(() => this.setState({ 2: randomNum() }), 30);
 
     setTimeout(() => {
       const clearIt = (interval, digit, time, value) => {
