@@ -56,7 +56,12 @@ import setClassName from 'utilities/setClassName';
  */
 
 export const RadioButton = props => {
-  const { text, type } = props;
+  const {
+    className,
+    text,
+    type,
+    ...inputProps
+  } = props;
 
   if(type &amp;&amp; type !== 'radio')
     return console.warn(
@@ -66,7 +71,7 @@ export const RadioButton = props => {
   return (
     &lt;label className={ setClassName(props, 'radiobutton') }>
       &lt;span>{ text || '' }&lt;/span>
-      &lt;input { ...props } type='radio' className={ undefined } />
+      &lt;input { ...inputProps } type='radio' />
       &lt;span />
     &lt;/label>
   );

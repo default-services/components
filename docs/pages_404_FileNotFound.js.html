@@ -64,9 +64,9 @@ export class FileNotFound extends Component {
       return Math.floor(Math.random() * 9) + 1;
     };
 
-    const loopOne = setInterval(() => this.setState({ [0]: randomNum() }), 30);
-    const loopTwo = setInterval(() => this.setState({ [1]: randomNum() }), 30);
-    const loopThree = setInterval(() => this.setState({ [2]: randomNum() }), 30);
+    const loopOne = setInterval(() => this.setState({ 0: randomNum() }), 30);
+    const loopTwo = setInterval(() => this.setState({ 1: randomNum() }), 30);
+    const loopThree = setInterval(() => this.setState({ 2: randomNum() }), 30);
 
     setTimeout(() => {
       const clearIt = (interval, digit, time, value) => {
@@ -85,20 +85,22 @@ export class FileNotFound extends Component {
   render() {
     const { props, state: numbers } = this;
     return (
-      &lt;div className={ setClassName(props, 'container') }>
+      &lt;div className={ setClassName(props, 'file-not-found-container') }>
         &lt;div>
-          &lt;span>{numbers[2]}&lt;/span>
-        &lt;/div>
+          &lt;div>
+            &lt;span>{numbers[2]}&lt;/span>
+          &lt;/div>
 
-        &lt;div>
-          &lt;span>{numbers[1]}&lt;/span>
-        &lt;/div>
+          &lt;div>
+            &lt;span>{numbers[1]}&lt;/span>
+          &lt;/div>
 
-        &lt;div>
-          &lt;span>{numbers[2]}&lt;/span>
-        &lt;/div>
+          &lt;div>
+            &lt;span>{numbers[2]}&lt;/span>
+          &lt;/div>
 
-        &lt;h2>Page not found&lt;/h2>
+          &lt;h2>Page not found&lt;/h2>
+        &lt;/div>
       &lt;/div>
     );
   }

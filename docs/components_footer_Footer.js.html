@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>RadioButton - Documentation</title>
+    <title>components/footer/Footer.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="RadioButton - Documentation"/>
+    <meta name="description" content="components/footer/Footer.js - Documentation"/>
 
 </head>
 <body>
@@ -32,206 +32,44 @@
 
 <div id="main">
     
-    <h1 class="page-title">RadioButton</h1>
+    <h1 class="page-title">components/footer/Footer.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        RadioButton
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_radiobutton_RadioButton.js.html">components/radiobutton/RadioButton.js</a>, <a href="components_radiobutton_RadioButton.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-tutorial">Tutorials:</dt>
-    <dd class="tag-tutorial">
-        <ul>
-            <li><em class="disabled">Tutorial: `src\stories\Radio.stories.js`</em></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>If provided, is discarded and &quot;radio&quot; is used.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Radio button text.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>variant</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Radio button variant to use (e.g., &quot;alt-icons&quot;).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-        
-            <div class="description"><p>Default styled radio button component.</p></div>
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import setClassName from 'utilities/setClassName';
+
+// import PropTypes from 'prop-types';
+
+
+/**
+ * @namespace Footer
+ * @description Default styled footer component.
+ * @tutorial `src\stories\Footer.stories.js`.
+ */
+
+export const Footer = props => {
+  const {
+    children,
+    ...componentProps
+  } = props;
+
+  return (
+    &lt;footer { ...componentProps } className={ setClassName(props, 'footer') }>
+      { children }
+    &lt;/footer>
+  );
+};
+
+// Footer.propTypes = { };</code></pre>
+        </article>
+    </section>
 
 
 
@@ -240,10 +78,10 @@
 <style>
 
 
-nav li[file="radiobutton"]:after {
+nav li[file="components/footer/footer"]:after {
     display: none;
 }
-nav li[file="radiobutton"] h4, nav li[file="radiobutton"] ul {
+nav li[file="components/footer/footer"] h4, nav li[file="components/footer/footer"] ul {
     display: block;
 }
 </style>

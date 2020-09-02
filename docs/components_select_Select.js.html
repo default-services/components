@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>components/select/Select.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="components/select/Select.js - Documentation"/>
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/select/Select.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import { ChevronDownAltIcon } from 'assets/icons/ChevronDownAltIcon';
+import { ChevronDownIcon } from 'assets/icons/ChevronDownIcon';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace Select
+ * @description Default styled select drop down component.
+ * @property {Array.&lt;string>} options - Array of strings that are select options.
+ * @property {string} title - Placeholder title for select drop down.
+ * @property {string} variant - Variant of select component to use (e.g., "alt-icons").
+ * @tutorial `src\stories\Select.stories.js`
+ */
+
+export class Select extends Component {
+
+  state = {
+    currentOption: this.props.title,
+    showOptions: false
+  };
+
+  render() {
+
+    const {
+      props: {
+        options,
+        variant = ''
+      },
+      state: {
+        currentOption,
+        showOptions
+      }
+    } = this;
+
+    // Helps determine the longest option which allows CSS
+    // calculations to be made utilizing the "ch" (character) unit
+    const longestOptionWidth = options.reduce((acc, option) => {
+      if(option.length > acc) acc = option.length;
+      return acc;
+    }, 0);
+
+    // Toggle displaying the options
+    const handleDropdownClick = () => this.setState({ showOptions: !this.state.showOptions });
+
+    // Switch selected option to current option
+    const handleOptionClick = option => {
+      this.setState({
+        currentOption: option,
+        showOptions: false
+      });
+    };
+
+    // Configure option padding based on longest option width
+    const setOptionStyles = option => {
+      const paddingRight = `calc(${longestOptionWidth - option.length + 4 + 'ch'} + 1.2rem)`;
+      return { paddingRight };
+    };
+
+    // Unorganized List of options provided from props
+    const optionList = (
+      &lt;ul>
+        {
+          options.map((option, index) => {
+            const key = `${option.replace(/ /g, '-')}-${index}`;
+
+            return (
+              &lt;li
+                key={ key }
+                onClick={ () => handleOptionClick(option) }
+                style={ setOptionStyles(option) }
+                title={ option }
+              >
+                { option }
+              &lt;/li>
+            );
+          })
+        }
+      &lt;/ul>
+    );
+
+    const ChevronDown = props => variant.includes('alt-icons') ?
+      &lt;ChevronDownAltIcon { ...props } /> :
+      &lt;ChevronDownIcon { ...props } />;
+
+    return (
+      &lt;article { ...this.props } className={ setClassName(this.props, 'select') }>
+
+        &lt;div onClick={ handleDropdownClick } style={ { width: `${longestOptionWidth + 1}ch` } }>
+          &lt;span style={ { paddingRight: longestOptionWidth - currentOption.length } }>{ currentOption }&lt;/span>
+          &lt;span>|&lt;/span>
+          &lt;ChevronDown style={ { transform: `scaleY(${showOptions ? '-1' : '1'})` } } />
+        &lt;/div>
+
+        { showOptions ? optionList : undefined }
+      &lt;/article>
+    );
+  }
+};
+
+Select.propTypes = {
+  options: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+<style>
+
+
+nav li[file="components/select/select"]:after {
+    display: none;
+}
+nav li[file="components/select/select"] h4, nav li[file="components/select/select"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>RadioButton - Documentation</title>
+    <title>components/totop/ToTop.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="RadioButton - Documentation"/>
+    <meta name="description" content="components/totop/ToTop.js - Documentation"/>
 
 </head>
 <body>
@@ -32,206 +32,93 @@
 
 <div id="main">
     
-    <h1 class="page-title">RadioButton</h1>
+    <h1 class="page-title">components/totop/ToTop.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-        RadioButton
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_radiobutton_RadioButton.js.html">components/radiobutton/RadioButton.js</a>, <a href="components_radiobutton_RadioButton.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-tutorial">Tutorials:</dt>
-    <dd class="tag-tutorial">
-        <ul>
-            <li><em class="disabled">Tutorial: `src\stories\Radio.stories.js`</em></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>If provided, is discarded and &quot;radio&quot; is used.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>text</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Radio button text.</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>variant</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>Radio button variant to use (e.g., &quot;alt-icons&quot;).</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-        
-            <div class="description"><p>Default styled radio button component.</p></div>
-        
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from 'react';
+
+import { ArrowUpAltIcon } from 'src/assets/icons/ArrowUpAltIcon';
+import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace ToTop
+ * @description Default styled to-top button component.
+ * @property {string} variant Variant of to-top component to use (e.g., "alt-icons").
+ * @tutorial `src\stories\ToTop.stories.js`
+ */
+
+export class ToTop extends Component {
+
+  state = {
+    styles: {
+      opacity: 0,
+      pointerEvents: 'none'
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const scrolling = window.scrollY > 500;
+
+    // If window is past 500px &amp; icon is hidden
+    if(scrolling &amp;&amp; !this.state.styles.opacity)
+      this.setState({ styles: { opacity: 1, pointerEvents: 'auto' } });
+
+    // If window is not past 500px and icon is showing
+    else if(!scrolling &amp;&amp; this.state.styles.opacity)
+      this.setState({ styles: { opacity: 0, pointerEvents: 'none' } });
+
+  };
+
+  handleClick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  render() {
+    const {
+      handleClick,
+      props,
+      props: { variant = '' }
+    } = this;
+
+    const ArrowUp = () => variant.includes('alt-icons') ?
+      &lt;ArrowUpAltIcon /> :
+      &lt;ArrowUpIcon />;
+
+    return (
+      &lt;div
+        title='To-top button'
+        { ...props }
+        className={ setClassName(props, 'to-top') }
+        role='button'
+        onClick={ handleClick }
+        style={ this.state.styles }
+      >
+        &lt;ArrowUp />
+      &lt;/div>
+    );
+  }
+};
+
+ToTop.propTypes = {
+  variant: PropTypes.string
+};</code></pre>
+        </article>
+    </section>
 
 
 
@@ -240,10 +127,10 @@
 <style>
 
 
-nav li[file="radiobutton"]:after {
+nav li[file="components/totop/totop"]:after {
     display: none;
 }
-nav li[file="radiobutton"] h4, nav li[file="radiobutton"] ul {
+nav li[file="components/totop/totop"] h4, nav li[file="components/totop/totop"] ul {
     display: block;
 }
 </style>

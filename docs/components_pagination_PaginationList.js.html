@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>components/pagination/PaginationList.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="components/pagination/PaginationList.js - Documentation"/>
+
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/pagination/PaginationList.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component, createRef } from 'react';
+
+import PropTypes from 'prop-types';
+import setClassName from 'utilities/setClassName';
+
+/**
+ * @namespace Pagination
+ * @description Default styled pagination component.
+ * @property {Array} children - Array of objects to make up pagination.
+ * @property {number|string} results - How many results to show on each page.
+ * @tutorial `src\stories\Pagination.stories.js`
+ */
+
+const getChildren = props => props.children.reduce((accumulator, child, index) => {
+  const current = Math.floor(index / (props.results || 10));
+  accumulator[current] ? accumulator[current] = [ accumulator[current], child] : accumulator[current] = child;
+  return accumulator;
+}, {});
+
+export class PaginationList extends Component {
+
+  state = {
+    active: false,
+    currentPageNo: 0,
+    list: getChildren(this.props),
+    offsetHeight: 0,
+    userList: createRef(PaginationList)
+  };
+
+
+  componentDidUpdate(prevProps) {
+
+    // Old and new list keys
+    const oldPropKeys = prevProps.children.map(child => child.key);
+    const newPropKeys = this.props.children.map(child => child.key);
+
+    // Old and new user watched properties
+    const oldUserWatch = prevProps.watch;
+    const newUserWatch = this.props.watch;
+
+    // If keys changed
+    if(JSON.stringify(oldPropKeys) !== JSON.stringify(newPropKeys))
+      this.updateList();
+
+    // If properties user wants to watch have changed, update list/state
+    else if(oldUserWatch !== newUserWatch)
+      this.updateStateFromPropChild();
+
+  };
+
+  updateList = () => this.setState({
+    currentPageNo: 0,
+    list: getChildren(this.props)
+  });
+
+  updateStateFromPropChild = () => this.setState({
+    list: getChildren(this.props)
+  });
+
+  render() {
+
+    // Reference to current page
+    const {
+      state: {
+        active,
+        currentPageNo,
+        list,
+        userList
+      }
+    } = this;
+
+    const currentPage = list[currentPageNo];
+
+    // List provided by user
+    const UserList = providedListProps => {
+
+      // Filter out unneeded props before they are passed to the &lt;ul>
+      const defaultListProps = (() => {
+        const output = { ...this.props };
+        delete output.results;
+        delete output.children;
+        return output;
+      })();
+
+      return (
+        &lt;ul { ...defaultListProps } { ...providedListProps } ref={ userList }>
+          { currentPage }
+        &lt;/ul>
+      );
+    };
+
+
+    // Numbered options to change the page
+    const PageOptions = () => {
+
+      return (
+        &lt;article>
+          {
+            Object.keys(list).map((page, index, array) => {
+              const handlePageChange = () => {
+                const offsetHeight = userList.current.offsetHeight;
+
+                if(offsetHeight > 0 &amp;&amp; !active)
+                  this.setState({
+                    offsetHeight,
+                    active: true,
+                    currentPageNo: index
+                  });
+
+                else
+                  this.setState({ currentPageNo: index });
+              };
+
+              if(array.length > 1) {
+
+                const cleanNumber = (() => {
+                  if(array.length > 999) {
+                    console.warn('PaginationList does not currently format numbers (e.g., adding leading zeros) for lists that contain over 1000 pages of results.');
+                    return false;
+                  }
+
+                  if(array.length > 9 &amp;&amp; index &lt; 9)
+                    return `0${index + 1}`;
+
+                  else if(array.length > 99 &amp;&amp; index &lt; 9)
+                    return `00${index + 1}`;
+
+                  else if(array.length > 99 &amp;&amp; index >= 9 &amp;&amp; index &lt; 99)
+                    return `0${index + 1}`;
+
+                  else
+                    return `${index + 1}`;
+                })();
+
+                return (
+                  &lt;span
+                    key={ index }
+                    onClick={ handlePageChange }
+                    data-active={ currentPageNo === index }
+                  >
+                    { cleanNumber }
+                  &lt;/span>
+                );
+              }
+
+              return false;
+
+            })
+          }
+        &lt;/article>
+      );
+    };
+
+
+    return (
+      &lt;section className={ setClassName(this.props, 'pagination-list') } page={ currentPageNo + 1 }>
+        &lt;UserList style={ { minHeight: this.state.offsetHeight } } />
+        &lt;PageOptions />
+      &lt;/section>
+    );
+
+  };
+}
+
+
+PaginationList.propTypes = {
+  children: PropTypes.array,
+  results: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+<style>
+
+
+nav li[file="components/pagination/paginationlist"]:after {
+    display: none;
+}
+nav li[file="components/pagination/paginationlist"] h4, nav li[file="components/pagination/paginationlist"] ul {
+    display: block;
+}
+</style>
+
+</div>
+
+<br class="clear">
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+<script src="scripts/utils.min.js"></script>
+<script src="scripts/search.js"></script>
+<script src="scripts/custom.js"></script>
+</body>
+</html>
