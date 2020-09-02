@@ -41,7 +41,7 @@ export class FileNotFound extends Component {
   render() {
     const { props, state: numbers } = this;
     return (
-      <div className={ setClassName(props, 'file-not-found-container') }>
+      <div className={ setClassName(props, 'file-not-found') }>
         <div>
           <div>
             <span>{numbers[2]}</span>

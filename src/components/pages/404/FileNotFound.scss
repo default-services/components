@@ -1,4 +1,4 @@
-.file-not-found-container {
+.file-not-found {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -36,7 +36,7 @@
 
 @media(max-width: $tablet) {
 
-  .file-not-found-container h2 {
+  .file-not-found h2 {
     font-size: 24px;
   }
 }
