@@ -9,7 +9,7 @@ import setClassName from 'utilities/setClassName';
  * @tutorial `src\stories\Input.stories.js`.
  */
 
-export const Input = props => {
+export const Input = (props) => {
   const {
     className,
     type,
@@ -17,14 +17,14 @@ export const Input = props => {
   } = props;
 
   // Error for invalid `type` props
-  const error = component => console.error(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
+  const warn = (component) => console.warn(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
 
   switch(type) {
     case 'radio':
-      return error('RadioButton');
+      return warn('RadioButton');
 
     case 'checkbox':
-      return error('Checkbox');
+      return warn('Checkbox');
 
     // Else if valid
     default:
