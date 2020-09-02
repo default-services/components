@@ -25,14 +25,14 @@ export const Notice = () => {
 
   return (
     <div>
-      <article style={{ padding }} onClick={ action('clicked') }>
-        <Button onClick={ handleAlertClick } style={{ margin }}>Alert</Button>
-        <Button onClick={ handleConfirmClick } style={{ margin }}>Confirm</Button>
-        <Button onClick={ handlePromptClick } style={{ margin }}>Prompt</Button>
+      <article style={ { padding } } onClick={ action('clicked') }>
+        <Button onClick={ handleAlertClick } style={ { margin } }>Alert</Button>
+        <Button onClick={ handleConfirmClick } style={ { margin } }>Confirm</Button>
+        <Button onClick={ handlePromptClick } style={ { margin } }>Prompt</Button>
       </article>
 
       <DefaultNotice
-        inputPlaceholder = 'Type text here'
+        inputPlaceholder='Type text here'
         header='Alert'
         show={ showAlert }
         setShow={ setShowAlert }
@@ -41,10 +41,10 @@ export const Notice = () => {
       </DefaultNotice>
 
       <DefaultNotice
-        cancelFunc={ ()=> console.log('Confirm canceled.') }
+        cancelFunc={ () => console.log('Confirm canceled.') }
         cancelText='Cancel'
         header='Confirm'
-        okayFunc={ ()=> console.log('Confirm "Okay" button pressed.') }
+        okayFunc={ () => console.log('Confirm "Okay" button pressed.') }
         okayText='Okay'
         show={ showConfirm }
         setShow={ setShowConfirm }
@@ -54,7 +54,7 @@ export const Notice = () => {
       </DefaultNotice>
 
       <DefaultNotice
-        cancelFunc={ ()=> console.log('Prompt canceled.') }
+        cancelFunc={ () => console.log('Prompt canceled.') }
         cancelText='Cancel'
         header='Prompt'
         okayFunc={ handleOkPrompt }
@@ -66,7 +66,7 @@ export const Notice = () => {
         Prompt styled notice.
       </DefaultNotice>
     </div>
-  )
+  );
 };
 
 
@@ -82,15 +82,15 @@ export const Notice_Alt_Icons = () => {
 
   return (
     <div>
-      <article style={{ padding }} onClick={ action('clicked') }>
-        <Button onClick={ handleAlertClick } style={{ margin }}>Alert</Button>
-        <Button onClick={ handleConfirmClick } style={{ margin }}>Confirm</Button>
-        <Button onClick={ handlePromptClick } style={{ margin }}>Prompt</Button>
+      <article style={ { padding } } onClick={ action('clicked') }>
+        <Button onClick={ handleAlertClick } style={ { margin } }>Alert</Button>
+        <Button onClick={ handleConfirmClick } style={ { margin } }>Confirm</Button>
+        <Button onClick={ handlePromptClick } style={ { margin } }>Prompt</Button>
       </article>
 
       <DefaultNotice
         header='Alert'
-        okayFunc={ ()=> console.log('Prompt "Okay" button pressed.') }
+        okayFunc={ () => console.log('Prompt "Okay" button pressed.') }
         okayText='Okay'
         show={ showAlert }
         setShow={ setShowAlert }
@@ -101,7 +101,7 @@ export const Notice_Alt_Icons = () => {
 
       <DefaultNotice
         header='Confirm'
-        okayFunc={ ()=> console.log('Prompt "Okay" button pressed.') }
+        okayFunc={ () => console.log('Prompt "Okay" button pressed.') }
         okayText='Okay'
         show={ showConfirm }
         setShow={ setShowConfirm }
@@ -123,6 +123,6 @@ export const Notice_Alt_Icons = () => {
         Prompt styled notice.
       </DefaultNotice>
     </div>
-  )
+  );
 
 };
