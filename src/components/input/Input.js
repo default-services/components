@@ -30,7 +30,7 @@ export const Input = (props) => {
     default:
       return (
         <label className={ setClassName(props, 'input') }>
-          <input { ...inputProps } type='text' />
+          <input type='text' { ...inputProps } />
         </label>
       );
   };
