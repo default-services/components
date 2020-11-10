@@ -56,4 +56,10 @@
   --transition-speed-medium: .2s;
   --transition-speed-slow: .3s;
   --transition-animation-type: ease-in-out;
+
+  // Transparency
+  --transparent-slight: rgba(0,0,0,.15);
+  --transparent-quarter: rgba(0,0,0,.25);
+  --transparent-half: rgba(0,0,0,.5);
+  --transparent-full: rgba(0,0,0,0);
 }

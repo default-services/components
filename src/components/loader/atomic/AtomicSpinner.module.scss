@@ -1,0 +1,12 @@
+.atomic-spinner {
+  width: 100px;
+  height: 100px;
+
+  circle {
+    color: var(--secondary-color);
+  }
+
+  use {
+    color: var(--grey-color-dark);
+  }
+}

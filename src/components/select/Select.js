@@ -4,6 +4,7 @@ import { ChevronDownAltIcon } from 'assets/icons/ChevronDownAltIcon';
 import { ChevronDownIcon } from 'assets/icons/ChevronDownIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/select/Select.module.scss';
 
 /**
  * @namespace Select
@@ -13,7 +14,6 @@ import setClassName from 'utilities/setClassName';
  * @property {string} variant - Variant of select component to use (e.g., "alt-icons").
  * @tutorial `src\stories\Select.stories.js`
  */
-
 export class Select extends Component {
 
   state = {
@@ -37,7 +37,7 @@ export class Select extends Component {
     // Helps determine the longest option which allows CSS
     // calculations to be made utilizing the "ch" (character) unit
     const longestOptionWidth = options.reduce((acc, option) => {
-      if(option.length > acc) acc = option.length;
+      if (option.length > acc) acc = option.length;
       return acc;
     }, 0);
 
@@ -45,7 +45,7 @@ export class Select extends Component {
     const handleDropdownClick = () => this.setState({ showOptions: !this.state.showOptions });
 
     // Switch selected option to current option
-    const handleOptionClick = option => {
+    const handleOptionClick = (option) => {
       this.setState({
         currentOption: option,
         showOptions: false
@@ -53,8 +53,8 @@ export class Select extends Component {
     };
 
     // Configure option padding based on longest option width
-    const setOptionStyles = option => {
-      const paddingRight = `calc(${longestOptionWidth - option.length + 4 + 'ch'} + 1.2rem)`;
+    const setOptionStyles = (option) => {
+      const paddingRight = `calc(${`${longestOptionWidth - option.length + 4}ch`} + 1.2rem)`;
       return { paddingRight };
     };
 
@@ -80,15 +80,23 @@ export class Select extends Component {
       </ul>
     );
 
-    const ChevronDown = props => variant.includes('alt-icons') ?
-      <ChevronDownAltIcon { ...props } /> :
-      <ChevronDownIcon { ...props } />;
+    const ChevronDown = (props) => (variant.includes('alt-icons')
+      ? <ChevronDownAltIcon { ...props } />
+      : <ChevronDownIcon { ...props } />);
 
     return (
-      <article { ...this.props } className={ setClassName(this.props, 'select') }>
+      <article { ...this.props } className={ setClassName(this.props, styles.select) }>
 
-        <div onClick={ handleDropdownClick } style={ { width: `${longestOptionWidth + 1}ch` } }>
-          <span style={ { paddingRight: longestOptionWidth - currentOption.length } }>{ currentOption }</span>
+        <div
+          onClick={ handleDropdownClick }
+          role="listbox"
+          style={ { width: `${longestOptionWidth + 1}ch` } }
+        >
+          <span
+            style={ { paddingRight: longestOptionWidth - currentOption.length } }
+          >
+            { currentOption }
+          </span>
           <span>|</span>
           <ChevronDown style={ { transform: `scaleY(${showOptions ? '-1' : '1'})` } } />
         </div>
@@ -97,9 +105,14 @@ export class Select extends Component {
       </article>
     );
   }
-};
+}
 
 Select.propTypes = {
   options: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  variant: PropTypes.string
+};
+
+Select.defaultProps = {
+  variant: ''
 };

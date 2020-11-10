@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/pages/404/FileNotFound.module.scss';
 
 /**
  * @namespace FileNotFound
@@ -36,12 +37,12 @@ export class FileNotFound extends Component {
       clearIt(loopTwo, 1, 80, 0);
       clearIt(loopThree, 2, 100, 4);
     }, 1000);
-  };
+  }
 
   render() {
     const { props, state: numbers } = this;
     return (
-      <div className={ setClassName(props, 'file-not-found') }>
+      <div className={ setClassName(props, styles['file-not-found']) }>
         <div>
           <div>
             <span>{numbers[2]}</span>
@@ -60,4 +61,4 @@ export class FileNotFound extends Component {
       </div>
     );
   }
-};
+}

@@ -6,6 +6,27 @@ import { CloseIcon } from 'assets/icons/CloseIcon';
 import { Input } from 'src/components/input/Input';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/notice/Notice.module.scss';
+
+// Pass input value to user's Okay function (if prompt) and close the dialog
+const userOkFunc = (context) => {
+
+  // If Okay function exists
+  if (context.props.okayFunc) {
+    switch (context.props.type) {
+      case 'prompt':
+        return context.props.okayFunc(context.state.promptInputText);
+
+      case 'confirm':
+      default:
+        return context.props.okayFunc();
+    }
+  }
+
+  // Reset prompt input text and close the dialog
+  context.setState({ promptInputText: '' }, context.props.setShow(false));
+};
+
 
 /**
  * @namespace Notice
@@ -23,25 +44,6 @@ import setClassName from 'utilities/setClassName';
  * @property {string} variant - Variant of notices to use (e.g., "alt-icons").
  * @tutorial `src\stories\Notice.stories.js`.
  */
-
-
-// Pass input value to user's Okay function (if prompt) and close the dialog
-const userOkFunc = (context) => {
-
-  // If Okay function exists
-  if(context.props.okayFunc) {
-    context.props.type === 'prompt' ?
-      context.props.okayFunc(context.state.promptInputText) :
-      context.props.okayFunc();
-
-  // If no Okay function exists
-  } else console.error('no okayFunc property set.');
-
-  // Reset prompt input text and close the dialog
-  context.setState({ promptInputText: '' }, context.props.setShow(false));
-};
-
-
 export class Notice extends Component {
 
   state = {
@@ -50,16 +52,17 @@ export class Notice extends Component {
   };
 
   handleClose = () => this.props.setShow(false);
-  handleKeyUp = event => {
+
+  handleKeyUp = (event) => {
     this.setState({ promptInputText: event.target.value });
   };
 
-  stopPropagation = event => event.stopPropagation();
+  stopPropagation = (event) => event.stopPropagation();
 
   // Configure for mobile devices
 
   render() {
-    var {
+    const {
       handleClose,
       handleKeyUp,
       props,
@@ -84,58 +87,62 @@ export class Notice extends Component {
       stopPropagation
     } = this;
 
-    const Close = iconProps => variant.includes('alt-icons') ?
-      <CloseAltIcon { ...iconProps } /> : <CloseIcon { ...iconProps } />;
+    const Close = (iconProps) => (variant.includes('alt-icons')
+      ? <CloseAltIcon { ...iconProps } /> : <CloseIcon { ...iconProps } />);
 
     const handleCancel = () => {
-      if(props.cancelFunc) cancelFunc();
-      this.props.setShow(false);
+      if (props.cancelFunc) cancelFunc();
+      setShow(false);
     };
 
-    if(!show)
-      return (<></>);
+    if (!show) { return null; }
 
     return (
       <div
-        className={ setClassName(props, 'notice-mask') }
+        className={ setClassName(props, styles['notice-mask']) }
         onClick={ handleClose }
+        role="dialog"
       >
         <aside
           { ...drilledProps }
-          className={ setClassName(props, 'notice') }
+          className={ setClassName(props, styles.notice) }
           onClick={ stopPropagation }
           variant={ variant }
         >
           <header>
             <h5>{ header || '' }</h5>
-            <Close aria-label='close' onClick={ handleClose } />
+            <Close aria-label="close" onClick={ handleClose } />
           </header>
           <article>
             <p>{ message }</p>
             {
-              type === 'confirm' || type === 'prompt' ?
-                <article>
-                  {
-                    type === 'prompt' ?
-                      <Input
-                        onChange={ handleKeyUp }
-                        placeholder={ inputPlaceholder }
-                        type='text'
-                        value={ promptInputText }
-                      /> :
-                      undefined
-                  }
-                  <Button onClick={ stateOkayFunc }>{ okayText || 'Okay' }</Button>
-                  <Button onClick={ handleCancel }>{ cancelText || 'Cancel' }</Button>
-                </article> :
-                undefined
+              type === 'confirm' || type === 'prompt'
+                ? (
+                  <article>
+                    {
+                      type === 'prompt'
+                        ? (
+                          <Input
+                            onChange={ handleKeyUp }
+                            placeholder={ inputPlaceholder }
+                            type="text"
+                            value={ promptInputText }
+                          />
+                        )
+                        : undefined
+                    }
+                    <Button onClick={ stateOkayFunc }>{ okayText || 'Okay' }</Button>
+                    <Button onClick={ handleCancel }>{ cancelText || 'Cancel' }</Button>
+                  </article>
+                )
+                : undefined
             }
           </article>
         </aside>
       </div>
     );
   }
-};
+}
 
 
 Notice.propTypes = {
@@ -149,4 +156,15 @@ Notice.propTypes = {
   show: PropTypes.bool.isRequired,
   type: PropTypes.string,
   variant: PropTypes.string
+};
+
+Notice.defaultProps = {
+  cancelFunc: () => {},
+  cancelText: 'Cancel',
+  header: '',
+  inputPlaceholder: 'Type here',
+  okayFunc: () => {},
+  okayText: 'Okay',
+  type: '',
+  variant: ''
 };

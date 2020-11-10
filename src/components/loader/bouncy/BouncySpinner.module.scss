@@ -1,0 +1,12 @@
+.bouncy-spinner {
+  width: 100px;
+  height: 100px;
+
+  circle:first-child {
+    color: var(--primary-color);
+  }
+
+  circle:last-child {
+    color: var(--secondary-color);
+  }
+}

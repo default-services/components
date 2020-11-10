@@ -3,6 +3,7 @@ import { CheckIcon } from 'src/assets/icons/CheckIcon';
 import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/checkbox/Checkbox.module.scss';
 
 /**
  * @namespace Checkbox
@@ -13,7 +14,7 @@ import setClassName from 'utilities/setClassName';
  * @tutorial `src\stories\Checkbox.stories.js`.
  */
 
-export const Checkbox = props => {
+export const Checkbox = (props) => {
   const {
     className, // Intentionally excluded from inputProps
     label,
@@ -22,22 +23,29 @@ export const Checkbox = props => {
     ...inputProps
   } = props;
 
-  if(type && type !== 'checkbox')
-    return console.warn(
-      `\`Checkbox\` can only accept a \`type\` prop of "checkbox". Received "${props.type}", which was discarded and replaced by "checkbox".`
-    );
+  if (type && type !== 'checkbox') { return console.warn(
+    `\`Checkbox\` can only accept a \`type\` prop of "checkbox". Received "${props.type}", which was discarded and replaced by "checkbox".`
+  ); }
 
   return (
-    <label className={ setClassName(props, 'checkbox') }>
+    <label className={ setClassName(props, styles.checkbox) }>
       <span>{ label || '' }</span>
-      <input { ...inputProps } type='checkbox' />
+      <input { ...inputProps } type="checkbox" />
       { variant === 'alt-icons' ? <CheckAltIcon /> : <CheckIcon /> }
     </label>
   );
 };
 
 Checkbox.propTypes = {
+  className: PropTypes.string,
   label: PropTypes.string,
   type: PropTypes.string,
   variant: PropTypes.string
+};
+
+Checkbox.defaultProps = {
+  className: '',
+  label: '',
+  type: '',
+  variant: ''
 };

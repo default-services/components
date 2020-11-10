@@ -1,4 +1,6 @@
 .file-not-found {
+  @import 'src/assets/scss/variables.scss';
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -47,11 +49,11 @@
       }
     }
   }
-}
 
-@media(max-width: $tablet) {
+  @media(max-width: $tablet) {
 
-  .file-not-found h2 {
-    font-size: 24px;
+    h2 {
+      font-size: 24px;
+    }
   }
 }

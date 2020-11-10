@@ -22,3 +22,19 @@ export const Round = () => (
     </DefaultButton>
   </div>
 );
+
+export const Large = () => (
+  <div style={ { padding: '1rem .25rem' } }>
+    <DefaultButton variant='large' onClick={ action('clicked') }>
+      Round Button
+    </DefaultButton>
+  </div>
+);
+
+export const Large_Round = () => (
+  <div style={ { padding: '1rem .25rem' } }>
+    <DefaultButton variant='large-round' onClick={ action('clicked') }>
+      Round Button
+    </DefaultButton>
+  </div>
+);

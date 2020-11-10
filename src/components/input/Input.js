@@ -1,42 +1,64 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/input/Input.module.scss';
 
 /**
  * @namespace Input
  * @description Default styled input component.
  * @property {string} type - If provided, is discarded and replaced with "text".
+ * @property {string} variant - Variant of input to use (e.g., "large").
  * @tutorial `src\stories\Input.stories.js`.
  */
-
 export const Input = (props) => {
   const {
     className,
-    type,
+    variant,
     ...inputProps
   } = props;
 
   // Error for invalid `type` props
-  const warn = (component) => console.warn(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
+  const error = (component) => (
+    console.error(`Type "${props.type}" used for the \`Input\` component, use the \`${component}\` component instead.`)
+  );
 
-  switch(type) {
+  // Set input class name
+  let inputClassName;
+  switch (variant) {
+    case 'large':
+      inputClassName = styles['input-large'];
+      break;
+
+    default:
+      inputClassName = styles.input;
+      break;
+  }
+
+  // Check for wrong types, return if valid
+  switch (props.type) {
     case 'radio':
-      return warn('RadioButton');
+      return error('RadioButton');
 
     case 'checkbox':
-      return warn('Checkbox');
+      return error('Checkbox');
 
-    // Else if valid
     default:
       return (
-        <label className={ setClassName(props, 'input') }>
-          <input type='text' { ...inputProps } />
+        <label className={ setClassName(props, inputClassName) }>
+          <input type="text" { ...inputProps } />
         </label>
       );
-  };
+  }
 };
 
-
 Input.propTypes = {
-  type: PropTypes.string
+  className: PropTypes.string,
+  type: PropTypes.string,
+  variant: PropTypes.string
+};
+
+Input.defaultProps = {
+  className: '',
+  type: '',
+  variant: ''
 };

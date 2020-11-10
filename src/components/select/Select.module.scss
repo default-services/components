@@ -1,4 +1,6 @@
 .select {
+  @import 'src/assets/scss/mixins.scss';
+
   border-radius: var(--border-radius);
   cursor: pointer;
   width: fit-content;

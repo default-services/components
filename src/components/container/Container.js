@@ -1,16 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
-
-// import PropTypes from 'prop-types';
-
+import styles from 'src/components/container/Container.module.scss';
 
 /**
  * @namespace Container
  * @description Default styled container component.
  * @tutorial `src\stories\Container.stories.js`.
  */
-
-export const Container = props => {
+export const Container = (props) => {
 
   const {
     children,
@@ -18,10 +16,15 @@ export const Container = props => {
   } = props;
 
   return (
-    <section { ...componentProps } className={ setClassName(props, 'container') }>
+    <section
+      { ...componentProps }
+      className={ setClassName(props, styles.container) }
+    >
       { children }
     </section>
   );
 };
 
-// Container.propTypes = { };
+Container.propTypes = {
+  children: PropTypes.any.isRequired
+};

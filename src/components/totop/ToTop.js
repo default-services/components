@@ -4,6 +4,7 @@ import { ArrowUpAltIcon } from 'src/assets/icons/ArrowUpAltIcon';
 import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/totop/ToTop.module.scss';
 
 /**
  * @namespace ToTop
@@ -33,12 +34,10 @@ export class ToTop extends Component {
     const scrolling = window.scrollY > 500;
 
     // If window is past 500px & icon is hidden
-    if(scrolling && !this.state.styles.opacity)
-      this.setState({ styles: { opacity: 1, pointerEvents: 'auto' } });
+    if (scrolling && !this.state.styles.opacity) { this.setState({ styles: { opacity: 1, pointerEvents: 'auto' } }); }
 
     // If window is not past 500px and icon is showing
-    else if(!scrolling && this.state.styles.opacity)
-      this.setState({ styles: { opacity: 0, pointerEvents: 'none' } });
+    else if (!scrolling && this.state.styles.opacity) { this.setState({ styles: { opacity: 0, pointerEvents: 'none' } }); }
 
   };
 
@@ -51,16 +50,16 @@ export class ToTop extends Component {
       props: { variant = '' }
     } = this;
 
-    const ArrowUp = () => variant.includes('alt-icons') ?
-      <ArrowUpAltIcon /> :
-      <ArrowUpIcon />;
+    const ArrowUp = () => (variant.includes('alt-icons')
+      ? <ArrowUpAltIcon />
+      : <ArrowUpIcon />);
 
     return (
       <div
-        title='To-top button'
+        title="To-top button"
         { ...props }
-        className={ setClassName(props, 'to-top') }
-        role='button'
+        className={ setClassName(props, styles['to-top']) }
+        role="button"
         onClick={ handleClick }
         style={ this.state.styles }
       >
@@ -68,7 +67,7 @@ export class ToTop extends Component {
       </div>
     );
   }
-};
+}
 
 ToTop.propTypes = {
   variant: PropTypes.string

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/radiobutton/RadioButton.module.scss';
 
 /**
  * @namespace RadioButton
@@ -11,7 +12,7 @@ import setClassName from 'utilities/setClassName';
  * @tutorial `src\stories\Radio.stories.js`
  */
 
-export const RadioButton = props => {
+export const RadioButton = (props) => {
   const {
     className,
     text,
@@ -19,21 +20,27 @@ export const RadioButton = props => {
     ...inputProps
   } = props;
 
-  if(type && type !== 'radio')
-    return console.warn(
-      `\`RadioButton\` can only accept a \`type\` prop of "radio". Received "${props.type}", which was discarded and replaced by "radio".`
-    );
+  if (type && type !== 'radio') { return console.warn(
+    `\`RadioButton\` can only accept a \`type\` prop of "radio". Received "${props.type}", which was discarded and replaced by "radio".`
+  ); }
 
   return (
-    <label className={ setClassName(props, 'radiobutton') }>
+    <label className={ setClassName(props, styles['radio-button']) }>
       <span>{ text || '' }</span>
-      <input { ...inputProps } type='radio' />
+      <input { ...inputProps } type="radio" />
       <span />
     </label>
   );
 };
 
 RadioButton.propTypes = {
+  className: PropTypes.string,
   text: PropTypes.string,
   type: PropTypes.string
+};
+
+RadioButton.defaultProps = {
+  className: '',
+  text: '',
+  type: ''
 };

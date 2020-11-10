@@ -1,23 +1,7 @@
 // Utilities (order dependant)
 @import 'src/assets/scss/fonts.scss';
 @import 'src/assets/scss/functions.scss';
-@import 'src/assets/scss/sass-variables.scss';
+@import 'src/assets/scss/variables.scss';
 @import 'src/assets/scss/custom-properties.scss';
 @import 'src/assets/scss/type-scale.scss';
 @import 'src/assets/scss/mixins.scss';
-
-// Components (alphabetical order)
-@import 'src/components/avatar/Avatar.scss';
-@import 'src/components/button/Button.scss';
-@import 'src/components/checkbox/Checkbox.scss';
-@import 'src/components/container/Container.scss';
-@import 'src/components/footer/Footer.scss';
-@import 'src/components/input/Input.scss';
-@import 'src/components/navbar/Navbar.scss';
-@import 'src/components/notice/Notice.scss';
-@import 'src/components/pages/404/FileNotFound.scss';
-@import 'src/components/pagination/PaginationList.scss';
-@import 'src/components/radiobutton/RadioButton.scss';
-@import 'src/components/select/Select.scss';
-@import 'src/components/switch/Switch.scss';
-@import 'src/components/totop/ToTop.scss';

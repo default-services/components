@@ -1,4 +1,5 @@
-.radiobutton {
+.radio-button {
+  @import 'src/assets/scss/mixins.scss';
   @include input-label;
 
   input {

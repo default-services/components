@@ -1,13 +1,14 @@
-import alias from '@rollup/plugin-alias';
 import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
+
+import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import multi from '@rollup/plugin-multi-entry';
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 
-
 // Rollup alias paths
 const path = require('path');
+
 const assets = path.resolve(__dirname, './src/assets');
 const src = path.resolve(__dirname, './src');
 const utilities = path.resolve(__dirname, './src/utilities');

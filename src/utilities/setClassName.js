@@ -1,14 +1,19 @@
-import styles from 'src/assets/scss/styles.module.scss';
+// Load Default module styles
+import 'src/assets/scss/styles.module.scss';
 
 /**
  * @description - Allow for variants, and additional user-specified classes.
  * @property {Object} props - Component props.
- * @property {string} name - Class name to use (which will be processed by CSS Modules).
+ * @property {string} props.className - User defined class name.
+ * @property {string} defaultClassName - Default's class name.
  */
 
-const setClassName = (props, name) => {
-  const { className } = props;
-  return className ? `${styles[name]} ${className}` : styles[name];
+const setClassName = (props, defaultClassName) => {
+  const { className: userClassName } = props;
+
+  return userClassName
+    ? `${defaultClassName} ${userClassName}`
+    : defaultClassName;
 };
 
 export default setClassName;

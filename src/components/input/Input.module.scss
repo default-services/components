@@ -1,4 +1,6 @@
 .input {
+  @import 'src/assets/scss/mixins.scss';
+
   input {
     padding: 5px 8px;
     border: solid var(--border-size) var(--grey-color-medium);
@@ -6,5 +8,17 @@
     font-family: var(--primary-font);
 
     @include accessible-border-behavior;
+  }
+
+}
+
+.input-large {
+  @extend .input;
+
+  input {
+    width: 300px;
+    height: 40px;
+    padding: 0 8px;
+    font-size: 1em;
   }
 }

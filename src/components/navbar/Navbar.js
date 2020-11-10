@@ -8,6 +8,7 @@ import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
 import { MenuIcon } from 'assets/icons/MenuIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/navbar/Navbar.module.scss';
 
 /**
  * @namespace Navbar
@@ -41,32 +42,32 @@ export class Navbar extends Component {
     const { state: { menuOpen } } = this;
     const { toggleMenu } = this;
 
-    const className = menuOpen ? 'navbar-open' : 'navbar';
+    const className = menuOpen ? styles['navbar-open'] : styles.navbar;
 
     // Check if there's an 'underline' variant in props
     const underline = (
-      variant.includes('navbar-underline') ||
-      variant.includes('navbar-right-underline')
+      variant.includes('navbar-underline')
+      || variant.includes('navbar-right-underline')
     );
 
     // Determining which menu icon to serve & menu offset
-    const Close = props => variant.includes('alt-icons') ?
-      variant.includes('arrow-close') ?
-        <ArrowLeftAltIcon { ...props } /> :
-        <CloseAltIcon { ...props } /> :
+    const Close = (props) => (variant.includes('alt-icons')
+      ? variant.includes('arrow-close')
+        ? <ArrowLeftAltIcon { ...props } />
+        : <CloseAltIcon { ...props } />
 
-      variant.includes('arrow-close') ?
-        <ArrowLeftIcon { ...props } /> :
-        <CloseIcon { ...props } />;
+      : variant.includes('arrow-close')
+        ? <ArrowLeftIcon { ...props } />
+        : <CloseIcon { ...props } />);
 
 
-    const Menu = props => variant.includes('alt-icons') ?
-      <MenuAltIcon { ...props } /> :
-      <MenuIcon { ...props } />;
+    const Menu = (props) => (variant.includes('alt-icons')
+      ? <MenuAltIcon { ...props } />
+      : <MenuIcon { ...props } />);
 
-    const Icon = props => menuOpen ?
-      <Close { ...props } /> :
-      <Menu { ...props } />;
+    const Icon = (props) => (menuOpen
+      ? <Close { ...props } />
+      : <Menu { ...props } />);
 
     const labelText = menuOpen ? 'close' : 'open';
 
@@ -78,29 +79,33 @@ export class Navbar extends Component {
           variant={ variant }
           className={ setClassName(this.props, className) }
         >
-          <aside role='dialog' />
+          <aside role="dialog" />
           <nav>
-            <div role='dialog'>
+            <div role="dialog">
               <Icon onClick={ toggleMenu } aria-label={ labelText } />
             </div>
             <section>
               { logoTitle ? <h3>{ logoTitle }</h3> : undefined }
               {
-                logo ?
-                  <aside>
-                    {
-                      logoLink ?
-                        <a href={ logoLink } title={ logoTitle || null }>
-                          <img src={ logo } alt={ logoTitle || 'logo' } />
-                        </a> :
-                        <img src={ logo } alt={ logoTitle || 'logo' } />
-                    }
-                  </aside> :
-                  undefined
+                logo
+                  ? (
+                    <aside>
+                      {
+                        logoLink
+                          ? (
+                            <a href={ logoLink } title={ logoTitle || null }>
+                              <img src={ logo } alt={ logoTitle || 'logo' } />
+                            </a>
+                          )
+                          : <img src={ logo } alt={ logoTitle || 'logo' } />
+                      }
+                    </aside>
+                  )
+                  : undefined
               }
               <ul>
                 {
-                  links.map(link => {
+                  links.map((link) => {
                     const { a, li, text } = link;
                     const { key } = li;
 
@@ -117,13 +122,23 @@ export class Navbar extends Component {
             </section>
           </nav>
         </header>
-        <div role='dialog' />
+        <div role="dialog" />
       </Fragment>
     );
-  };
-};
+  }
+}
 
 Navbar.propTypes = {
+  logo: PropTypes.any,
+  logoLink: PropTypes.string,
+  logoTitle: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.object).isRequired,
   variant: PropTypes.string
+};
+
+Navbar.defaultProps = {
+  logo: '',
+  logoLink: '',
+  logoTitle: '',
+  variant: ''
 };

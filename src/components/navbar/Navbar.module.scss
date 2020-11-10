@@ -1,3 +1,6 @@
+@import 'src/assets/scss/variables.scss';
+@import 'src/assets/scss/mixins.scss';
+
 $transition: var(--transition-speed-slow) var(--transition-animation-type);
 $navbar-height: 3rem;
 

@@ -1,4 +1,6 @@
 .to-top {
+  @import 'src/assets/scss/variables.scss';
+
   position: fixed;
   bottom: 2rem;
   right: 2.25rem;

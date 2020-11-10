@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/avatar/Avatar.module.scss';
 
 /**
  * @namespace Avatar
@@ -17,7 +18,7 @@ export const Avatar = (props) => {
   } = props;
 
   return (
-    <article { ...componentProps } className={ setClassName(props, 'avatar') }>
+    <article { ...componentProps } className={ setClassName(props, styles.avatar) }>
       { children }
     </article>
   );
