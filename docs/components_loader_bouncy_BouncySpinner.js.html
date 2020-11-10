@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>utilities/setClassName.js - Documentation</title>
+    <title>components/loader/bouncy/BouncySpinner.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="utilities/setClassName.js - Documentation"/>
+    <meta name="description" content="components/loader/bouncy/BouncySpinner.js - Documentation"/>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">utilities/setClassName.js</h1>
+    <h1 class="page-title">components/loader/bouncy/BouncySpinner.js</h1>
     
 
     
@@ -42,25 +42,41 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Load Default module styles
-import 'src/assets/scss/styles.module.scss';
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import setClassName from 'utilities/setClassName';
+import styles from 'src/components/loader/bouncy/BouncySpinner.module.scss';
 
 /**
- * @description - Allow for variants, and additional user-specified classes.
- * @property {Object} props - Component props.
- * @property {string} props.className - User defined class name.
- * @property {string} defaultClassName - Default's class name.
+ * @namespace BouncySpinner
+ * @description Bouncy variant loader component.
+ * @tutorial `src\stories\Loader.stories.js`.
+ *
+ * @memberof Loader
  */
+export const BouncySpinner = (props) => {
 
-const setClassName = (props, defaultClassName) => {
-  const { className: userClassName } = props;
-
-  return userClassName
-    ? `${defaultClassName} ${userClassName}`
-    : defaultClassName;
-};
-
-export default setClassName;</code></pre>
+  return (
+    &lt;svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid"
+      { ...props }
+      className={ setClassName(props, styles['bouncy-spinner']) }
+    >
+      &lt;circle cx="51.4121" cy="51.4121" r="2.53333" fill="currentColor">
+        &lt;animate attributeName="cx" values="64.14213562373095;35.85786437626905;64.14213562373095" keyTimes="0;0.5;1" dur="1s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" repeatCount="indefinite" begin="-0.25s" />
+        &lt;animate attributeName="cy" values="64.14213562373095;35.85786437626905;64.14213562373095" keyTimes="0;0.5;1" dur="1s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" repeatCount="indefinite" begin="-0.25s" />
+        &lt;animate attributeName="r" values="10;2;10;2;10" keyTimes="0;0.25;0.5;0.75;1" dur="1s" repeatCount="indefinite" begin="-0.25s" />
+      &lt;/circle>
+      &lt;circle cx="35.9501" cy="64.0499" r="9.46667" fill="currentColor">
+        &lt;animate attributeName="cx" values="35.85786437626905;64.14213562373095;35.85786437626905" keyTimes="0;0.5;1" dur="1s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" repeatCount="indefinite" begin="0s" />
+        &lt;animate attributeName="cy" values="64.14213562373095;35.85786437626905;64.14213562373095" keyTimes="0;0.5;1" dur="1s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" repeatCount="indefinite" begin="0s" />
+        &lt;animate attributeName="r" values="10;2;10;2;10" keyTimes="0;0.25;0.5;0.75;1" dur="1s" repeatCount="indefinite" begin="0s" />
+      &lt;/circle>
+    &lt;/svg>
+  );
+};</code></pre>
         </article>
     </section>
 
@@ -71,10 +87,10 @@ export default setClassName;</code></pre>
 <style>
 
 
-nav li[file="utilities/setclassname"]:after {
+nav li[file="components/loader/bouncy/bouncyspinner"]:after {
     display: none;
 }
-nav li[file="utilities/setclassname"] h4, nav li[file="utilities/setclassname"] ul {
+nav li[file="components/loader/bouncy/bouncyspinner"] h4, nav li[file="components/loader/bouncy/bouncyspinner"] ul {
     display: block;
 }
 </style>

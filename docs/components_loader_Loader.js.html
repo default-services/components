@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>utilities/setClassName.js - Documentation</title>
+    <title>components/loader/Loader.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="utilities/setClassName.js - Documentation"/>
+    <meta name="description" content="components/loader/Loader.js - Documentation"/>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">utilities/setClassName.js</h1>
+    <h1 class="page-title">components/loader/Loader.js</h1>
     
 
     
@@ -42,25 +42,59 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Load Default module styles
-import 'src/assets/scss/styles.module.scss';
+            <pre class="prettyprint source linenums"><code>import { AtomicSpinner } from 'src/components/loader/atomic/AtomicSpinner';
+import { BouncySpinner } from 'src/components/loader/bouncy/BouncySpinner';
+import { DefaultSpinner } from 'src/components/loader/default/DefaultSpinner';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from 'src/components/loader/Loader.module.scss';
 
 /**
- * @description - Allow for variants, and additional user-specified classes.
- * @property {Object} props - Component props.
- * @property {string} props.className - User defined class name.
- * @property {string} defaultClassName - Default's class name.
+ * @namespace Loader
+ * @description Default styled loader component.
+ * @property {boolean} show - determines whether or not to show component.
+ * @property {string} variant - variant type of Loader to use.
+ *
+ * @tutorial `src\stories\Loader.stories.js`.
  */
+export const Loader = (props) => {
 
-const setClassName = (props, defaultClassName) => {
-  const { className: userClassName } = props;
+  const {
+    show,
+    variant,
+    ...loaderProps
+  } = props;
 
-  return userClassName
-    ? `${defaultClassName} ${userClassName}`
-    : defaultClassName;
+  const Spinner = () => {
+    switch (variant) {
+      case 'atomic':
+        return &lt;AtomicSpinner { ...loaderProps } />;
+
+      case 'bouncy':
+        return &lt;BouncySpinner { ...loaderProps } />;
+
+      case 'default':
+      default:
+        return &lt;DefaultSpinner { ...loaderProps } />;
+    }
+  };
+
+  return show ? (
+    &lt;div className={ styles['loader-container'] }>
+      &lt;Spinner />
+    &lt;/div>
+  ) : null;
 };
 
-export default setClassName;</code></pre>
+Loader.propTypes = {
+  show: PropTypes.bool,
+  variant: PropTypes.string
+};
+
+Loader.defaultProps = {
+  show: false,
+  variant: ''
+};</code></pre>
         </article>
     </section>
 
@@ -71,10 +105,10 @@ export default setClassName;</code></pre>
 <style>
 
 
-nav li[file="utilities/setclassname"]:after {
+nav li[file="components/loader/loader"]:after {
     display: none;
 }
-nav li[file="utilities/setclassname"] h4, nav li[file="utilities/setclassname"] ul {
+nav li[file="components/loader/loader"] h4, nav li[file="components/loader/loader"] ul {
     display: block;
 }
 </style>

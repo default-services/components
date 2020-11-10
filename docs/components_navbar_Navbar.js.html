@@ -27,7 +27,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="loader" class="parent"><a href="Loader.html">Loader</a></li><li file="atomicspinner" class="parent"><a href="Loader.AtomicSpinner.html">Loader.AtomicSpinner</a></li><li file="bouncyspinner" class="parent"><a href="Loader.BouncySpinner.html">Loader.BouncySpinner</a></li><li file="defaultspinner" class="parent"><a href="Loader.DefaultSpinner.html">Loader.DefaultSpinner</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -52,6 +52,7 @@ import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
 import { MenuIcon } from 'assets/icons/MenuIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/navbar/Navbar.module.scss';
 
 /**
  * @namespace Navbar
@@ -85,32 +86,32 @@ export class Navbar extends Component {
     const { state: { menuOpen } } = this;
     const { toggleMenu } = this;
 
-    const className = menuOpen ? 'navbar-open' : 'navbar';
+    const className = menuOpen ? styles['navbar-open'] : styles.navbar;
 
     // Check if there's an 'underline' variant in props
     const underline = (
-      variant.includes('navbar-underline') ||
-      variant.includes('navbar-right-underline')
+      variant.includes('navbar-underline')
+      || variant.includes('navbar-right-underline')
     );
 
     // Determining which menu icon to serve &amp; menu offset
-    const Close = props => variant.includes('alt-icons') ?
-      variant.includes('arrow-close') ?
-        &lt;ArrowLeftAltIcon { ...props } /> :
-        &lt;CloseAltIcon { ...props } /> :
+    const Close = (props) => (variant.includes('alt-icons')
+      ? variant.includes('arrow-close')
+        ? &lt;ArrowLeftAltIcon { ...props } />
+        : &lt;CloseAltIcon { ...props } />
 
-      variant.includes('arrow-close') ?
-        &lt;ArrowLeftIcon { ...props } /> :
-        &lt;CloseIcon { ...props } />;
+      : variant.includes('arrow-close')
+        ? &lt;ArrowLeftIcon { ...props } />
+        : &lt;CloseIcon { ...props } />);
 
 
-    const Menu = props => variant.includes('alt-icons') ?
-      &lt;MenuAltIcon { ...props } /> :
-      &lt;MenuIcon { ...props } />;
+    const Menu = (props) => (variant.includes('alt-icons')
+      ? &lt;MenuAltIcon { ...props } />
+      : &lt;MenuIcon { ...props } />);
 
-    const Icon = props => menuOpen ?
-      &lt;Close { ...props } /> :
-      &lt;Menu { ...props } />;
+    const Icon = (props) => (menuOpen
+      ? &lt;Close { ...props } />
+      : &lt;Menu { ...props } />);
 
     const labelText = menuOpen ? 'close' : 'open';
 
@@ -122,29 +123,33 @@ export class Navbar extends Component {
           variant={ variant }
           className={ setClassName(this.props, className) }
         >
-          &lt;aside role='dialog' />
+          &lt;aside role="dialog" />
           &lt;nav>
-            &lt;div role='dialog'>
+            &lt;div role="dialog">
               &lt;Icon onClick={ toggleMenu } aria-label={ labelText } />
             &lt;/div>
             &lt;section>
               { logoTitle ? &lt;h3>{ logoTitle }&lt;/h3> : undefined }
               {
-                logo ?
-                  &lt;aside>
-                    {
-                      logoLink ?
-                        &lt;a href={ logoLink } title={ logoTitle || null }>
-                          &lt;img src={ logo } alt={ logoTitle || 'logo' } />
-                        &lt;/a> :
-                        &lt;img src={ logo } alt={ logoTitle || 'logo' } />
-                    }
-                  &lt;/aside> :
-                  undefined
+                logo
+                  ? (
+                    &lt;aside>
+                      {
+                        logoLink
+                          ? (
+                            &lt;a href={ logoLink } title={ logoTitle || null }>
+                              &lt;img src={ logo } alt={ logoTitle || 'logo' } />
+                            &lt;/a>
+                          )
+                          : &lt;img src={ logo } alt={ logoTitle || 'logo' } />
+                      }
+                    &lt;/aside>
+                  )
+                  : undefined
               }
               &lt;ul>
                 {
-                  links.map(link => {
+                  links.map((link) => {
                     const { a, li, text } = link;
                     const { key } = li;
 
@@ -161,15 +166,25 @@ export class Navbar extends Component {
             &lt;/section>
           &lt;/nav>
         &lt;/header>
-        &lt;div role='dialog' />
+        &lt;div role="dialog" />
       &lt;/Fragment>
     );
-  };
-};
+  }
+}
 
 Navbar.propTypes = {
+  logo: PropTypes.any,
+  logoLink: PropTypes.string,
+  logoTitle: PropTypes.string,
   links: PropTypes.arrayOf(PropTypes.object).isRequired,
   variant: PropTypes.string
+};
+
+Navbar.defaultProps = {
+  logo: '',
+  logoLink: '',
+  logoTitle: '',
+  variant: ''
 };</code></pre>
         </article>
     </section>

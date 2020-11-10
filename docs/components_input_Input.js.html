@@ -27,7 +27,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><div class="search"><div class="input-area"><input type="text"/></div><button></button></div><ul class="namespaces"><li file="avatar" class="parent"><a href="Avatar.html">Avatar</a></li><li file="button" class="parent"><a href="Button.html">Button</a></li><li file="checkbox" class="parent"><a href="Checkbox.html">Checkbox</a></li><li file="container" class="parent"><a href="Container.html">Container</a></li><li file="filenotfound" class="parent"><a href="FileNotFound.html">FileNotFound</a></li><li file="footer" class="parent"><a href="Footer.html">Footer</a></li><li file="input" class="parent"><a href="Input.html">Input</a></li><li file="loader" class="parent"><a href="Loader.html">Loader</a></li><li file="atomicspinner" class="parent"><a href="Loader.AtomicSpinner.html">Loader.AtomicSpinner</a></li><li file="bouncyspinner" class="parent"><a href="Loader.BouncySpinner.html">Loader.BouncySpinner</a></li><li file="defaultspinner" class="parent"><a href="Loader.DefaultSpinner.html">Loader.DefaultSpinner</a></li><li file="navbar" class="parent"><a href="Navbar.html">Navbar</a></li><li file="notice" class="parent"><a href="Notice.html">Notice</a></li><li file="pagination" class="parent"><a href="Pagination.html">Pagination</a></li><li file="radiobutton" class="parent"><a href="RadioButton.html">RadioButton</a></li><li file="select" class="parent"><a href="Select.html">Select</a></li><li file="switch" class="parent"><a href="Switch.html">Switch</a></li><li file="totop" class="parent"><a href="ToTop.html">ToTop</a></li></ul><ul class="global"><li file="global"  class="parent"><a href="global.html">Global</a><h4><a href="global.html#methods">Methods</a></h4><ul class='methods'><li data-type='method'><a href="global.html#setClassName">setClassName</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -45,45 +45,68 @@
             <pre class="prettyprint source linenums"><code>import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
+import styles from 'src/components/input/Input.module.scss';
 
 /**
  * @namespace Input
  * @description Default styled input component.
  * @property {string} type - If provided, is discarded and replaced with "text".
+ * @property {string} variant - Variant of input to use (e.g., "large").
  * @tutorial `src\stories\Input.stories.js`.
  */
-
-export const Input = props => {
+export const Input = (props) => {
   const {
     className,
-    type,
+    variant,
     ...inputProps
   } = props;
 
   // Error for invalid `type` props
-  const error = component => console.error(`Type "${type}" used for the \`Input\` component, use the \`${component}\` component instead.`);
+  const error = (component) => (
+    console.error(`Type "${props.type}" used for the \`Input\` component, use the \`${component}\` component instead.`)
+  );
 
-  switch(type) {
+  // Set input class name
+  let inputClassName;
+  switch (variant) {
+    case 'large':
+      inputClassName = styles['input-large'];
+      break;
+
+    default:
+      inputClassName = styles.input;
+      break;
+  }
+
+  // Check for wrong types, return if valid
+  switch (props.type) {
     case 'radio':
       return error('RadioButton');
 
     case 'checkbox':
       return error('Checkbox');
 
-    // Else if valid
     default:
       return (
-        &lt;label className={ setClassName(props, 'input') }>
-          &lt;input { ...inputProps } type='text' />
+        &lt;label className={ setClassName(props, inputClassName) }>
+          &lt;input type="text" { ...inputProps } />
         &lt;/label>
       );
-  };
+  }
 };
 
-
 Input.propTypes = {
-  type: PropTypes.string
-};</code></pre>
+  className: PropTypes.string,
+  type: PropTypes.string,
+  variant: PropTypes.string
+};
+
+Input.defaultProps = {
+  className: '',
+  type: '',
+  variant: ''
+};
+</code></pre>
         </article>
     </section>
 

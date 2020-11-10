@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>utilities/setClassName.js - Documentation</title>
+    <title>components/loader/atomic/AtomicSpinner.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="utilities/setClassName.js - Documentation"/>
+    <meta name="description" content="components/loader/atomic/AtomicSpinner.js - Documentation"/>
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">utilities/setClassName.js</h1>
+    <h1 class="page-title">components/loader/atomic/AtomicSpinner.js</h1>
     
 
     
@@ -42,25 +42,63 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Load Default module styles
-import 'src/assets/scss/styles.module.scss';
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import setClassName from 'utilities/setClassName';
+import styles from 'src/components/loader/atomic/AtomicSpinner.module.scss';
 
 /**
- * @description - Allow for variants, and additional user-specified classes.
- * @property {Object} props - Component props.
- * @property {string} props.className - User defined class name.
- * @property {string} defaultClassName - Default's class name.
+ * @namespace AtomicSpinner
+ * @description Atomic variant loader component.
+ * @tutorial `src\stories\Loader.stories.js`.
+ *
+ * @memberof Loader
  */
+export const AtomicSpinner = (props) => {
 
-const setClassName = (props, defaultClassName) => {
-  const { className: userClassName } = props;
-
-  return userClassName
-    ? `${defaultClassName} ${userClassName}`
-    : defaultClassName;
-};
-
-export default setClassName;</code></pre>
+  return (
+    &lt;svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      { ...props }
+      className={ setClassName(props, styles['atomic-spinner']) }
+    >
+      &lt;defs>
+        &lt;path id="path_a" d="M50 15A15 35 0 0 1 50 85A15 35 0 0 1 50 15" fill="none" />
+        &lt;path id="path_b" d="M0 0A15 35 0 0 1 0 70A15 35 0 0 1 0 0" fill="none" />
+      &lt;/defs>
+      &lt;g transform="rotate(0 50 50)">
+        &lt;use xlinkHref="#path_a" stroke="currentColor" strokeWidth="3" />
+      &lt;/g>
+      &lt;g transform="rotate(60 50 50)">
+        &lt;use xlinkHref="#path_a" stroke="currentColor" strokeWidth="3" />
+      &lt;/g>
+      &lt;g transform="rotate(120 50 50)">
+        &lt;use xlinkHref="#path_a" stroke="currentColor" strokeWidth="3" />
+      &lt;/g>
+      &lt;g transform="rotate(0 50 50)">
+        &lt;circle cx="50" cy="14" r="6" fill="currentColor">
+          &lt;animateMotion dur="1s" repeatCount="indefinite" begin="0s">
+            &lt;mpath xlinkHref="#path_b" />
+          &lt;/animateMotion>
+        &lt;/circle>
+      &lt;/g>
+      &lt;g transform="rotate(60 50 50)">
+        &lt;circle cx="50" cy="14" r="6" fill="currentColor">
+          &lt;animateMotion dur="1s" repeatCount="indefinite" begin="-0.16666666666666666s">
+            &lt;mpath xlinkHref="#path_b" />
+          &lt;/animateMotion>
+        &lt;/circle>
+      &lt;/g>
+      &lt;g transform="rotate(120 50 50)">
+        &lt;circle cx="50" cy="14" r="6" fill="currentColor">
+          &lt;animateMotion dur="1s" repeatCount="indefinite" begin="-0.3333333333333333s">
+            &lt;mpath xlinkHref="#path_b" />
+          &lt;/animateMotion>
+        &lt;/circle>
+      &lt;/g>
+    &lt;/svg>
+  );
+};</code></pre>
         </article>
     </section>
 
@@ -71,10 +109,10 @@ export default setClassName;</code></pre>
 <style>
 
 
-nav li[file="utilities/setclassname"]:after {
+nav li[file="components/loader/atomic/atomicspinner"]:after {
     display: none;
 }
-nav li[file="utilities/setclassname"] h4, nav li[file="utilities/setclassname"] ul {
+nav li[file="components/loader/atomic/atomicspinner"] h4, nav li[file="components/loader/atomic/atomicspinner"] ul {
     display: block;
 }
 </style>

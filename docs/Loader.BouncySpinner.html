@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>utilities/setClassName.js - Documentation</title>
+    <title>BouncySpinner - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="utilities/setClassName.js - Documentation"/>
+    <meta name="description" content="BouncySpinner - Documentation"/>
 
 </head>
 <body>
@@ -32,37 +32,110 @@
 
 <div id="main">
     
-    <h1 class="page-title">utilities/setClassName.js</h1>
+    <h1 class="page-title">BouncySpinner</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// Load Default module styles
-import 'src/assets/scss/styles.module.scss';
+        <h2>
+            <span class="ancestors"><a href="Loader.html">Loader</a>.</span>
+        
+        BouncySpinner
+        </h2>
+        
+    
+</header>
 
-/**
- * @description - Allow for variants, and additional user-specified classes.
- * @property {Object} props - Component props.
- * @property {string} props.className - User defined class name.
- * @property {string} defaultClassName - Default's class name.
- */
+<article>
+    <div class="container-overview">
+    
+        
 
-const setClassName = (props, defaultClassName) => {
-  const { className: userClassName } = props;
+<dl class="details">
 
-  return userClassName
-    ? `${defaultClassName} ${userClassName}`
-    : defaultClassName;
-};
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_loader_bouncy_BouncySpinner.js.html">components/loader/bouncy/BouncySpinner.js</a>, <a href="components_loader_bouncy_BouncySpinner.js.html#line5">line 5</a>
+    </li></ul></dd>
+    
 
-export default setClassName;</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-tutorial">Tutorials:</dt>
+    <dd class="tag-tutorial">
+        <ul>
+            <li><em class="disabled">Tutorial: `src\stories\Loader.stories.js`.</em></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+
+        
+            <div class="description"><p>Bouncy variant loader component.</p></div>
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -71,10 +144,10 @@ export default setClassName;</code></pre>
 <style>
 
 
-nav li[file="utilities/setclassname"]:after {
+nav li[file="bouncyspinner"]:after {
     display: none;
 }
-nav li[file="utilities/setclassname"] h4, nav li[file="utilities/setclassname"] ul {
+nav li[file="bouncyspinner"] h4, nav li[file="bouncyspinner"] ul {
     display: block;
 }
 </style>

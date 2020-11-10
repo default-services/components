@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>utilities/setClassName.js - Documentation</title>
+    <title>Loader - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/daybrush.css">
     <link type="text/css" rel="stylesheet" href="styles/custom.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <meta name="description" content="utilities/setClassName.js - Documentation"/>
+    <meta name="description" content="Loader - Documentation"/>
 
 </head>
 <body>
@@ -32,37 +32,196 @@
 
 <div id="main">
     
-    <h1 class="page-title">utilities/setClassName.js</h1>
+    <h1 class="page-title">Loader</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// Load Default module styles
-import 'src/assets/scss/styles.module.scss';
+        <h2>
+        Loader
+        </h2>
+        
+    
+</header>
 
-/**
- * @description - Allow for variants, and additional user-specified classes.
- * @property {Object} props - Component props.
- * @property {string} props.className - User defined class name.
- * @property {string} defaultClassName - Default's class name.
- */
+<article>
+    <div class="container-overview">
+    
+        
 
-const setClassName = (props, defaultClassName) => {
-  const { className: userClassName } = props;
+<dl class="details">
 
-  return userClassName
-    ? `${defaultClassName} ${userClassName}`
-    : defaultClassName;
-};
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_loader_Loader.js.html">components/loader/Loader.js</a>, <a href="components_loader_Loader.js.html#line8">line 8</a>
+    </li></ul></dd>
+    
 
-export default setClassName;</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-tutorial">Tutorials:</dt>
+    <dd class="tag-tutorial">
+        <ul>
+            <li><em class="disabled">Tutorial: `src\stories\Loader.stories.js`.</em></li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>show</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>determines whether or not to show component.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>variant</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>variant type of Loader to use.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+        
+            <div class="description"><p>Default styled loader component.</p></div>
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="Loader.AtomicSpinner.html">AtomicSpinner</a></dt>
+            <dd></dd>
+        
+            <dt><a href="Loader.BouncySpinner.html">BouncySpinner</a></dt>
+            <dd></dd>
+        
+            <dt><a href="Loader.DefaultSpinner.html">DefaultSpinner</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -71,10 +230,10 @@ export default setClassName;</code></pre>
 <style>
 
 
-nav li[file="utilities/setclassname"]:after {
+nav li[file="loader"]:after {
     display: none;
 }
-nav li[file="utilities/setclassname"] h4, nav li[file="utilities/setclassname"] ul {
+nav li[file="loader"] h4, nav li[file="loader"] ul {
     display: block;
 }
 </style>
