@@ -6,7 +6,7 @@ import styles from 'src/components/input/Input.module.scss';
 /**
  * @namespace Input
  * @description Default styled input component.
- * @property {string} type - If provided, is discarded and replaced with "text".
+ * @property {string} type - If provided, is reviewed for validity with this component.
  * @property {string} variant - Variant of input to use (e.g., "large").
  * @tutorial `src\stories\Input.stories.js`.
  */
@@ -34,7 +34,7 @@ export const Input = (props) => {
       break;
   }
 
-  // Check for wrong types, return if valid
+  // Check for wrong types, only return component if valid
   switch (props.type) {
     case 'radio':
       return error('RadioButton');
