@@ -5,3 +5,20 @@
 @import 'src/assets/scss/custom-properties.scss';
 @import 'src/assets/scss/type-scale.scss';
 @import 'src/assets/scss/mixins.scss';
+
+// Component Sass files (allows access to prior file data above ↑)
+@import 'src/components/avatar/Avatar.module.scss';
+@import 'src/components/button/Button.module.scss';
+@import 'src/components/checkbox/Checkbox.module.scss';
+@import 'src/components/container/Container.module.scss';
+@import 'src/components/footer/Footer.module.scss';
+@import 'src/components/input/Input.module.scss';
+@import 'src/components/loader/Loader.module.scss';
+@import 'src/components/navbar/Navbar.module.scss';
+@import 'src/components/notice/Notice.module.scss';
+@import 'src/components/pages/404/FileNotFound.module.scss';
+@import 'src/components/pagination/PaginationList.module.scss';
+@import 'src/components/radiobutton/RadioButton.module.scss';
+@import 'src/components/select/Select.module.scss';
+@import 'src/components/switch/Switch.module.scss';
+@import 'src/components/totop/ToTop.module.scss';

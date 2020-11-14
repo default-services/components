@@ -6,7 +6,7 @@ import { CloseIcon } from 'assets/icons/CloseIcon';
 import { Input } from 'src/components/input/Input';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/notice/Notice.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 // Pass input value to user's Okay function (if prompt) and close the dialog
 const userOkFunc = (context) => {
@@ -39,7 +39,7 @@ const userOkFunc = (context) => {
  * @property {function} okayFunc - Okay button function.
  * @property {string} okayText - Okay button text.
  * @property {function} setShow - Function which accepts a boolean of whether to show notice.
- * @property {boolean} show - Boolean associated with the setShow function described above.
+ * @property {boolean} [show=false] - Boolean associated with the setShow function described above.
  * @property {string} type - type of notice being used (e.g., "alert", "confirm", or "prompt").
  * @property {string} variant - Variant of notices to use (e.g., "alt-icons").
  * @tutorial `src\stories\Notice.stories.js`.
@@ -75,7 +75,7 @@ export class Notice extends Component {
         okayFunc,
         okayText,
         setShow,
-        show,
+        show = false,
         type,
         variant = '',
         ...drilledProps
@@ -153,7 +153,7 @@ Notice.propTypes = {
   okayFunc: PropTypes.func,
   okayText: PropTypes.string,
   setShow: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired,
+  show: PropTypes.bool,
   type: PropTypes.string,
   variant: PropTypes.string
 };
@@ -165,6 +165,7 @@ Notice.defaultProps = {
   inputPlaceholder: 'Type here',
   okayFunc: () => {},
   okayText: 'Okay',
+  show: false,
   type: '',
   variant: ''
 };

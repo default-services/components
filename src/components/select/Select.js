@@ -4,7 +4,7 @@ import { ChevronDownAltIcon } from 'assets/icons/ChevronDownAltIcon';
 import { ChevronDownIcon } from 'assets/icons/ChevronDownIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/select/Select.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace Select

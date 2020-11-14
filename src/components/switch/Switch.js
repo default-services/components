@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/switch/Switch.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace Switch

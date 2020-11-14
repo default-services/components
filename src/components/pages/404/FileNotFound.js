@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/pages/404/FileNotFound.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace FileNotFound

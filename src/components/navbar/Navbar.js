@@ -8,7 +8,7 @@ import { MenuAltIcon } from 'assets/icons/MenuAltIcon';
 import { MenuIcon } from 'assets/icons/MenuIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/navbar/Navbar.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace Navbar
@@ -101,7 +101,7 @@ export class Navbar extends Component {
                       }
                     </aside>
                   )
-                  : undefined
+                  : <span /> // keep an element so flex CSS is unaffected
               }
               <ul>
                 {

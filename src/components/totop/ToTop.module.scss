@@ -1,12 +1,11 @@
 .to-top {
-  @import 'src/assets/scss/variables.scss';
-
   position: fixed;
   bottom: 2rem;
   right: 2.25rem;
   cursor: pointer;
   transition: opacity var(--transition-speed-medium);
   z-index: 9989;
+
   @media(max-width: $tablet) {
     bottom: 1rem;
     right: 1.25rem;

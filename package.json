@@ -9,7 +9,7 @@
   "module": "dist/index.modern.js",
   "name": "@default-services/components",
   "source": "src/index.js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "devDependencies": {
     "@babel/core": "^7.10.1",
     "@babel/plugin-proposal-async-generator-functions": "^7.10.1",

@@ -1,5 +1,4 @@
 .checkbox {
-  @import 'src/assets/scss/mixins.scss';
 
   @include input-label;
   font-family: var(--primary-font);

@@ -4,7 +4,7 @@ import { ArrowUpAltIcon } from 'src/assets/icons/ArrowUpAltIcon';
 import { ArrowUpIcon } from 'src/assets/icons/ArrowUpIcon';
 import PropTypes from 'prop-types';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/totop/ToTop.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace ToTop

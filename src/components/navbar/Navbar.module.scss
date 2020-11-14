@@ -1,6 +1,3 @@
-@import 'src/assets/scss/variables.scss';
-@import 'src/assets/scss/mixins.scss';
-
 $transition: var(--transition-speed-slow) var(--transition-animation-type);
 $navbar-height: 3rem;
 
@@ -11,12 +8,10 @@ $navbar-height: 3rem;
     transition: background var(--transition-speed-slow);
   }
 
-
   nav {
     svg[aria-label="close"] {
       opacity: 1;
     }
-
 
     @media(min-width: $tablet) {
       svg[aria-label="close"],

@@ -81,7 +81,6 @@ $notice-backing-border-radius: calc(#{var(--border-radius)} + 2px)
 }
 
 .notice-mask {
-  @import 'src/assets/scss/mixins.scss';
   @include mask;
   position: fixed;
   display: flex;

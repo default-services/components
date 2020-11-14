@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import setClassName from 'utilities/setClassName';
-import styles from 'src/components/radiobutton/RadioButton.module.scss';
+import styles from 'src/assets/scss/styles.module.scss';
 
 /**
  * @namespace RadioButton
