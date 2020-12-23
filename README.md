@@ -52,6 +52,10 @@ Code documentation for this project, created with [JSDoc](https://github.com/jsd
 For Default contribution guidelines, see:<br>[Contributing to Default](https://github.com/default-services/components/wiki/Contributing-to-Default)
 <br><br>
 
+## 🦟 Bugs
+Bugs reported on the project's [issues page](https://github.com/default-services/components/issues) will be exterminated as quickly as possible, be sure to include steps to reproduce so they can be spotted easily.
+<br><br>
+
 ## 🏷️ License
 
 MIT © [Default](https://github.com/default-services/components/blob/master/LICENSE)
