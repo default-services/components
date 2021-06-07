@@ -4,7 +4,7 @@
 [![Build](https://img.shields.io/badge/build-passing-%2357a9a9?style=for-the-badge)](https://github.com/default-services/components#readme)
 [![License](https://img.shields.io/github/license/default-services/components?color=%2357a9a9&style=for-the-badge)](https://github.com/default-services/components/blob/master/LICENSE)
 
-> A Default, open-source, component library for React.
+> Open-source and npm-published React component library.
 <br>
 
 ## 🐱‍🏍 Install
